@@ -8,12 +8,16 @@ This project follows the [Bulletproof React](https://github.com/alan2207/bulletp
 app/
 +-- routes             # React Router route config & page components
 |   +-- home.tsx
-|   +-- ...
+|   +-- about.tsx
+|   +-- projects.tsx
+|   +-- communities.tsx
+|   +-- climate-finance.tsx
+|   +-- news.tsx
+|   +-- contact.tsx
 |
 +-- components         # shared UI components (used across features)
-|   +-- ui/            # shadcn/ui primitives
-|
-+-- config             # global configuration, exported env variables
+|   +-- ui/            # shadcn/ui primitives (button, accordion, etc.)
+|   +-- layout/        # header, footer, navigation, CTASection
 |
 +-- features           # feature-based modules (primary code location)
 |
@@ -21,49 +25,148 @@ app/
 |
 +-- lib                # reusable, preconfigured libraries (e.g. cn())
 |
-+-- stores             # global state stores
-|
-+-- types              # shared TypeScript types
++-- types              # shared TypeScript types (Project, TeamMember, etc.)
 |
 +-- utils              # shared utility functions
 |
-+-- testing            # test utilities and mocks
-|
 +-- assets             # static assets (images, fonts, etc.)
 |
-+-- app.css            # Tailwind CSS v4 entry + theme tokens
++-- app.css            # Tailwind CSS v4 entry + brand tokens
 +-- root.tsx           # HTML shell, global providers, error boundary
 +-- routes.ts          # React Router route definitions
 ```
 
-## Feature structure
+## Features (mapped to sitemap)
 
-Each feature lives in `app/features/<feature-name>/`. Only include subdirectories that the feature actually needs.
+Each page gets its own feature folder. Only include subdirectories that the feature actually needs.
 
 ```
-app/features/awesome-feature/
+app/features/
++-- home/               # Home page
++-- about/              # About Us (Our Story, Our Approach, Our Values)
++-- projects/           # Our Projects (category overview)
++-- communities/        # Communities & Impact
++-- climate-finance/    # Climate Finance explainer + FAQ
++-- news/               # News & Updates
++-- contact/            # Contact form + info
+```
+
+### Feature internal structure
+
+```
+app/features/<feature-name>/
 +-- api/         # exported API request declarations & API hooks
 +-- assets/      # static assets specific to this feature
 +-- components/  # components scoped to this feature
 +-- hooks/       # hooks scoped to this feature
-+-- stores/      # state stores for this feature
 +-- types/       # TypeScript types used within this feature
 +-- utils/       # utility functions for this feature
 ```
 
-Example — a "dashboard" feature might look like:
+Example — the `about` feature:
 
 ```
-app/features/dashboard/
-+-- api/
-|   +-- use-get-stats.ts
-|   +-- use-update-settings.ts
+app/features/about/
 +-- components/
-|   +-- stats-card.tsx
-|   +-- dashboard-layout.tsx
+|   +-- team-member-card.tsx    # name + role + optional photo/bio
+|   +-- values-section.tsx
+|   +-- approach-section.tsx
+|   +-- story-section.tsx
 +-- types/
-|   +-- index.ts
+|   +-- index.ts                # exports TeamMember type
 ```
+
+Example — the `projects` feature:
+
+```
+app/features/projects/
++-- components/
+|   +-- project-card.tsx        # title, description, status tag, optional link
+|   +-- category-overview.tsx
+|   +-- project-steps.tsx       # numbered steps "how we choose projects"
++-- types/
+|   +-- index.ts                # exports Project type
+```
+
+Example — the `news` feature:
+
+```
+app/features/news/
++-- components/
+|   +-- news-card.tsx           # title, date, excerpt, link
+|   +-- news-feed.tsx           # reverse-chronological list
++-- types/
+|   +-- index.ts                # exports NewsPost type
+```
+
+## Shared components
+
+Reusable components that appear across multiple pages live in `app/components/`.
+
+| Component | Location | Used on |
+|---|---|---|
+| `PrincipleCard` | `components/` | Home, About |
+| `CTASection` | `components/layout/` | Most pages |
+| `FAQAccordion` | `components/` | Climate Finance, Contact |
+| `StatBlock` | `components/` | Communities (future) |
+| `Header` / `Footer` | `components/layout/` | All pages (root.tsx) |
+
+shadcn/ui primitives go in `components/ui/`. Add via `npx shadcn add <component>`.
+
+## Content data shapes
+
+Shared types live in `app/types/`. These define the data contracts for future CMS integration.
+
+```ts
+// app/types/project.ts
+type Project = {
+  id: string;
+  title: string;
+  category: "afforestation" | "reforestation" | "other";
+  status: "concept" | "in_development" | "active" | "complete";
+  summary: string;
+  body?: string;
+  images?: string[];
+  location?: string;
+};
+
+// app/types/team.ts
+type TeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  photoUrl?: string;
+  bio?: string;
+};
+
+// app/types/news.ts
+type NewsPost = {
+  id: string;
+  title: string;
+  date: string; // ISO 8601
+  excerpt: string;
+  body: string;
+  imageUrl?: string;
+};
+
+// app/types/contact.ts
+type ContactSubmission = {
+  name: string;
+  email: string;
+  role: "community" | "partner" | "funder" | "other";
+  message: string;
+};
+```
+
+## Content rules (pre-launch)
+
+Carbon8 has no completed projects, photos, or verified impact data yet. Enforce these in code:
+
+- Use forward-looking language in copy ("we are developing...", "our approach is...").
+- Do not invent statistics, testimonials, or partner logos.
+- `StatBlock` and testimonial components exist in codebase but stay **unpopulated/hidden** until real data.
+- Where a photo would go, use a brand-coloured block or line-art icon.
+- Project cards use `status: "concept"` or `"in_development"` — never `"active"` or `"complete"` until verified.
 
 ## Rules
 
