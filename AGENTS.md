@@ -10,8 +10,9 @@ React Router v8 (SSR) + Vite 8 + TypeScript 5.9 + Tailwind CSS v4 + shadcn/ui.
 | Typecheck | `npm run typecheck` (runs `react-router typegen && tsc`) |
 | Build | `npm run build` |
 | Serve prod | `npm run start` |
+| Lint | `npm run lint` |
 
-No lint, format, or test scripts are configured. There is no ESLint or Prettier config.
+No format or test scripts are configured. Lint is configured: `npm run lint` (ESLint 9 flat config with `eslint-plugin-react-hooks` recommended rules). There is no Prettier config.
 
 ## Path alias
 
