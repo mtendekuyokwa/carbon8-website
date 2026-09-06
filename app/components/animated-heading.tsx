@@ -91,6 +91,7 @@ export function MaskedImage({
         alt={alt}
         className="h-full w-full object-cover"
         loading={eager ? "eager" : "lazy"}
+        decoding="async"
       />
     </motion.div>
   );

@@ -8,7 +8,7 @@ export function ManifestoSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url('/assets/planting-trees.jpg')] bg-cover bg-center opacity-30"
+        className="pointer-events-none absolute inset-0 bg-[url('/assets/planting-trees-960.jpg')] bg-cover bg-center opacity-30"
       />
       <div
         aria-hidden="true"

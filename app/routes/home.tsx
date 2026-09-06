@@ -15,6 +15,19 @@ export function meta() {
   ];
 }
 
+export function links() {
+  return [
+    {
+      rel: "preload",
+      as: "image",
+      href: "/assets/smoke-coming-up-1920.jpg",
+      imageSrcSet:
+        "/assets/smoke-coming-up-960.jpg 960w, /assets/smoke-coming-up-1920.jpg 1920w",
+      imageSizes: "100vw",
+    },
+  ];
+}
+
 export default function Home() {
   return (
     <main>

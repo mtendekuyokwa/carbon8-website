@@ -5,15 +5,20 @@ import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 
 const HERO_SLIDES = [
   {
-    src: "/assets/smoke-coming-up.jpg",
+    src: "/assets/smoke-coming-up-1920.jpg",
+    srcSet:
+      "/assets/smoke-coming-up-960.jpg 960w, /assets/smoke-coming-up-1920.jpg 1920w",
     alt: "Aerial view of tree canopy with smoke rising",
   },
   {
-    src: "/assets/industry.jpg",
+    src: "/assets/industry-1920.jpg",
+    srcSet: "/assets/industry-960.jpg 960w, /assets/industry-1920.jpg 1920w",
     alt: "Industrial site at dusk",
   },
   {
-    src: "/assets/tree-planting.jpg",
+    src: "/assets/tree-planting-1920.jpg",
+    srcSet:
+      "/assets/tree-planting-960.jpg 960w, /assets/tree-planting-1920.jpg 1920w",
     alt: "Community volunteers planting young trees",
   },
 ] as const;
@@ -38,8 +43,13 @@ export function HeroSection() {
         <img
           key={slide.src}
           src={slide.src}
+          srcSet={slide.srcSet}
+          sizes="100vw"
           alt={slide.alt}
           aria-hidden={i !== active}
+          fetchPriority={i === 0 ? "high" : "low"}
+          loading={i === 0 ? "eager" : "lazy"}
+          decoding="async"
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
