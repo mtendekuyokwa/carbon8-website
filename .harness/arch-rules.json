@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "id": "no-cross-feature-imports",
+      "description": "Features must not import from other features",
+      "check": "test ! -d app/features || rg -n --no-heading -e \"from ['\\\"]~/features\" -e \"import\\(['\\\"]~/features\" -e \"require\\(['\\\"]~/features\" -e \"export \\* from ['\\\"]~/features\" -e \"\\.\\./\\.\\./features/\" app/features --glob '!**/*.test.*' || true",
+      "expect": "empty",
+      "what": "Cross-feature import detected under app/features.",
+      "why": "Bulletproof layers require shared → features → app flow; cross imports create hidden coupling.",
+      "fix": "Move the shared code to app/components, app/hooks, app/lib, or app/types and import from ~/<shared> instead."
+    },
+    {
+      "id": "no-barrel-files",
+      "description": "No index.ts barrel re-exports inside features",
+      "check": "test ! -d app/features || find app/features -name 'index.ts' | head -20",
+      "expect": "empty",
+      "what": "Barrel index.ts found inside app/features.",
+      "why": "Barrels break Vite tree-shaking and inflate the bundle.",
+      "fix": "Delete the barrel file and import the target file directly (e.g. ~/features/about/components/story-section)."
+    },
+    {
+      "id": "tilde-alias",
+      "description": "App imports must use ~/ alias, not relative parent paths",
+      "check": "rg -n \"from ['\\\"]\\.\\./\" app/routes app/components app/hooks app/lib app/types app/utils 2>/dev/null; test ! -d app/features || rg -n \"from ['\\\"]\\.\\./\" app/features; true",
+      "expect": "empty",
+      "what": "Relative parent import (../) found in routes/shared/features.",
+      "why": "The ~/ alias (tsconfig + Vite) keeps imports stable across moves.",
+      "fix": "Rewrite the import as ~/… (e.g. ~/lib/utils)."
+    },
+    {
+      "id": "no-invented-stats",
+      "description": "No invented impact stats, testimonials, or partner logos",
+      "check": "rg -ni \"(testimonial|partner logo|\\d+% (reduction|increase)|trusted by [A-Z])\" app --glob '!**/*.test.*' | head -20 || true",
+      "expect": "empty",
+      "what": "Possible invented stat/testimonial/partner-logo copy found.",
+      "why": "Pre-launch honesty: no verified impact data exists; status is concept/in_development only.",
+      "fix": "Replace with forward-looking language ('we are developing…') or a brand-coloured placeholder block."
+    },
+    {
+      "id": "no-project-active-status",
+      "description": "Project cards must stay concept/in_development until verified",
+      "check": "rg -n \"['\\\"]active['\\\"]|['\\\"]complete['\\\"]\" app --glob '!**/*.test.*' 2>/dev/null | rg -v \"in_development|inactive\" | head -20 || true",
+      "expect": "empty",
+      "what": "An active/complete project status string was found.",
+      "why": "Projects are pre-launch; only concept/in_development is honest.",
+      "fix": "Change status to concept or in_development in the Project object."
+    },
+    {
+      "id": "no-debug-disables",
+      "description": "No react-hooks disables except the two sanctioned cases",
+      "check": "rg -n \"eslint-disable.*react-hooks\" app 2>/dev/null | grep -v \"use-intersection-observer\\|use-previous\" | head -20 || true",
+      "expect": "empty",
+      "what": "Unsanctioned react-hooks eslint-disable found.",
+      "why": "CONSTRAINTS.md allows only usePrevious render-time read and useIntersectionObserver thresholdKey.",
+      "fix": "Remove the disable and fix the hooks violation (top-level calls, pure updaters, memoized subscribe/getSnapshot)."
+    }
+  ]
+}

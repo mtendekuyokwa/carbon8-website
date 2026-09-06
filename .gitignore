@@ -5,3 +5,6 @@
 # React Router
 /.react-router/
 /build/
+
+# Harness runtime signals (source: L11 observability)
+.harness/traces/traces.jsonl

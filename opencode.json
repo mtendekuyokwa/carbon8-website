@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "skills": {
+    "paths": [".agents/skills"]
+  },
+  "permission": {
+    "read": {
+      "*": "allow",
+      ".env": "deny",
+      ".env*": "deny"
+    },
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "npm run lint": "allow",
+      "npm test": "allow",
+      "npm run typecheck": "allow",
+      "npm run build": "allow",
+      "npm run dev": "allow",
+      "make check": "allow",
+      "make test": "allow",
+      "make check-arch": "allow",
+      "make vcr": "allow",
+      "make clean-check": "allow",
+      "make e2e": "allow",
+      "bash scripts/*": "allow",
+      "git status": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "cat .env*": "deny",
+      "rm -rf *": "deny"
+    },
+    "external_directory": {
+      "/tmp/**": "allow"
+    }
+  }
+}

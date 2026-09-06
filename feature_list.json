@@ -1,0 +1,234 @@
+[
+  {
+    "id": "F01-home",
+    "behavior": "Home page renders mission, approach preview, status, and CTA with brand styling",
+    "verification": "make verify-feature F=F01-home",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors (incl. react-hooks rules); only the two CONSTRAINTS.md disables allowed."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Run react-router typegen output check; fix TS strict errors."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix failing Jest tests under app/; add coverage for new components."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix SSR/build errors; ensure route types resolve."
+      }
+    ]
+  },
+  {
+    "id": "F02-about",
+    "behavior": "About page renders story, approach, values sections from feature components",
+    "verification": "make verify-feature F=F02-about",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors per CONSTRAINTS.md purity rules."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors; use ~/ imports."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures for about components."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build/SSR errors."
+      }
+    ]
+  },
+  {
+    "id": "F03-projects",
+    "behavior": "Projects page lists category overview with concept/in_development cards only",
+    "verification": "make verify-feature F=F03-projects",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors; no invented stats."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors; Project status must be concept/in_development."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures for project cards."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build errors."
+      }
+    ]
+  },
+  {
+    "id": "F04-communities",
+    "behavior": "Communities page renders impact placeholders without invented data",
+    "verification": "make verify-feature F=F04-communities",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build errors."
+      }
+    ]
+  },
+  {
+    "id": "F05-climate-finance",
+    "behavior": "Climate Finance page renders explainer plus FAQ accordion",
+    "verification": "make verify-feature F=F05-climate-finance",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build errors."
+      }
+    ]
+  },
+  {
+    "id": "F06-news",
+    "behavior": "News page renders reverse-chronological feed of NewsPost cards",
+    "verification": "make verify-feature F=F06-news",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors; dates ISO 8601."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build errors."
+      }
+    ]
+  },
+  {
+    "id": "F07-contact",
+    "behavior": "Contact page renders form (name/email/role/message) with validation states",
+    "verification": "make verify-feature F=F07-contact",
+    "state": "not_started",
+    "evidence": "",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build errors."
+      }
+    ]
+  },
+  {
+    "id": "F08-hooks-contracts",
+    "behavior": "Shared hooks obey CONSTRAINTS.md contracts and keep __tests__ green",
+    "verification": "make verify-feature F=F08-hooks-contracts",
+    "state": "passing",
+    "evidence": "verified 2026-09-06, layers 4/4 pass",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Zero react-hooks/* disables except the two documented cases."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors in app/hooks/."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix app/hooks/__tests__/ failures."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build errors."
+      }
+    ]
+  }
+]
