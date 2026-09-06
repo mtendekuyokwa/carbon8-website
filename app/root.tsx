@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -8,8 +8,25 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { SiteHeader } from "~/components/layout/site-header";
 import type { Route } from "./+types/root";
 import "./app.css";
+
+const ZOOM_SCRIPT = `(function(){
+  function u(){
+    var w = document.documentElement.clientWidth;
+    var z = w < 1728 ? w / 1728 : 1;
+    document.documentElement.style.zoom = String(z);
+  }
+  u();
+  window.addEventListener('resize', u);
+})();`;
+
+function applyZoom() {
+  const w = document.documentElement.clientWidth;
+  const z = w < 1728 ? w / 1728 : 1;
+  document.documentElement.style.zoom = String(z);
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -20,7 +37,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap",
   },
 ];
 
@@ -32,9 +49,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script dangerouslySetInnerHTML={{ __html: ZOOM_SCRIPT }} />
       </head>
       <body>
-        {children}
+        <div className="bg-background text-foreground">
+          <SiteHeader />
+          {children}
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -43,6 +64,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useEffect(() => {
+    applyZoom();
+  }, []);
+
   return (
     <StrictMode>
       <Outlet />

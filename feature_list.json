@@ -3,8 +3,8 @@
     "id": "F01-home",
     "behavior": "Home page renders mission, approach preview, status, and CTA with brand styling",
     "verification": "make verify-feature F=F01-home",
-    "state": "not_started",
-    "evidence": "",
+    "state": "passing",
+    "evidence": "verified 2026-09-06, layers 4/4 pass",
     "layers": [
       {
         "label": "L1 lint",
