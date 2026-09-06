@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import { HeroSection } from "~/features/home/components/hero-section";
 
@@ -13,9 +13,18 @@ describe("HeroSection", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Get in Touch/ }),
-    ).toHaveAttribute("href", "/contact");
-    expect(
-      screen.getByRole("link", { name: /Explore Projects/ }),
-    ).toHaveAttribute("href", "/projects");
+    ).toHaveAttribute("href", "mailto:openbasedigital@gmail.com");
+    expect(screen.getByRole("link", { name: /Contribute/ })).toHaveAttribute(
+      "href",
+      "/contribute",
+    );
+  });
+
+  it("advances the slide when Next is clicked", async () => {
+    render(<HeroSection />);
+
+    expect(screen.getByText("01")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByText("02")).toBeInTheDocument();
   });
 });

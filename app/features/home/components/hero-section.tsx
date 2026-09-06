@@ -23,10 +23,12 @@ const ROTATE_MS = 6000;
 export function HeroSection() {
   const [active, setActive] = useState(0);
 
+  const goNext = () => {
+    setActive((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
   useEffect(() => {
-    const id = window.setInterval(() => {
-      setActive((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, ROTATE_MS);
+    const id = window.setInterval(goNext, ROTATE_MS);
     return () => window.clearInterval(id);
   }, []);
 
@@ -86,7 +88,7 @@ export function HeroSection() {
           </div>
           <div className="flex shrink-0 items-center gap-6 pb-1">
             <a
-              href="/contact"
+              href="mailto:openbasedigital@gmail.com"
               className="flex items-center gap-3 rounded-full bg-white py-2 pr-2 pl-6 text-sm font-medium text-foreground transition hover:bg-white/90"
             >
               Get in Touch
@@ -95,10 +97,10 @@ export function HeroSection() {
               </span>
             </a>
             <a
-              href="/projects"
+              href="/contribute"
               className="flex items-center gap-1 text-sm font-medium text-white"
             >
-              Explore Projects
+              Contribute
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
@@ -115,9 +117,15 @@ export function HeroSection() {
               </span>{" "}
               / {String(HERO_SLIDES.length).padStart(2, "0")}
             </span>
-            <span>Next</span>
+            <button
+              type="button"
+              onClick={goNext}
+              className="cursor-pointer uppercase transition hover:text-white"
+            >
+              Next
+            </button>
           </span>
-          <span>Scroll to Explore</span>
+          <span>Carbon8 Malawi</span>
         </div>
       </div>
     </section>
