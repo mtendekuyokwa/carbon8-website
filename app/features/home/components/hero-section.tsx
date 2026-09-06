@@ -43,8 +43,11 @@ export function HeroSection() {
           }`}
         />
       ))}
-      <div className="absolute inset-0 bg-black/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-black/30" />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"
+      />
       <div className="absolute inset-0 flex flex-col justify-end px-8 pb-16 md:px-12">
         <div className="flex items-end justify-between gap-8">
           <div className="max-w-3xl">
