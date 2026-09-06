@@ -16,20 +16,23 @@ export function useLocalStorage<T>(
 
   const setValue = useCallback(
     (value: T | ((prev: T) => T)) => {
-      setStoredValue((prev) => {
-        const nextValue = value instanceof Function ? value(prev) : value;
-        if (typeof window !== "undefined") {
-          try {
-            window.localStorage.setItem(key, JSON.stringify(nextValue));
-          } catch {
-            // quota exceeded or SSR
-          }
-        }
-        return nextValue;
-      });
+      // Updater stays pure (CONSTRAINTS.md 1.1): compute next value only,
+      // persist to localStorage in the effect below.
+      setStoredValue((prev) =>
+        value instanceof Function ? value(prev) : value,
+      );
     },
-    [key],
+    [],
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      window.localStorage.setItem(key, JSON.stringify(storedValue));
+    } catch {
+      // quota exceeded or SSR
+    }
+  }, [key, storedValue]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
