@@ -40,9 +40,9 @@ export function BenefitsSection() {
         </div>
         <div className="col-span-12 md:col-span-4 md:col-start-9 md:pt-4">
           <AnimatedText className="text-base leading-relaxed text-muted-foreground">
-            We intend to build each project as a long-term partnership with
-            the community carrying it forward — designed toward verifiable
-            standards from day one.
+            We intend to build each project as a long-term partnership with the
+            community carrying it forward — designed toward verifiable standards
+            from day one.
           </AnimatedText>
         </div>
       </div>
@@ -78,7 +78,11 @@ export function BenefitsSection() {
             <div>
               <div className="mb-4 flex items-start gap-3">
                 <CardNumber n={n} />
-                <AnimatedHeading as="h3" className="text-3xl font-medium" delay={i * 0.1}>
+                <AnimatedHeading
+                  as="h3"
+                  className="text-3xl font-medium"
+                  delay={i * 0.1}
+                >
                   {item.title}
                 </AnimatedHeading>
               </div>
