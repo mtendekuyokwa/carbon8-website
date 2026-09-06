@@ -6,7 +6,7 @@ import pluginReactHooks from "eslint-plugin-react-hooks";
 import tailwindcss from "eslint-plugin-tailwindcss";
 
 export default [
-  { ignores: [".react-router/", "build/", "node_modules/"] },
+  { ignores: [".react-router/", "build/", "node_modules/", ".opencode/", ".agents/", ".claude/", ".harness/"] },
   js.configs.recommended,
   { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"], languageOptions: { globals: globals.browser } },
   ...tseslint.configs.recommended,
