@@ -43,11 +43,11 @@ export function GeoaiSection() {
           openly, and keep future monitoring honest. Communities lead; GeoAI
           assists.
         </AnimatedText>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="mt-12 border-t border-white/15">
           {USES.map((item, i) => (
             <article
               key={item.title}
-              className="rounded-2xl border border-white/15 bg-white/5 p-8"
+              className="grid gap-2 border-b border-white/15 py-8 md:grid-cols-[0.9fr_1.1fr] md:gap-8"
             >
               <AnimatedHeading
                 as="h3"
@@ -57,7 +57,7 @@ export function GeoaiSection() {
                 {item.title}
               </AnimatedHeading>
               <AnimatedText
-                className="mt-3 text-base leading-relaxed text-white/70"
+                className="mt-0 text-base leading-relaxed text-white/70"
                 delay={0.1 + i * 0.08}
               >
                 {item.desc}

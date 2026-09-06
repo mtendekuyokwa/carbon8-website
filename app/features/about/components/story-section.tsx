@@ -49,7 +49,7 @@ export function StorySection() {
           </AnimatedText>
         </div>
         <figure className="lg:sticky lg:top-28">
-          <div className="overflow-hidden rounded-[2rem] shadow-[0_24px_60px_-24px_rgba(74,54,46,0.45)]">
+          <div className="overflow-hidden rounded-none shadow-none">
             <img
               src="/assets/arial-photograph.jpg"
               alt="Aerial photograph of a highway bridge crossing dense green forest, with a river, village homes, and winding local roads"

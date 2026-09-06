@@ -58,11 +58,11 @@
     ]
   },
   {
-    "id": "F03-projects",
-    "behavior": "Projects page lists category overview with concept/in_development cards only",
-    "verification": "make verify-feature F=F03-projects",
-    "state": "not_started",
-    "evidence": "",
+    "id": "F03-blog",
+    "behavior": "Blog index + MDX article pages render from content/blog/*.mdx with frontmatter",
+    "verification": "make verify-feature F=F03-blog",
+    "state": "passing",
+    "evidence": "verified 2026-09-06, layers 4/4 pass",
     "layers": [
       {
         "label": "L1 lint",

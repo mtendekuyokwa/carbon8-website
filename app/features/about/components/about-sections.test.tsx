@@ -1,18 +1,14 @@
 import { render, screen } from "@testing-library/react";
 
-import { ApproachSection } from "~/features/about/components/approach-section";
 import { GeoaiSection } from "~/features/about/components/geoai-section";
 import { StorySection } from "~/features/about/components/story-section";
-import { ValuesSection } from "~/features/about/components/values-section";
 
 describe("About sections", () => {
-  it("renders story, approach, GeoAI support framing, and values", () => {
+  it("renders story and GeoAI support framing", () => {
     const { container } = render(
       <>
         <StorySection />
-        <ApproachSection />
         <GeoaiSection />
-        <ValuesSection />
       </>,
     );
 
@@ -20,15 +16,9 @@ describe("About sections", () => {
       container.querySelector("#about-story-heading"),
     ).toHaveTextContent("Climate action led by communities");
     expect(
-      container.querySelector("#about-approach-heading"),
-    ).toHaveTextContent("community-first");
-    expect(
       container.querySelector("#about-geoai-heading"),
     ).toHaveTextContent("never replaces them");
     expect(screen.getByText("Map with communities")).toBeInTheDocument();
-    expect(
-      container.querySelector("#about-values-heading"),
-    ).toHaveTextContent("What guides us");
   });
 
   it("contains no invented stats or testimonials", () => {

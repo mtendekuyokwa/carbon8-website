@@ -1,7 +1,5 @@
-import { ApproachSection } from "~/features/about/components/approach-section";
 import { GeoaiSection } from "~/features/about/components/geoai-section";
 import { StorySection } from "~/features/about/components/story-section";
-import { ValuesSection } from "~/features/about/components/values-section";
 
 export function meta() {
   return [
@@ -18,9 +16,7 @@ export default function About() {
   return (
     <main>
       <StorySection />
-      <ApproachSection />
       <GeoaiSection />
-      <ValuesSection />
     </main>
   );
 }
