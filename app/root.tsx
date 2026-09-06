@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { SiteFooter } from "~/components/layout/site-footer";
 import { SiteHeader } from "~/components/layout/site-header";
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -55,6 +56,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="bg-background text-foreground">
           <SiteHeader />
           {children}
+          <SiteFooter />
         </div>
         <ScrollRestoration />
         <Scripts />
