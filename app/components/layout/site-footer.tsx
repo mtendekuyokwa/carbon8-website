@@ -1,13 +1,7 @@
-import {
-  ArrowUpRight,
-  AtSign,
-  Globe,
-  Mail,
-  MessageCircle,
-  Share2,
-} from "lucide-react";
+import { AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide-react";
 
 import { BrandLogo } from "~/components/brand-logo";
+import { DualCTA } from "~/components/dual-cta";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
@@ -48,24 +42,12 @@ export function SiteFooter() {
               project to your community? We&apos;d love to hear from you.
             </p>
           </div>
-          <div className="flex shrink-0 items-center gap-6">
-            <a
-              href="/contact"
-              className="flex items-center gap-3 rounded-full bg-[#C46A2E] py-2 pr-2 pl-6 text-sm font-medium text-white transition hover:bg-[#C46A2E]/90"
-            >
-              Get in touch
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4A362E] text-white">
-                <ArrowUpRight className="h-4 w-4" />
-              </span>
-            </a>
-            <a
-              href="/contact"
-              className="flex items-center gap-1 text-sm font-medium text-white"
-            >
-              Contribute
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </div>
+          <DualCTA
+            primaryLabel="Get in touch"
+            primaryHref="/contact"
+            secondaryLabel="Contribute"
+            secondaryHref="/contact"
+          />
         </div>
       </div>
 

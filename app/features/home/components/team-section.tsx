@@ -1,4 +1,5 @@
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
+import { Eyebrow } from "~/components/eyebrow";
 import { TeamCarousel } from "~/components/team-carousel";
 import type { CarouselItem } from "~/components/team-carousel";
 import { siteAssets } from "~/lib/site-assets";
@@ -27,13 +28,14 @@ export function TeamSection() {
       aria-labelledby="home-team-heading"
     >
       <div style={{ paddingLeft: "335.26px" }}>
-        <div
-          className="mb-16 flex gap-24 tracking-[0.2em] text-muted-foreground uppercase"
-          style={{ fontSize: "11.26px", fontFamily: TT_HOVES }}
-        >
-          <span>Carbon8</span>
-          <span>Who We Are</span>
-        </div>
+        <Eyebrow className="mb-16 flex gap-24">
+          <span style={{ fontSize: "11.26px", fontFamily: TT_HOVES }}>
+            Carbon8
+          </span>
+          <span style={{ fontSize: "11.26px", fontFamily: TT_HOVES }}>
+            Who We Are
+          </span>
+        </Eyebrow>
         <AnimatedHeading className="font-medium leading-[1.05]">
           <span
             id="home-team-heading"

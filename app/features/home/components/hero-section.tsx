@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
 
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
+import { DualCTA } from "~/components/dual-cta";
 
 const HERO_SLIDES = [
   {
@@ -96,23 +96,13 @@ export function HeroSection() {
               </AnimatedText>
             </div>
           </div>
-          <div className="flex shrink-0 items-center gap-6 pb-1">
-            <a
-              href="mailto:openbasedigital@gmail.com"
-              className="flex items-center gap-3 rounded-full bg-[#C46A2E] py-2 pr-2 pl-6 text-sm font-medium text-white transition hover:bg-[#C46A2E]/90"
-            >
-              Get in Touch
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4A362E] text-white">
-                <ArrowUpRight className="h-4 w-4" />
-              </span>
-            </a>
-            <a
-              href="/contribute"
-              className="flex items-center gap-1 text-sm font-medium text-white"
-            >
-              Contribute
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
+          <div className="shrink-0 pb-1">
+            <DualCTA
+              primaryLabel="Get in Touch"
+              primaryHref="mailto:openbasedigital@gmail.com"
+              secondaryLabel="Contribute"
+              secondaryHref="/contribute"
+            />
           </div>
         </div>
         <div

@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -6,7 +9,7 @@ import pluginReactHooks from "eslint-plugin-react-hooks";
 import tailwindcss from "eslint-plugin-tailwindcss";
 
 export default [
-  { ignores: [".react-router/", "build/", "node_modules/", ".opencode/", ".agents/", ".claude/", ".harness/"] },
+  { ignores: [".react-router/", "build/", "storybook-static/", "node_modules/", ".opencode/", ".agents/", ".claude/", ".harness/"] },
   js.configs.recommended,
   { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"], languageOptions: { globals: globals.browser } },
   ...tseslint.configs.recommended,
@@ -39,4 +42,5 @@ export default [
       },
     },
   },
+  ...storybook.configs["flat/recommended"]
 ];

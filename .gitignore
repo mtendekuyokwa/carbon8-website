@@ -8,3 +8,6 @@
 
 # Harness runtime signals (source: L11 observability)
 .harness/traces/traces.jsonl
+
+*storybook.log
+storybook-static

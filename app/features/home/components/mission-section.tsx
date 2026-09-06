@@ -1,4 +1,5 @@
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
+import { Eyebrow } from "~/components/eyebrow";
 
 const TT_HOVES =
   '"TT Hoves", "Helvetica Neue", Helvetica, Arial, sans-serif';
@@ -29,13 +30,14 @@ export function MissionSection() {
       aria-labelledby="home-mission-heading"
     >
       <div className="mx-auto max-w-5xl">
-        <div
-          className="mb-10 flex items-center gap-6 tracking-[0.2em] text-muted-foreground uppercase"
-          style={{ fontSize: "11.26px", fontFamily: TT_HOVES }}
+        <Eyebrow
+          withRule
+          className="mb-10"
         >
-          <span aria-hidden className="h-px w-10 bg-foreground/30" />
-          <span>Carbon8 — Our Mission</span>
-        </div>
+          <span style={{ fontSize: "11.26px", fontFamily: TT_HOVES }}>
+            Carbon8 — Our Mission
+          </span>
+        </Eyebrow>
         <AnimatedHeading className="max-w-4xl font-medium leading-[1.05]">
           <span
             id="home-mission-heading"

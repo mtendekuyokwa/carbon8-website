@@ -1,4 +1,5 @@
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
+import { Eyebrow } from "~/components/eyebrow";
 
 export function ManifestoSection() {
   return (
@@ -15,9 +16,9 @@ export function ManifestoSection() {
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#4F5A2A]/70 via-[#4F5A2A]/85 to-[#3d4620]/95"
       />
       <div className="relative mx-auto max-w-4xl">
-        <p className="mb-8 text-xs tracking-[0.2em] text-white/60 uppercase">
+        <Eyebrow tone="faint-light" className="mb-8">
           Manifesto
-        </p>
+        </Eyebrow>
         <AnimatedHeading
           as="h2"
           className="text-4xl font-medium leading-[1.1] md:text-5xl"
