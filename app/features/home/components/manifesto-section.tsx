@@ -1,0 +1,41 @@
+import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
+
+export function ManifestoSection() {
+  return (
+    <section
+      className="bg-foreground px-8 py-28 text-white md:px-12"
+      aria-labelledby="home-manifesto-heading"
+    >
+      <div className="mx-auto max-w-4xl">
+        <p className="mb-8 text-xs tracking-[0.2em] text-white/60 uppercase">
+          Manifesto
+        </p>
+        <AnimatedHeading
+          as="h2"
+          className="text-4xl font-medium leading-[1.1] md:text-5xl"
+        >
+          <span id="home-manifesto-heading">
+            What if the people restoring the land also held the value it creates?
+          </span>
+        </AnimatedHeading>
+        <AnimatedText
+          className="mt-8 max-w-3xl text-lg leading-relaxed text-white/80"
+          delay={0.15}
+        >
+          Carbon finance was supposed to reward the communities doing the work.
+          Too often, they&apos;re the last ones to see it. We&apos;re building
+          Carbon8 so Malawian farmers, cooperatives, and local stewards
+          aren&apos;t just the labor behind a project — they&apos;re partners in
+          it, with a real stake in its outcome from the start.
+        </AnimatedText>
+        <AnimatedText
+          className="mt-8 max-w-3xl text-xl font-medium leading-relaxed text-white"
+          delay={0.25}
+        >
+          Carbon8 is what community-led restoration looks like when it&apos;s
+          built with the people who live on the land, not around them.
+        </AnimatedText>
+      </div>
+    </section>
+  );
+}

@@ -1,5 +1,7 @@
 import { BenefitsSection } from "~/features/home/components/benefits-section";
 import { HeroSection } from "~/features/home/components/hero-section";
+import { ManifestoSection } from "~/features/home/components/manifesto-section";
+import { MissionSection } from "~/features/home/components/mission-section";
 import { TeamSection } from "~/features/home/components/team-section";
 
 export function meta() {
@@ -17,6 +19,8 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <MissionSection />
+      <ManifestoSection />
       <TeamSection />
       <BenefitsSection />
     </main>

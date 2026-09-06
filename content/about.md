@@ -2,6 +2,12 @@
 
 # About Us
 
+> **What if the people restoring the land also held the value it creates?**
+>
+> Carbon finance was supposed to reward the communities doing the work. Too often, they're the last ones to see it. We're building Carbon8 so Malawian farmers, cooperatives, and local stewards aren't just the labor behind a project — they're partners in it, with a real stake in its outcome from the start.
+>
+> **Carbon8 is what community-led restoration looks like when it's built with the people who live on the land, not around them.**
+
 ## Our Story
 
 Carbon8 started with a simple observation: Malawi has no shortage of land that could be reforested, communities ready to do the work, and climate finance looking for credible projects to fund — but very little that connects the three. Environmental restoration projects often stall because they're designed far from the communities who have to live with them, or because they never make it far enough to meet the standards climate finance requires.
@@ -28,13 +34,10 @@ We treat each project as a long-term partnership with a community, not a transac
 
 ## Our Team
 
-Carbon8 is a small, early-stage team based in Malawi. We're building out full profiles and photos as the team grows — for now, here's who's involved:
+Carbon8 was founded by two people based in Malawi:
 
-- **[Name] — Founder / [Role]**
-- **[Name] — [Role]**
-- **[Name] — [Role]**
-
-*Team bios and photos will be added here as they're finalised.*
+- **Tawina — Co-founder, Methodology Lead.** Tawina owns Carbon8's project methodology: how community partnerships are structured, how restoration activities are designed to deliver local benefit first, and how each project is documented from day one toward verifiable climate-finance standards. Photo: `/assets/tawina.jpg`.
+- **Patrick — Co-founder, GeoAI Lead.** Patrick leads Carbon8's geospatial and AI work: site identification, mapping, monitoring design, and the data systems that make restoration projects credible to funders. Photo: `/assets/patrick.jpg`.
 
 ---
 

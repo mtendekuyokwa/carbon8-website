@@ -1,16 +1,48 @@
+import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
-import { siteAssets } from "~/lib/site-assets";
+
+const HERO_SLIDES = [
+  {
+    src: "/assets/smoke-coming-up.jpg",
+    alt: "Aerial view of tree canopy with smoke rising",
+  },
+  {
+    src: "/assets/industry.jpg",
+    alt: "Industrial site at dusk",
+  },
+  {
+    src: "/assets/tree-planting.jpg",
+    alt: "Community volunteers planting young trees",
+  },
+] as const;
+
+const ROTATE_MS = 6000;
 
 export function HeroSection() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActive((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, ROTATE_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section className="relative h-screen min-h-[780px] w-full overflow-hidden">
-      <img
-        src={siteAssets.hero}
-        alt="Aerial view of tree canopy with smoke rising"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {HERO_SLIDES.map((slide, i) => (
+        <img
+          key={slide.src}
+          src={slide.src}
+          alt={slide.alt}
+          aria-hidden={i !== active}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+            i === active ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
       <div className="absolute inset-0 bg-black/25" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
       <div className="absolute inset-0 flex flex-col justify-end px-8 pb-16 md:px-12">
@@ -75,7 +107,10 @@ export function HeroSection() {
           <span>Community-First Climate Action</span>
           <span className="flex items-center gap-6">
             <span>
-              <span className="text-white">01</span> / 04
+              <span className="text-white">
+                {String(active + 1).padStart(2, "0")}
+              </span>{" "}
+              / {String(HERO_SLIDES.length).padStart(2, "0")}
             </span>
             <span>Next</span>
           </span>

@@ -10,4 +10,6 @@ export const siteAssets = {
   cardClockLamp: `${ASSET_BASE}clock-lamp.png`,
   cardPills: `${ASSET_BASE}pills.png`,
   cardWaitlist: `${ASSET_BASE}waitlist.png`,
+  founderTawina: "/assets/tawina.jpg",
+  founderPatrick: "/assets/patrick.jpg",
 } as const;
