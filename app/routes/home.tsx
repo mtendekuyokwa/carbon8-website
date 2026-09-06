@@ -21,8 +21,8 @@ export default function Home() {
       <HeroSection />
       <MissionSection />
       <ManifestoSection />
-      <TeamSection />
       <BenefitsSection />
+      <TeamSection />
     </main>
   );
 }

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { TeamSection } from "~/features/home/components/team-section";
 
@@ -8,24 +8,21 @@ describe("TeamSection", () => {
 
     expect(
       container.querySelector("#home-team-heading"),
-    ).toHaveTextContent("Get to Know the Work");
-    expect(
-      screen.getByText("Community-led from the start"),
-    ).toBeInTheDocument();
+    ).toHaveTextContent("Meet the Team");
+    expect(screen.getByText("Patrick")).toBeInTheDocument();
+    expect(screen.getByText("Tawina")).toBeInTheDocument();
   });
 
-  it("reveals carousel controls on hover", async () => {
-    const { container } = render(<TeamSection />);
-    const carousel = container.querySelector("section > div:last-child > div");
-    if (!carousel) throw new Error("carousel wrapper not found");
+  it("renders team photos without carousel controls", () => {
+    render(<TeamSection />);
 
-    fireEvent.mouseEnter(carousel);
-
+    expect(screen.getByAltText("Patrick")).toBeInTheDocument();
+    expect(screen.getByAltText("Tawina")).toBeInTheDocument();
     expect(
-      await screen.findByRole("button", { name: "Next" }),
-    ).toBeInTheDocument();
+      screen.queryByRole("button", { name: "Next" }),
+    ).not.toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Previous" }),
-    ).toBeInTheDocument();
+      screen.queryByRole("button", { name: "Previous" }),
+    ).not.toBeInTheDocument();
   });
 });

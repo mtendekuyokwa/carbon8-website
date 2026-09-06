@@ -3,10 +3,18 @@ import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 export function ManifestoSection() {
   return (
     <section
-      className="bg-[#4F5A2A] px-8 py-28 text-white md:px-12"
+      className="relative overflow-hidden bg-[#4F5A2A] px-8 py-28 text-white md:px-12"
       aria-labelledby="home-manifesto-heading"
     >
-      <div className="mx-auto max-w-4xl">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[url('/assets/african-patterns.jpg')] bg-cover bg-center opacity-20"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#4F5A2A]/70 via-[#4F5A2A]/85 to-[#3d4620]/95"
+      />
+      <div className="relative mx-auto max-w-4xl">
         <p className="mb-8 text-xs tracking-[0.2em] text-white/60 uppercase">
           Manifesto
         </p>

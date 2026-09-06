@@ -8,29 +8,14 @@ const TT_HOVES =
 
 const TEAM_ITEMS: CarouselItem[] = [
   {
-    img: siteAssets.teamBlur,
-    role: "OUR STORY",
-    name: "Community-led from the start",
+    img: siteAssets.founderPatrick,
+    role: "CO-FOUNDER, GEOAI LEAD",
+    name: "Patrick",
   },
   {
-    img: siteAssets.teamHappy,
-    role: "OUR APPROACH",
-    name: "Plain-language climate finance",
-  },
-  {
-    img: siteAssets.teamYoung,
-    role: "EARLY CONCEPTS",
-    name: "Shaped with local partners",
-  },
-  {
-    img: siteAssets.teamHappy,
-    role: "IN DEVELOPMENT",
-    name: "Projects taking shape",
-  },
-  {
-    img: siteAssets.teamBlur,
-    role: "GET INVOLVED",
-    name: "Partner with us",
+    img: siteAssets.founderTawina,
+    role: "CO-FOUNDER, METHODOLOGY LEAD",
+    name: "Tawina",
   },
 ];
 
@@ -59,9 +44,7 @@ export function TeamSection() {
               fontFamily: TT_HOVES,
             }}
           >
-            Get to Know the Work
-            <br />
-            that Moves Us Forward
+            Meet the Team
           </span>
         </AnimatedHeading>
       </div>
@@ -80,7 +63,7 @@ export function TeamSection() {
                 }}
               >
                 We are developing early climate concepts with local partners —
-                and explaining climate finance in plain language along the way.
+                meet the co-founders leading methodology and GeoAI.
               </span>
             </AnimatedText>
           }

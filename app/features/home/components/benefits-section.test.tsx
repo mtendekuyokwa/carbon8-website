@@ -16,5 +16,4 @@ describe("BenefitsSection", () => {
       screen.getByRole("heading", { name: "Verification-Ready Development" }),
     ).toBeInTheDocument();
   });
-  });
 });
