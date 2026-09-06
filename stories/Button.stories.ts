@@ -36,17 +36,20 @@ export const TertiaryLink: Story = {
 // each still renders its real production component.
 export const EyebrowMuted: Story = {
   render: () =>
-    createElement(Eyebrow, { withRule: true, children: "Carbon8 — Our Mission" }),
+    createElement(Eyebrow, { withRule: true }, "Carbon8 — Our Mission"),
 };
 export const EyebrowLight: Story = {
   render: () =>
     createElement(
       "span",
       { style: { background: "#4F5A2A", padding: 16, display: "inline-block" } },
-      createElement(Eyebrow, {
-        tone: "faint-light",
-        children: "Manifesto",
-      }),
+      createElement(
+        Eyebrow,
+        {
+          tone: "faint-light",
+        },
+        "Manifesto",
+      ),
     ),
 };
 export const LogoDark: Story = {

@@ -1,7 +1,7 @@
 import { cn } from "~/lib/utils";
 
 export type EyebrowProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   tone?: "muted" | "light" | "faint-light";
   withRule?: boolean;
   className?: string;

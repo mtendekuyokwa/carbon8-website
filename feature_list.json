@@ -32,8 +32,8 @@
     "id": "F02-about",
     "behavior": "About page renders story, approach, values sections from feature components",
     "verification": "make verify-feature F=F02-about",
-    "state": "not_started",
-    "evidence": "",
+    "state": "passing",
+    "evidence": "verified 2026-09-06, layers 4/4 pass",
     "layers": [
       {
         "label": "L1 lint",
