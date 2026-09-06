@@ -7,18 +7,18 @@ import { siteAssets } from "~/lib/site-assets";
 
 const ITEMS = [
   {
-    title: "Community-first",
-    desc: "We are starting with early concepts shaped alongside local partners — led by the communities they serve.",
+    title: "Community Consultation",
+    desc: "Before any project begins, we engage directly with local chiefs, cooperatives, and farmer groups to understand their priorities and ensure the project reflects the needs of the community it will affect.",
     img: siteAssets.cardClockLamp,
   },
   {
-    title: "Plain-language finance",
-    desc: "We explain climate finance in clear terms so communities, partners, and funders can shape early concepts together.",
+    title: "Collaborative Restoration",
+    desc: "We design and implement afforestation and reforestation projects in partnership with the communities involved, generating local employment and shared ownership rather than imposing a plan from outside.",
     img: siteAssets.cardPills,
   },
   {
-    title: "Early and open",
-    desc: "Our projects are early concepts, shared openly while they take shape — not finished work presented as done.",
+    title: "Verification-Ready Development",
+    desc: "Every project is developed and documented to meet the standards required by climate finance and carbon markets from the outset, ensuring credibility is built in rather than retrofitted.",
     img: siteAssets.cardWaitlist,
   },
 ] as const;
@@ -33,16 +33,16 @@ export function BenefitsSection() {
       <div className="mb-24 grid grid-cols-12 gap-12">
         <div className="col-span-12 md:col-span-7">
           <AnimatedHeading className="text-5xl font-medium leading-[1.05] md:text-6xl">
-            Explore the Benefits of
+            How Our Approach
             <br />
-            Our Platform
+            Works
           </AnimatedHeading>
         </div>
         <div className="col-span-12 md:col-span-4 md:col-start-9 md:pt-4">
           <AnimatedText className="text-base leading-relaxed text-muted-foreground">
-            By choosing a community-first approach, we develop early concepts
-            with local partners and share plain-language explainers along the
-            way.
+            We intend to build each project as a long-term partnership with
+            the community carrying it forward — designed toward verifiable
+            standards from day one.
           </AnimatedText>
         </div>
       </div>

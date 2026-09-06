@@ -3,17 +3,18 @@ import { render, screen } from "@testing-library/react";
 import { BenefitsSection } from "~/features/home/components/benefits-section";
 
 describe("BenefitsSection", () => {
-  it("renders three benefit cards with the reversed middle card", () => {
+  it("renders three approach steps", () => {
     render(<BenefitsSection />);
 
     expect(
-      screen.getByRole("heading", { name: "Community-first" }),
+      screen.getByRole("heading", { name: "Community Consultation" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: "Plain-language finance" }),
+      screen.getByRole("heading", { name: "Collaborative Restoration" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: "Early and open" }),
+      screen.getByRole("heading", { name: "Verification-Ready Development" }),
     ).toBeInTheDocument();
+  });
   });
 });
