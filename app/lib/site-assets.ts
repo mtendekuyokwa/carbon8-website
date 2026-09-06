@@ -1,9 +1,10 @@
-export const ASSET_BASE = "https://qclay.design/lovable/pelmatech/";
+export const ASSET_BASE = "/assets/";
 
 export const siteAssets = {
   hero: "/assets/smoke-coming-up.jpg",
-  logoWhite: `${ASSET_BASE}logo.svg`,
-  logoDark: `${ASSET_BASE}logo-dark.svg`,
+  logoMark: "/assets/8-in-carbon-8.png",
+  logoWhite: "/assets/8-in-carbon-8.png",
+  logoDark: "/assets/8-in-carbon-8.png",
   teamBlur: `${ASSET_BASE}blur-doctor.png`,
   teamHappy: `${ASSET_BASE}happy-doctor.png`,
   teamYoung: `${ASSET_BASE}young-doctor.png`,

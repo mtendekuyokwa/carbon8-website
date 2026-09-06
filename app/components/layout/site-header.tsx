@@ -1,7 +1,7 @@
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { siteAssets } from "~/lib/site-assets";
+import { BrandLogo } from "~/components/brand-logo";
 import { cn } from "~/lib/utils";
 
 const NAV_ITEMS = ["Home", "About", "Projects", "Contact"] as const;
@@ -27,11 +27,9 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-6 right-0 left-0 z-50 flex items-center justify-between px-8">
-      <img
-        src={pastHero ? siteAssets.logoDark : siteAssets.logoWhite}
-        alt="Carbon8"
-        className="h-8 w-auto transition-opacity"
-      />
+      <a href="/" aria-label="Carbon8 home">
+        <BrandLogo variant={pastHero ? "dark" : "light"} />
+      </a>
       <nav
         aria-label="Primary"
         className="flex items-center gap-1 rounded-full py-2 pr-2 pl-2 text-white backdrop-blur-md"

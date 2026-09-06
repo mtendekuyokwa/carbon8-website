@@ -7,7 +7,7 @@ import {
   Share2,
 } from "lucide-react";
 
-import { siteAssets } from "~/lib/site-assets";
+import { BrandLogo } from "~/components/brand-logo";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
@@ -71,7 +71,7 @@ export function SiteFooter() {
 
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <img src={siteAssets.logoWhite} alt="Carbon8" className="h-8 w-auto" />
+          <BrandLogo variant="light" />
           <p className="mt-4 max-w-xs text-sm leading-6 opacity-80">
             Community-first climate organisation.
           </p>
