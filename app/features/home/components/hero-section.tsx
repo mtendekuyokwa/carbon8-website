@@ -70,7 +70,7 @@ export function HeroSection() {
               </span>
             </AnimatedHeading>
             <div className="mt-8 w-max">
-              <AnimatedText className="max-w-xl leading-relaxed text-white/85">
+              <AnimatedText className="max-w-xl leading-relaxed text-white">
                 <span
                   style={{
                     fontSize: "20.99px",
@@ -89,10 +89,10 @@ export function HeroSection() {
           <div className="flex shrink-0 items-center gap-6 pb-1">
             <a
               href="mailto:openbasedigital@gmail.com"
-              className="flex items-center gap-3 rounded-full bg-white py-2 pr-2 pl-6 text-sm font-medium text-foreground transition hover:bg-white/90"
+              className="flex items-center gap-3 rounded-full bg-[#C46A2E] py-2 pr-2 pl-6 text-sm font-medium text-white transition hover:bg-[#C46A2E]/90"
             >
               Get in Touch
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground text-white">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4A362E] text-white">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
             </a>
@@ -106,7 +106,7 @@ export function HeroSection() {
           </div>
         </div>
         <div
-          className="mt-12 flex items-center justify-between border-t border-white/20 tracking-[0.2em] text-white/70 uppercase"
+          className="mt-12 flex items-center justify-between border-t border-white/20 tracking-[0.2em] text-white uppercase"
           style={{ fontSize: "12px" }}
         >
           <span>Community-First Climate Action</span>

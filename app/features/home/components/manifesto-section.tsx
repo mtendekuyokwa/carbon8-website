@@ -3,7 +3,7 @@ import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 export function ManifestoSection() {
   return (
     <section
-      className="bg-foreground px-8 py-28 text-white md:px-12"
+      className="bg-[#4F5A2A] px-8 py-28 text-white md:px-12"
       aria-labelledby="home-manifesto-heading"
     >
       <div className="mx-auto max-w-4xl">
