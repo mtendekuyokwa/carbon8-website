@@ -8,7 +8,7 @@ export function HeroSection() {
     <section className="relative h-screen min-h-[780px] w-full overflow-hidden">
       <img
         src={siteAssets.hero}
-        alt="Doctor working at computer"
+        alt="Aerial view of tree canopy with smoke rising"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-black/25" />

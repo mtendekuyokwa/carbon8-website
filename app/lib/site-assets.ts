@@ -1,7 +1,7 @@
 export const ASSET_BASE = "https://qclay.design/lovable/pelmatech/";
 
 export const siteAssets = {
-  hero: `${ASSET_BASE}doctor-computer.png`,
+  hero: "/assets/smoke-coming-up.jpg",
   logoWhite: `${ASSET_BASE}logo.svg`,
   logoDark: `${ASSET_BASE}logo-dark.svg`,
   teamBlur: `${ASSET_BASE}blur-doctor.png`,
