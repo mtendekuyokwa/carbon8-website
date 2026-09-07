@@ -1,5 +1,6 @@
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 import { Eyebrow } from "~/components/eyebrow";
+import { ResponsivePicture } from "~/components/responsive-picture";
 
 export function ContactHero() {
   return (
@@ -7,7 +8,7 @@ export function ContactHero() {
       className="relative overflow-hidden bg-bark px-8 pt-32 pb-16 text-cream md:px-12"
       aria-labelledby="contact-heading"
     >
-      <img
+      <ResponsivePicture
         src="/assets/collaboration-1920.jpg"
         srcSet="/assets/collaboration-960.jpg 960w, /assets/collaboration-1920.jpg 1920w"
         sizes="100vw"
@@ -39,17 +40,17 @@ export function ContactHero() {
           idea to your community? Pick a path below and send us a note — we
           read every message.
         </AnimatedText>
-        <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-lg text-cream/70">
+        <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-lg text-cream/80">
           <div>
-            <dt className="text-base tracking-[0.2em] uppercase opacity-60">
-              Where
-            </dt>
+              <dt className="text-base tracking-[0.2em] uppercase opacity-80">
+                Where
+              </dt>
             <dd>Malawi-based social enterprise</dd>
           </div>
           <div>
-            <dt className="text-base tracking-[0.2em] uppercase opacity-60">
-              Email
-            </dt>
+              <dt className="text-base tracking-[0.2em] uppercase opacity-80">
+                Email
+              </dt>
             <dd>Contact form for now — email coming soon</dd>
           </div>
         </dl>

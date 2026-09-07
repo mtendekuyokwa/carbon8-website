@@ -1,8 +1,8 @@
 import { Suspense, lazy } from "react";
 import { data, Link } from "react-router";
 import { listPosts } from "~/lib/blog.server";
-import { TagChip } from "~/components/tag-chip";
-import { Eyebrow } from "~/components/eyebrow";
+import { ResponsivePicture } from "~/components/responsive-picture";
+import { TagChip } from "~/components/tag-chip";import { Eyebrow } from "~/components/eyebrow";
 import { coverFor } from "~/features/blog/components/blog-card";
 import type { Route } from "./+types/blog.$slug";
 
@@ -40,21 +40,29 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-// Known co-founder photos — used when a post has no explicit authorImage.
+// Small co-founder thumbs — the 48px avatar never needs the full photo.
 const AUTHOR_PHOTOS: Record<string, string> = {
-  Patrick: "/assets/patrick.jpg",
-  Tawina: "/assets/tawina.jpg",
+  Patrick: "/assets/patrick-128.jpg",
+  Tawina: "/assets/tawina-128.jpg",
 };
 
+// Frontmatter may point at the full-size photo — swap to the 128px twin.
+function thumbFor(src: string): string {
+  const thumb = src.replace(/\.jpe?g$/i, "-128.jpg");
+  return thumb === src ? src : thumb;
+}
+
 function AuthorAvatar({ author, image }: { author: string; image?: string }) {
-  const src = image ?? AUTHOR_PHOTOS[author];
+  const src = image ? thumbFor(image) : AUTHOR_PHOTOS[author];
   if (src) {
     return (
-      <img
+      <ResponsivePicture
         src={src}
         alt={`Photo of ${author}`}
         loading="lazy"
         decoding="async"
+        width={128}
+        height={128}
         className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-white/25"
       />
     );
@@ -106,8 +114,9 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
     <main className="bg-cream text-bark">
       {/* Blurred editorial hero — blur hides low-res source */}
       <section className="relative isolate overflow-hidden bg-bark">
-        <img
+        <ResponsivePicture
           src={cover}
+          sizes="100vw"
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-[1.1]"
@@ -167,7 +176,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
 
         <hr className="my-12 border-sand" />
 
-        <p className="text-lg text-bark/70">
+        <p className="text-lg text-bark/80">
           Written by <strong className="text-bark">{author}</strong>,{" "}
           {authorRole}.
         </p>
@@ -177,7 +186,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           className="mt-10 flex items-center justify-between gap-4 text-base font-semibold"
         >
           {prev ? (
-            <Link to={`/blog/${prev.slug}`} className="text-ember hover:underline">
+              <Link to={`/blog/${prev.slug}`} className="text-ember-deep hover:underline">
               ← {prev.title}
             </Link>
           ) : (
@@ -186,7 +195,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           {next ? (
             <Link
               to={`/blog/${next.slug}`}
-              className="ml-auto text-right text-ember hover:underline"
+                className="ml-auto text-right text-ember-deep hover:underline"
             >
               {next.title} →
             </Link>

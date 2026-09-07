@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 import { DualCTA } from "~/components/dual-cta";
+import { ResponsivePicture } from "~/components/responsive-picture";
 
 const HERO_SLIDES = [
   {
@@ -40,7 +41,7 @@ export function HeroSection() {
   return (
     <section className="relative h-screen min-h-[780px] w-full overflow-hidden">
       {HERO_SLIDES.map((slide, i) => (
-        <img
+        <ResponsivePicture
           key={slide.src}
           src={slide.src}
           srcSet={slide.srcSet}

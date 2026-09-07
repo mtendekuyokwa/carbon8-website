@@ -64,7 +64,7 @@ export function SiteHeader() {
         ))}
         <Link
           to="/contact"
-          className="ml-2 flex items-center gap-2 rounded-full bg-ember px-5 py-2.5 text-xl font-medium text-white transition hover:bg-ember/90"
+          className="ml-2 flex items-center gap-2 rounded-full bg-ember-deep px-5 py-2.5 text-xl font-medium text-white transition hover:bg-ember-deep/90"
         >
           <HeartHandshake className="h-4 w-4" />
           Donate

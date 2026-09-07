@@ -1,5 +1,6 @@
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 import { Eyebrow } from "~/components/eyebrow";
+import { ResponsivePicture } from "~/components/responsive-picture";
 
 export function StorySection() {
   return (
@@ -50,7 +51,7 @@ export function StorySection() {
         </div>
         <figure className="lg:sticky lg:top-28">
           <div className="overflow-hidden rounded-none shadow-none">
-            <img
+            <ResponsivePicture
               src="/assets/arial-photograph-1920.jpg"
               srcSet="/assets/arial-photograph-960.jpg 960w, /assets/arial-photograph-1920.jpg 1920w"
               sizes="(min-width: 1024px) 40vw, 100vw"

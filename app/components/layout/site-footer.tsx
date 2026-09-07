@@ -48,7 +48,7 @@ export function SiteFooter() {
             <label htmlFor="footer-newsletter-email" className="sr-only">
               Email address
             </label>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:rounded-full sm:bg-white/10 sm:p-2 sm:pl-5 sm:focus-within:ring-2 sm:focus-within:ring-ember">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3 sm:rounded-full sm:bg-white/10 sm:p-2 sm:pl-5 sm:focus-within:ring-2 sm:focus-within:ring-ember">
               <div className="flex flex-1 items-center gap-2 rounded-full bg-white/10 px-5 py-3 sm:bg-transparent sm:px-0 sm:py-0">
                 <Mail className="h-4 w-4 shrink-0 opacity-60" aria-hidden="true" />
                 <input
@@ -63,7 +63,7 @@ export function SiteFooter() {
               </div>
               <button
                 type="submit"
-                className="flex shrink-0 items-center justify-center gap-3 rounded-full bg-ember py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember/90"
+                className="flex shrink-0 items-center justify-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"
               >
                 Subscribe
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
@@ -71,7 +71,7 @@ export function SiteFooter() {
                 </span>
               </button>
             </div>
-            <p className="mt-2 text-base opacity-60 sm:pl-5">
+            <p className="mt-2 text-base opacity-80 sm:pl-5">
               No spam, unsubscribe anytime. Signup opens soon.
             </p>
           </form>
@@ -93,7 +93,7 @@ export function SiteFooter() {
                 key={label}
                 to={href}
                 aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 opacity-80 transition hover:opacity-100"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 opacity-80 transition hover:opacity-100 sm:h-9 sm:w-9"
               >
                 <Icon className="h-4 w-4" />
               </Link>
@@ -104,10 +104,10 @@ export function SiteFooter() {
           <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
             Explore
           </h2>
-          <ul className="mt-4 space-y-2 text-lg">
+          <ul className="mt-4 space-y-3 text-lg sm:space-y-2">
             {EXPLORE_LINKS.map((link) => (
               <li key={link.label}>
-                <Link to={link.href} className="opacity-80 hover:opacity-100">
+                <Link to={link.href} className="inline-block py-1 opacity-80 hover:opacity-100 sm:py-0">
                   {link.label}
                 </Link>
               </li>
@@ -118,10 +118,10 @@ export function SiteFooter() {
           <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
             Get involved
           </h2>
-          <ul className="mt-4 space-y-2 text-lg">
+          <ul className="mt-4 space-y-3 text-lg sm:space-y-2">
             {GET_INVOLVED_LINKS.map((link) => (
               <li key={link.label}>
-                <Link to={link.href} className="opacity-80 hover:opacity-100">
+                <Link to={link.href} className="inline-block py-1 opacity-80 hover:opacity-100 sm:py-0">
                   {link.label}
                 </Link>
               </li>
@@ -135,7 +135,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-lg opacity-80">
             <li>Malawi-based social enterprise</li>
             <li>
-                <Link to="/contact" className="hover:opacity-100">
+                <Link to="/contact" className="inline-block py-1 hover:opacity-100 sm:py-0">
                   Contact form (email coming soon)
                 </Link>
             </li>

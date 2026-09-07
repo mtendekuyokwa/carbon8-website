@@ -10,7 +10,7 @@ export type EyebrowProps = {
 const TONES = {
   muted: "text-muted-foreground",
   light: "text-white",
-  "faint-light": "text-white/60",
+  "faint-light": "text-white/75",
 } as const;
 
 export function Eyebrow({

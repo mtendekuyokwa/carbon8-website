@@ -40,7 +40,7 @@ export function CTASection({
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <SmartLink
           to={primaryHref}
-          className="inline-flex h-13 min-w-40 items-center justify-center rounded-xl bg-ember px-6 text-base font-medium text-white"
+          className="inline-flex h-13 min-w-40 items-center justify-center rounded-xl bg-ember-deep px-6 text-base font-medium text-white"
         >
           {primaryLabel}
         </SmartLink>

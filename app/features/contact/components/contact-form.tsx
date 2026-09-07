@@ -189,7 +189,7 @@ export function ContactSection() {
             </div>
             <button
               type="submit"
-              className="flex items-center justify-center gap-3 rounded-full bg-ember py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember/90"
+              className="flex items-center justify-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"
             >
               Send message
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">

@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { ResponsivePicture } from "~/components/responsive-picture";
 import { TagChip } from "~/components/tag-chip";
 import type { BlogPostMeta } from "~/lib/blog.server";
 
@@ -38,11 +39,11 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
       <Link
         to={`/blog/${post.slug}`}
         className="relative block min-h-[220px] overflow-hidden md:min-h-full"
-        aria-label={`Read ${post.title}`}
         tabIndex={-1}
       >
-        <img
+        <ResponsivePicture
           src={cover}
+          sizes="(min-width: 768px) 480px, 100vw"
           alt=""
           loading="lazy"
           decoding="async"
@@ -56,7 +57,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
         ) : null}
       </Link>
       <div className="flex flex-1 flex-col p-6 md:p-8">
-        <p className="text-xs font-semibold tracking-[0.14em] text-ember uppercase">
+        <p className="text-xs font-semibold tracking-[0.14em] text-ember-deep uppercase">
           {post.date}
           {post.status ? ` · ${post.status.replace("_", " ")}` : ""}
         </p>
@@ -77,8 +78,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
         ) : null}
         <Link
           to={`/blog/${post.slug}`}
-          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold tracking-wide text-ember uppercase"
-          aria-label={`Read ${post.title}`}
+          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold tracking-wide text-ember-deep uppercase"
         >
           Read note
           <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">

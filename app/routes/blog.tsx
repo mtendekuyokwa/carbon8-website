@@ -39,7 +39,7 @@ export default function Blog({
           className="pointer-events-none absolute top-40 -left-24 h-80 w-80 rounded-full bg-growth/15 blur-3xl"
         />
         <div className="relative mx-auto max-w-6xl">
-          <nav aria-label="Breadcrumb" className="text-sm text-bark/60">
+          <nav aria-label="Breadcrumb" className="text-sm text-bark/80">
             <Link to="/" className="transition-colors hover:text-ember">
               Home
             </Link>
@@ -60,13 +60,13 @@ export default function Blog({
           </AnimatedHeading>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
             <AnimatedText
-              className="max-w-xl text-base leading-relaxed text-bark/70"
+              className="max-w-xl text-base leading-relaxed text-bark/80"
               delay={0.1}
             >
               Honest, in-progress learning notes — no invented impact numbers,
               community voices first.
             </AnimatedText>
-            <p className="text-sm font-medium text-bark/60">
+            <p className="text-sm font-medium text-bark/80">
               {posts.length} {posts.length === 1 ? "note" : "notes"} · updated as we learn
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function Blog({
             <BlogCard key={post.slug} post={post} index={i} />
           ))}
           {posts.length === 0 ? (
-            <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/60">
+              <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/80">
               First notes are on their way — check back soon.
             </p>
           ) : null}

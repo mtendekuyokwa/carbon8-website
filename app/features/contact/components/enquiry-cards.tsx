@@ -63,7 +63,7 @@ export function EnquiryCards({
             <span
               className={cn(
                 "flex h-10 w-10 items-center justify-center rounded-full",
-                selected ? "bg-ember text-white" : "bg-bark text-cream",
+                selected ? "bg-ember-deep text-white" : "bg-bark text-cream",
               )}
             >
               <Icon className="h-5 w-5" aria-hidden="true" />

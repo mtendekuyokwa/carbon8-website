@@ -4,6 +4,7 @@
 @import "@fontsource-variable/roboto";
 @import "@fontsource-variable/raleway";
 @import "@fontsource-variable/quicksand";
+@import "@fontsource/poppins/600.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -97,6 +98,7 @@ body {
   --font-heading: 'Quicksand Variable', 'Quicksand', ui-sans-serif, system-ui, sans-serif;
   --font-brand: 'Poppins', ui-sans-serif, system-ui, sans-serif;
   --color-ember: #c46a2e;
+  --color-ember-deep: #9a4c1e;
   --color-growth: #6e7f3c;
   --color-deep: #4f5a2a;
   --color-cream: #f4f1ec;
@@ -207,7 +209,7 @@ body {
   }
   .blog-article a {
     font-weight: 500;
-    color: var(--color-ember);
+    color: var(--color-ember-deep);
     text-underline-offset: 4px;
   }
   .blog-article a:hover {

@@ -1,3 +1,4 @@
+import { ResponsivePicture } from "~/components/responsive-picture";
 import { cn } from "~/lib/utils";
 
 type BrandLogoProps = {
@@ -29,10 +30,12 @@ export function BrandLogo({
       >
         carbon
       </span>
-      <img
+      <ResponsivePicture
         src="/assets/8-in-carbon-8.png"
         alt=""
         aria-hidden="true"
+        width={417}
+        height={695}
         className={cn(
           "h-10 w-auto",
           variant === "light" && "brightness-0 invert",
