@@ -1,7 +1,6 @@
-import { AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide-react";
+import { ArrowUpRight, AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide-react";
 
 import { BrandLogo } from "~/components/brand-logo";
-import { DualCTA } from "~/components/dual-cta";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
@@ -34,20 +33,49 @@ export function SiteFooter() {
   return (
     <footer className="bg-bark text-cream">
       <div className="mx-auto max-w-6xl px-6 pt-12">
-        <div className="flex flex-col items-start justify-between gap-6 bg-white/5 p-6 sm:flex-row sm:items-center sm:p-8">
+        <div className="flex flex-col items-start justify-between gap-6 bg-white/5 p-6 sm:p-8 lg:flex-row lg:items-center">
           <div>
-            <h2 className="text-xl font-semibold sm:text-2xl">Join the mission</h2>
+            <h2 className="text-xl font-semibold sm:text-2xl">Subscribe to newsletter</h2>
             <p className="mt-1 max-w-md text-lg leading-6 opacity-80">
-              Interested in partnering, contributing, or bringing an early
-              project to your community? We&apos;d love to hear from you.
+              Stories from the field, early project drops, and simple ways to
+              act — once a month, no noise.
             </p>
           </div>
-          <DualCTA
-            primaryLabel="Get in touch"
-            primaryHref="/contact"
-            secondaryLabel="Contribute"
-            secondaryHref="/contact"
-          />
+          <form
+            action="/contact"
+            method="get"
+            className="w-full max-w-md"
+          >
+            <label htmlFor="footer-newsletter-email" className="sr-only">
+              Email address
+            </label>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:rounded-full sm:bg-white/10 sm:p-2 sm:pl-5 sm:focus-within:ring-2 sm:focus-within:ring-ember">
+              <div className="flex flex-1 items-center gap-2 rounded-full bg-white/10 px-5 py-3 sm:bg-transparent sm:px-0 sm:py-0">
+                <Mail className="h-4 w-4 shrink-0 opacity-60" aria-hidden="true" />
+                <input
+                  id="footer-newsletter-email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@example.org"
+                  autoComplete="email"
+                  className="w-full bg-transparent text-lg placeholder:text-cream/50 focus:outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="flex shrink-0 items-center justify-center gap-3 rounded-full bg-ember py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember/90"
+              >
+                Subscribe
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </button>
+            </div>
+            <p className="mt-2 text-base opacity-60 sm:pl-5">
+              No spam, unsubscribe anytime. Signup opens soon.
+            </p>
+          </form>
         </div>
       </div>
 
