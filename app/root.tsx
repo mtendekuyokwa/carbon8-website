@@ -32,12 +32,24 @@ function applyZoom() {
 export const links: Route.LinksFunction = () => [
   {
     rel: "icon",
+    href: "/favicon.ico",
+    sizes: "48x48",
+  },
+  {
+    rel: "icon",
     type: "image/png",
-    href: "/assets/8-in-carbon-8.png",
+    sizes: "32x32",
+    href: "/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon-16x16.png",
   },
   {
     rel: "apple-touch-icon",
-    href: "/assets/8-in-carbon-8.png",
+    href: "/apple-touch-icon.png",
   },  { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
