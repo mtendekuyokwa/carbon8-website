@@ -2,6 +2,22 @@ import { render, screen } from "@testing-library/react";
 
 import { CTASection } from "~/components/layout/cta-section";
 
+jest.mock("react-router", () => ({
+  Link: ({
+    to,
+    children,
+    ...rest
+  }: {
+    to: string;
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
 describe("CTASection", () => {
   it("renders heading, body, and primary action", () => {
     render(

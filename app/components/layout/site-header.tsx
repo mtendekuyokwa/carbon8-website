@@ -1,6 +1,6 @@
 import { HeartHandshake } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 
 import { BrandLogo } from "~/components/brand-logo";
 import { cn } from "~/lib/utils";
@@ -39,18 +39,18 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-6 right-0 left-0 z-50 flex items-center justify-between px-8">
-      <a href="/" aria-label="Carbon8 home">
+      <Link to="/" aria-label="Carbon8 home">
         <BrandLogo variant={logoVariant} />
-      </a>
+      </Link>
       <nav
         aria-label="Primary"
         className="flex items-center gap-1 rounded-full py-2 pr-2 pl-2 text-white backdrop-blur-md"
         style={{ background: "var(--header-bg)" }}
       >
         {NAV_ITEMS.map((item) => (
-          <a
+          <Link
             key={item.label}
-            href={item.href}
+            to={item.href}
             aria-current={isActive(item.href) ? "page" : undefined}
             className={cn(
               "rounded-full px-6 py-2.5 text-xl font-medium transition",
@@ -60,15 +60,15 @@ export function SiteHeader() {
             )}
           >
             {item.label}
-          </a>
+          </Link>
         ))}
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="ml-2 flex items-center gap-2 rounded-full bg-ember px-5 py-2.5 text-xl font-medium text-white transition hover:bg-ember/90"
         >
           <HeartHandshake className="h-4 w-4" />
           Donate
-        </a>
+        </Link>
       </nav>
     </header>
   );

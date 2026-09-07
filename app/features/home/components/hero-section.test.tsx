@@ -2,6 +2,22 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import { HeroSection } from "~/features/home/components/hero-section";
 
+jest.mock("react-router", () => ({
+  Link: ({
+    to,
+    children,
+    ...rest
+  }: {
+    to: string;
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
 describe("HeroSection", () => {
   it("renders mission heading with primary and secondary actions", () => {
     render(<HeroSection />);

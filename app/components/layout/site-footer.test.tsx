@@ -2,6 +2,22 @@ import { render, screen } from "@testing-library/react";
 
 import { SiteFooter } from "./site-footer";
 
+jest.mock("react-router", () => ({
+  Link: ({
+    to,
+    children,
+    ...rest
+  }: {
+    to: string;
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
 describe("SiteFooter", () => {
   it("renders newsletter band, link columns, social placeholders, and copyright", () => {
     render(<SiteFooter />);

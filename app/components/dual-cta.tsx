@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
+import { SmartLink } from "~/components/smart-link";
 import { cn } from "~/lib/utils";
 
 export type DualCTAProps = {
@@ -20,22 +21,22 @@ export function DualCTA({
 }: DualCTAProps) {
   return (
     <div className={cn("flex shrink-0 items-center gap-6", className)}>
-      <a
-        href={primaryHref}
+      <SmartLink
+        to={primaryHref}
         className="flex items-center gap-3 rounded-full bg-ember py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember/90"
       >
         {primaryLabel}
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
           <ArrowUpRight className="h-4 w-4" />
         </span>
-      </a>
-      <a
-        href={secondaryHref}
+      </SmartLink>
+      <SmartLink
+        to={secondaryHref}
         className="flex items-center gap-1 text-lg font-medium text-white"
       >
         {secondaryLabel}
         <ArrowUpRight className="h-4 w-4" />
-      </a>
+      </SmartLink>
     </div>
   );
 }

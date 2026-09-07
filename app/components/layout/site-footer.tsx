@@ -1,4 +1,5 @@
 import { ArrowUpRight, AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide-react";
+import { Link } from "react-router";
 
 import { BrandLogo } from "~/components/brand-logo";
 
@@ -88,14 +89,14 @@ export function SiteFooter() {
           </p>
           <div className="mt-5 flex gap-2">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-              <a
+              <Link
                 key={label}
-                href={href}
+                to={href}
                 aria-label={label}
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 opacity-80 transition hover:opacity-100"
               >
                 <Icon className="h-4 w-4" />
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -106,9 +107,9 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-lg">
             {EXPLORE_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className="opacity-80 hover:opacity-100">
+                <Link to={link.href} className="opacity-80 hover:opacity-100">
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -120,9 +121,9 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-lg">
             {GET_INVOLVED_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className="opacity-80 hover:opacity-100">
+                <Link to={link.href} className="opacity-80 hover:opacity-100">
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -134,9 +135,9 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-lg opacity-80">
             <li>Malawi-based social enterprise</li>
             <li>
-              <a href="/contact" className="hover:opacity-100">
-                Contact form (email coming soon)
-              </a>
+                <Link to="/contact" className="hover:opacity-100">
+                  Contact form (email coming soon)
+                </Link>
             </li>
           </ul>
         </div>

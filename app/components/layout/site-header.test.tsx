@@ -6,6 +6,19 @@ let mockPathname = "/";
 
 jest.mock("react-router", () => ({
   useLocation: () => ({ pathname: mockPathname }),
+  Link: ({
+    to,
+    children,
+    ...rest
+  }: {
+    to: string;
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  ),
 }));
 
 function renderAt(pathname: string) {

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { createElement } from "react";
+import { MemoryRouter } from "react-router";
 import { SiteFooter } from "~/components/layout/site-footer";
 import { SiteHeader } from "~/components/layout/site-header";
 import { ApproachPreview } from "~/features/home/components/approach-preview";
@@ -12,6 +13,10 @@ import { TeamSection } from "~/features/home/components/team-section";
 
 // .ts extension (repo constraint) so JSX is expressed via createElement.
 // Every story still renders the REAL production component — no copies.
+
+function withRouter(child: React.ReactNode) {
+  return createElement(MemoryRouter, null, child);
+}
 
 function padded(child: React.ReactNode) {
   return createElement(
@@ -30,8 +35,8 @@ const meta = {
 export default meta;
 type Story = StoryObj;
 
-export const Header: Story = { render: () => createElement(SiteHeader) };
-export const Hero: Story = { render: () => createElement(HeroSection) };
+export const Header: Story = { render: () => withRouter(createElement(SiteHeader)) };
+export const Hero: Story = { render: () => withRouter(createElement(HeroSection)) };
 export const Mission: Story = { render: () => createElement(MissionSection) };
 export const Manifesto: Story = {
   render: () => createElement(ManifestoSection),
@@ -46,4 +51,4 @@ export const Approach: Story = {
 export const Status: Story = {
   render: () => padded(createElement(StatusSection)),
 };
-export const Footer: Story = { render: () => createElement(SiteFooter) };
+export const Footer: Story = { render: () => withRouter(createElement(SiteFooter)) };

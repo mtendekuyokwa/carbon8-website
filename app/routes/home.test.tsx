@@ -2,6 +2,22 @@ import { render, screen } from "@testing-library/react";
 
 import Home from "~/routes/home";
 
+jest.mock("react-router", () => ({
+  Link: ({
+    to,
+    children,
+    ...rest
+  }: {
+    to: string;
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a href={to} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
 describe("Home route", () => {
   it("renders hero, approach, and team sections in order", () => {
     const { container } = render(<Home />);

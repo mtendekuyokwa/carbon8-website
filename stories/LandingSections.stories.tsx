@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { MemoryRouter } from "react-router";
 import { SiteFooter } from "~/components/layout/site-footer";
 import { SiteHeader } from "~/components/layout/site-header";
 import { BenefitsSection } from "~/features/home/components/benefits-section";
@@ -13,17 +14,19 @@ import { TeamSection } from "~/features/home/components/team-section";
 
 function LandingTemplate() {
   return (
-    <div>
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <MissionSection />
-        <ManifestoSection />
-        <BenefitsSection />
-        <TeamSection />
-      </main>
-      <SiteFooter />
-    </div>
+    <MemoryRouter>
+      <div>
+        <SiteHeader />
+        <main>
+          <HeroSection />
+          <MissionSection />
+          <ManifestoSection />
+          <BenefitsSection />
+          <TeamSection />
+        </main>
+        <SiteFooter />
+      </div>
+    </MemoryRouter>
   );
 }
 

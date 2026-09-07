@@ -1,3 +1,4 @@
+import { SmartLink } from "~/components/smart-link";
 import { cn } from "~/lib/utils";
 
 export type CTASectionProps = {
@@ -37,19 +38,19 @@ export function CTASection({
         {body}
       </p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={primaryHref}
+        <SmartLink
+          to={primaryHref}
           className="inline-flex h-13 min-w-40 items-center justify-center rounded-xl bg-ember px-6 text-base font-medium text-white"
         >
           {primaryLabel}
-        </a>
+        </SmartLink>
         {secondaryLabel && secondaryHref ? (
-          <a
-            href={secondaryHref}
+          <SmartLink
+            to={secondaryHref}
             className="inline-flex h-13 min-w-40 items-center justify-center rounded-xl border-[1.5px] border-bark bg-transparent px-6 text-base font-medium text-bark"
           >
             {secondaryLabel}
-          </a>
+          </SmartLink>
         ) : null}
       </div>
     </section>
