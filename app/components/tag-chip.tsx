@@ -13,9 +13,9 @@ export function TagChip({
     <span
       className={cn(
         "inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-wide uppercase",
-        tone === "green" && "bg-[#6E7F3C] text-white",
+        tone === "green" && "bg-growth text-white",
         tone === "sand" &&
-          "border border-[#DED7C8] bg-[#F4F1EC] px-3 py-1 font-medium normal-case text-[#4A362E]/70",
+          "border border-sand bg-cream px-3 py-1 font-medium normal-case text-bark/70",
         tone === "glass" && "bg-white/15 text-white backdrop-blur",
         className,
       )}

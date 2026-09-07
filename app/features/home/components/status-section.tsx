@@ -2,7 +2,7 @@ export function StatusSection() {
   return (
     <section
       aria-labelledby="home-status-heading"
-      className="bg-[#4F5A2A] p-6 text-white sm:p-8"
+      className="bg-deep p-6 text-white sm:p-8"
     >
       <h2
         id="home-status-heading"
@@ -15,10 +15,10 @@ export function StatusSection() {
         concepts and will share verified updates as the work progresses.
       </p>
       <ul className="mt-4 flex flex-wrap gap-2" aria-label="Project stages">
-        <li className="rounded-full bg-[#6E7F3C] px-4 py-1.5 text-sm font-medium text-white">
+        <li className="rounded-full bg-growth px-4 py-1.5 text-sm font-medium text-white">
           concept
         </li>
-        <li className="rounded-full bg-[#6E7F3C] px-4 py-1.5 text-sm font-medium text-white">
+        <li className="rounded-full bg-growth px-4 py-1.5 text-sm font-medium text-white">
           in_development
         </li>
       </ul>

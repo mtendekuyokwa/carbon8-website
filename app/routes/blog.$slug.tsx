@@ -60,7 +60,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
   const { post, prev, next, index } = loaderData;
   const cover = coverFor(post, index);
   return (
-    <main className="bg-[#F4F1EC] text-[#4A362E]">
+    <main className="bg-cream text-bark">
       {/* Cover hero */}
       <section className="relative overflow-hidden">
         <img
@@ -68,7 +68,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           alt=""
           className="h-[52vh] min-h-[380px] w-full object-cover"
         />
-        <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#4A362E]/85 via-[#4A362E]/35 to-transparent" />
+        <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 px-8 pb-10 md:px-12">
           <div className="mx-auto max-w-3xl text-white">
             <nav aria-label="Breadcrumb" className="text-sm text-white/70">
@@ -95,7 +95,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
             </div>
             <h1
               id="blog-post-heading"
-              className="mt-4 font-semibold [font-family:'Baloo_2',system-ui]"
+              className="font-heading mt-4 font-semibold"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.05 }}
             >
               {post.title}
@@ -109,23 +109,23 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
       </section>
 
       <article className="mx-auto max-w-3xl px-8 py-14 md:px-12" aria-labelledby="blog-post-heading">
-        <p className="border-l-4 border-[#C46A2E] pl-5 text-xl leading-relaxed text-[#4A362E]/85 italic">
+        <p className="border-l-4 border-ember pl-5 text-xl leading-relaxed text-bark/85 italic">
           {post.description}
         </p>
-        <div className="prose prose-lg mt-10 max-w-none prose-headings:[font-family:'Baloo_2',system-ui] prose-headings:text-[#4A362E] prose-a:text-[#C46A2E]">
+        <div className="prose prose-lg mt-10 max-w-none prose-headings:font-heading prose-headings:text-bark prose-a:text-ember">
           <ArticleBody slug={post.slug} />
         </div>
 
-        <div className="mt-14 grid gap-4 border-t border-[#DED7C8] pt-8 md:grid-cols-2">
+        <div className="mt-14 grid gap-4 border-t border-sand pt-8 md:grid-cols-2">
           {prev ? (
             <Link
               to={`/blog/${prev.slug}`}
-              className="group border border-[#DED7C8] bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="group border border-sand bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <span className="text-xs font-bold tracking-[0.18em] text-[#4A362E]/50 uppercase">
+              <span className="text-xs font-bold tracking-[0.18em] text-bark/50 uppercase">
                 ← Older
               </span>
-              <span className="mt-2 block text-lg font-semibold group-hover:text-[#C46A2E]">
+              <span className="mt-2 block text-lg font-semibold group-hover:text-ember">
                 {prev.title}
               </span>
             </Link>
@@ -135,12 +135,12 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           {next ? (
             <Link
               to={`/blog/${next.slug}`}
-              className="group border border-[#DED7C8] bg-white p-6 text-right transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="group border border-sand bg-white p-6 text-right transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <span className="text-xs font-bold tracking-[0.18em] text-[#4A362E]/50 uppercase">
+              <span className="text-xs font-bold tracking-[0.18em] text-bark/50 uppercase">
                 Newer →
               </span>
-              <span className="mt-2 block text-lg font-semibold group-hover:text-[#C46A2E]">
+              <span className="mt-2 block text-lg font-semibold group-hover:text-ember">
                 {next.title}
               </span>
             </Link>

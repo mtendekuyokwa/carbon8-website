@@ -19,7 +19,7 @@ const USES = [
 export function GeoaiSection() {
   return (
     <section
-      className="bg-[#1E2A24] px-8 py-24 text-[#F4F1EC] md:px-12"
+      className="bg-pine px-8 py-24 text-cream md:px-12"
       aria-labelledby="about-geoai-heading"
     >
       <div className="mx-auto max-w-5xl">

@@ -31,7 +31,7 @@ export const TagChips: Story = {
     <div className="flex flex-wrap gap-2">
       <TagChip label="community" tone="green" />
       <TagChip label="#meta" tone="sand" />
-      <div className="bg-[#4A362E] p-4">
+      <div className="bg-bark p-4">
         <TagChip label="community" tone="glass" />
       </div>
     </div>

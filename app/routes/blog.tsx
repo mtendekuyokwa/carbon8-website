@@ -27,30 +27,30 @@ export default function Blog({
 }) {
   const { posts } = loaderData;
   return (
-    <main className="bg-[#F4F1EC] text-[#4A362E]">
+    <main className="bg-cream text-bark">
       {/* Breadcrumb + hero */}
       <section className="relative overflow-hidden px-8 pt-32 pb-14 md:px-12">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#C46A2E]/10 blur-3xl"
+          className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-ember/10 blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute top-40 -left-24 h-80 w-80 rounded-full bg-[#6E7F3C]/15 blur-3xl"
+          className="pointer-events-none absolute top-40 -left-24 h-80 w-80 rounded-full bg-growth/15 blur-3xl"
         />
         <div className="relative mx-auto max-w-6xl">
-          <nav aria-label="Breadcrumb" className="text-sm text-[#4A362E]/60">
-            <Link to="/" className="transition-colors hover:text-[#C46A2E]">
+          <nav aria-label="Breadcrumb" className="text-sm text-bark/60">
+            <Link to="/" className="transition-colors hover:text-ember">
               Home
             </Link>
             <span aria-hidden className="mx-2">
               /
             </span>
-            <span aria-current="page" className="font-medium text-[#4A362E]">
+            <span aria-current="page" className="font-medium text-bark">
               Field Notes
             </span>
           </nav>
-          <AnimatedHeading className="mt-6 max-w-3xl [font-family:'Baloo_2',system-ui]">
+          <AnimatedHeading className="font-heading mt-6 max-w-3xl">
             <span
               id="blog-heading"
               style={{ fontSize: "clamp(2.75rem, 6vw, 4.5rem)", display: "block", lineHeight: 1.02 }}
@@ -60,13 +60,13 @@ export default function Blog({
           </AnimatedHeading>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
             <AnimatedText
-              className="max-w-xl text-lg leading-relaxed text-[#4A362E]/70"
+              className="max-w-xl text-lg leading-relaxed text-bark/70"
               delay={0.1}
             >
               Honest, in-progress learning notes — no invented impact numbers,
               community voices first.
             </AnimatedText>
-            <p className="text-sm font-medium text-[#4A362E]/60">
+            <p className="text-sm font-medium text-bark/60">
               {posts.length} {posts.length === 1 ? "note" : "notes"} · updated as we learn
             </p>
           </div>
@@ -77,8 +77,8 @@ export default function Blog({
                 role="listitem"
                 className={`rounded-full px-4 py-2 text-sm font-medium ${
                   i === 0
-                    ? "bg-[#4A362E] text-white"
-                    : "border border-[#DED7C8] bg-white text-[#4A362E]/70"
+                    ? "bg-bark text-white"
+                    : "border border-sand bg-white text-bark/70"
                 }`}
               >
                 {f}
@@ -95,7 +95,7 @@ export default function Blog({
             <BlogCard key={post.slug} post={post} index={i} />
           ))}
           {posts.length === 0 ? (
-            <p className="border border-dashed border-[#DED7C8] bg-white p-12 text-center text-[#4A362E]/60">
+            <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/60">
               First notes are on their way — check back soon.
             </p>
           ) : null}

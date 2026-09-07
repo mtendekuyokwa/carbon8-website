@@ -32,7 +32,7 @@ const SOCIAL_LINKS = [
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#4A362E] text-[#F4F1EC]">
+    <footer className="bg-bark text-cream">
       <div className="mx-auto max-w-6xl px-6 pt-12">
         <div className="flex flex-col items-start justify-between gap-6 bg-white/5 p-6 sm:flex-row sm:items-center sm:p-8">
           <div>

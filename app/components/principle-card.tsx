@@ -14,14 +14,14 @@ export function PrincipleCard({
   return (
     <article
       className={cn(
-        "border border-[#DED7C8] bg-white p-6",
+        "border border-sand bg-white p-6",
         className,
       )}
     >
-      <h3 className="font-heading text-xl font-semibold text-[#4A362E]">
+      <h3 className="font-heading text-xl font-semibold text-bark">
         {title}
       </h3>
-      <p className="mt-2 text-base leading-6 text-[#4A362E]">{description}</p>
+      <p className="mt-2 text-base leading-6 text-bark">{description}</p>
     </article>
   );
 }

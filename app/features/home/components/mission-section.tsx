@@ -25,7 +25,7 @@ const PILLARS = [
 export function MissionSection() {
   return (
     <section
-      className="bg-[#F4F1EC] px-8 py-32 text-[#4A362E] md:px-12"
+      className="bg-cream px-8 py-32 text-bark md:px-12"
       style={{ fontFamily: TT_HOVES }}
       aria-labelledby="home-mission-heading"
     >

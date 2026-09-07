@@ -4,7 +4,7 @@ import { Eyebrow } from "~/components/eyebrow";
 export function StorySection() {
   return (
     <section
-      className="bg-[#F4F1EC] px-8 pt-32 pb-20 text-[#4A362E] md:px-12"
+      className="bg-cream px-8 pt-32 pb-20 text-bark md:px-12"
       aria-labelledby="about-story-heading"
     >
       <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">

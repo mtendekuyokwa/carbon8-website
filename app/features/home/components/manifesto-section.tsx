@@ -4,7 +4,7 @@ import { Eyebrow } from "~/components/eyebrow";
 export function ManifestoSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#4F5A2A] px-8 py-28 text-white md:px-12"
+      className="relative overflow-hidden bg-deep px-8 py-28 text-white md:px-12"
       aria-labelledby="home-manifesto-heading"
     >
       <div
@@ -13,7 +13,7 @@ export function ManifestoSection() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#4F5A2A]/70 via-[#4F5A2A]/85 to-[#3d4620]/95"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/85 to-deep/95"
       />
       <div className="relative mx-auto max-w-4xl">
         <Eyebrow tone="faint-light" className="mb-8">

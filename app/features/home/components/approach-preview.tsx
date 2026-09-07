@@ -5,11 +5,11 @@ export function ApproachPreview() {
     <section aria-labelledby="home-approach-heading">
       <h2
         id="home-approach-heading"
-        className="font-heading text-3xl font-bold text-[#4A362E]"
+        className="font-heading text-3xl font-bold text-bark"
       >
         Our approach
       </h2>
-      <p className="mt-2 max-w-prose text-base leading-7 text-[#4A362E]">
+      <p className="mt-2 max-w-prose text-base leading-7 text-bark">
         We are building a community-first way of developing projects, designed
         to be open about what stage every idea is at.
       </p>

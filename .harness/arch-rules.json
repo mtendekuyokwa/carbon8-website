@@ -53,6 +53,15 @@
       "what": "Unsanctioned react-hooks eslint-disable found.",
       "why": "CONSTRAINTS.md allows only usePrevious render-time read and useIntersectionObserver thresholdKey.",
       "fix": "Remove the disable and fix the hooks violation (top-level calls, pure updaters, memoized subscribe/getSnapshot)."
+    },
+    {
+      "id": "no-hardcoded-hex-in-classnames",
+      "description": "Tailwind classes must use theme color tokens, not hardcoded hex values",
+      "check": "rg -n \"className=.*#[0-9a-fA-F]{3,8}\" app stories --glob '*.tsx' --glob '!**/*.test.*' | head -20 || true",
+      "expect": "empty",
+      "what": "Hardcoded hex color found inside a className string.",
+      "why": "Brand colors live as Tailwind theme tokens in app/app.css (bark, ember, growth, deep, cream, sand, brick, pine); hardcoding bypasses the single source of truth and breaks palette changes.",
+      "fix": "Replace bg-[#…]/text-[#…]/border-[#…] with the token class (e.g. bg-bark, text-ember, border-sand) and add a --color-* token in app/app.css if the color is genuinely new."
     }
   ]
 }
