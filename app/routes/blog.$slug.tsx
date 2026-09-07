@@ -1,8 +1,8 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { data, Link } from "react-router";
 import { listPosts } from "~/lib/blog.server";
-import { CTASection } from "~/components/layout/cta-section";
 import { TagChip } from "~/components/tag-chip";
+import { Eyebrow } from "~/components/eyebrow";
 import { coverFor } from "~/features/blog/components/blog-card";
 import type { Route } from "./+types/blog.$slug";
 
@@ -24,9 +24,48 @@ const slugs = Object.keys(articleComponents);
 function ArticleBody({ slug }: { slug: string }) {
   const Body = articleComponents[slug];
   return (
-    <Suspense fallback={<p>Loading…</p>}>
+    <Suspense fallback={<p className="text-bark/60">Loading…</p>}>
       <Body />
     </Suspense>
+  );
+}
+
+function initials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
+// Known co-founder photos — used when a post has no explicit authorImage.
+const AUTHOR_PHOTOS: Record<string, string> = {
+  Patrick: "/assets/patrick.jpg",
+  Tawina: "/assets/tawina.jpg",
+};
+
+function AuthorAvatar({ author, image }: { author: string; image?: string }) {
+  const src = image ?? AUTHOR_PHOTOS[author];
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={`Photo of ${author}`}
+        loading="lazy"
+        decoding="async"
+        className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-white/25"
+      />
+    );
+  }
+  return (
+    <span
+      aria-hidden
+      className="font-heading flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-bold text-bark"
+    >
+      {initials(author)}
+    </span>
   );
 }
 
@@ -59,75 +98,107 @@ export async function loader({ params }: Route.LoaderArgs) {
 export default function BlogPost({ loaderData }: Route.ComponentProps) {
   const { post, prev, next, index } = loaderData;
   const cover = coverFor(post, index);
+  const author = post.author ?? "Carbon8 Team";
+  const authorRole = post.authorRole ?? "Field notes";
+  const readMins = Math.max(2, Math.round(post.description.length / 180));
+
+  // The site applies a global `zoom = viewport/1728` (see root.tsx) which
+  // shrinks everything ~20% on typical laptops. Reading pages opt out so
+  // article type renders at true size; a capture-phase resize listener
+  // keeps the opt-out ahead of the global handler, and zoom is restored
+  // to a freshly computed value on unmount.
+  useEffect(() => {
+    const el = document.documentElement;
+    const prev = el.style.zoom;
+    const pin = () => {
+      el.style.zoom = "1";
+    };
+    pin();
+    window.addEventListener("resize", pin, { capture: true });
+    return () => {
+      window.removeEventListener("resize", pin, { capture: true });
+      const w = el.clientWidth;
+      el.style.zoom = prev || (w < 1728 ? String(w / 1728) : "1");
+    };
+  }, []);
+
   return (
     <main className="bg-cream text-bark">
-      {/* Cover hero */}
-      <section className="relative overflow-hidden">
+      {/* Blurred editorial hero — blur hides low-res source */}
+      <section className="relative isolate overflow-hidden bg-bark">
         <img
           src={cover}
           alt=""
-          className="h-[52vh] min-h-[380px] w-full object-cover"
+          aria-hidden
+          className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-[1.1]"
         />
-        <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/35 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 px-8 pb-10 md:px-12">
-          <div className="mx-auto max-w-3xl text-white">
-            <nav aria-label="Breadcrumb" className="text-sm text-white/70">
-              <Link to="/" className="hover:text-white">
-                Home
-              </Link>
-              <span aria-hidden className="mx-2">
-                /
-              </span>
-              <Link to="/blog" className="hover:text-white">
-                Field Notes
-              </Link>
-              <span aria-hidden className="mx-2">
-                /
-              </span>
-              <span aria-current="page" className="text-white">
-                {post.title}
-              </span>
-            </nav>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {post.tags?.map((tag) => (
-                <TagChip key={tag} label={tag} tone="glass" />
-              ))}
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-bark via-bark/45 to-bark/25"
+        />
+        <div className="relative mx-auto max-w-5xl px-6 pt-14 pb-12 md:px-10 md:pt-20 md:pb-16">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white/65 transition-colors hover:text-white"
+          >
+            <span aria-hidden>←</span> Back to Articles
+          </Link>
+
+          <Eyebrow tone="light" className="mt-8 !text-mint">
+            Field note · {post.date} · {readMins} min read
+          </Eyebrow>
+          <h1
+            id="blog-post-heading"
+            className="font-heading mt-4 font-semibold text-balance text-white"
+            style={{ fontSize: "clamp(2.1rem, 4.6vw, 3.6rem)", lineHeight: 1.06 }}
+          >
+            {post.title}
+          </h1>
+          <p className="mt-4 max-w-2xl text-xl leading-relaxed text-white/80">
+            {post.description}
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {post.tags?.map((tag) => (
+              <TagChip key={tag} label={tag} tone="glass" />
+            ))}
+          </div>
+
+          <div className="mt-8 flex items-center gap-4 border-t border-white/15 pt-6">
+            <AuthorAvatar author={author} image={post.authorImage} />
+            <div>
+              <p className="font-semibold text-white">{author}</p>
+              <p className="text-sm text-white/65">
+                {authorRole} · {post.status?.replace("_", " ") ?? "concept"}
+              </p>
             </div>
-            <h1
-              id="blog-post-heading"
-              className="font-heading mt-4 font-semibold"
-              style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.05 }}
-            >
-              {post.title}
-            </h1>
-            <p className="mt-3 text-sm tracking-wide text-white/75 uppercase">
-              {post.date} · {post.status?.replace("_", " ") ?? "concept"} ·{" "}
-              {Math.max(2, Math.round(post.description.length / 180))} min read
-            </p>
           </div>
         </div>
       </section>
 
-      <article className="mx-auto max-w-3xl px-8 py-14 md:px-12" aria-labelledby="blog-post-heading">
-        <p className="border-l-4 border-ember pl-5 text-xl leading-relaxed text-bark/85 italic">
-          {post.description}
-        </p>
-        <div className="prose prose-lg mt-10 max-w-none prose-headings:font-heading prose-headings:text-bark prose-a:text-ember">
+      {/* Open reading surface — no card, airy editorial type */}
+      <article
+        className="mx-auto w-full max-w-5xl px-6 pt-12 pb-20 md:px-10 md:pt-16"
+        aria-labelledby="blog-post-heading"
+      >
+        <div className="prose max-w-none prose-headings:font-heading prose-headings:font-semibold prose-headings:text-bark prose-headings:text-balance prose-h2:mt-16 prose-h2:text-[2.5rem] prose-h2:leading-[1.2] prose-h3:mt-12 prose-h3:text-[2rem] prose-p:mt-8 prose-p:text-[1.5rem] prose-p:leading-[1.85] prose-p:font-normal prose-p:text-bark/90 prose-a:font-medium prose-a:text-ember prose-a:underline-offset-4 hover:prose-a:text-bark prose-blockquote:my-12 prose-blockquote:border-ember prose-blockquote:border-l-4 prose-blockquote:pl-8 prose-blockquote:text-[1.6rem] prose-blockquote:leading-[1.8] prose-li:mt-4 prose-li:text-[1.45rem] prose-li:leading-[1.85] prose-li:text-bark/90 prose-hr:my-14 prose-hr:border-sand prose-ul:mt-8 prose-ol:mt-8">
           <ArticleBody slug={post.slug} />
         </div>
 
-        <div className="mt-14 grid gap-4 border-t border-sand pt-8 md:grid-cols-2">
+        <hr className="my-12 border-sand" />
+
+        <p className="text-lg text-bark/70">
+          Written by <strong className="text-bark">{author}</strong>,{" "}
+          {authorRole}.
+        </p>
+
+        <nav
+          aria-label="More articles"
+          className="mt-10 flex items-center justify-between gap-4 text-base font-semibold"
+        >
           {prev ? (
-            <Link
-              to={`/blog/${prev.slug}`}
-              className="group border border-sand bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <span className="text-xs font-bold tracking-[0.18em] text-bark/50 uppercase">
-                ← Older
-              </span>
-              <span className="mt-2 block text-lg font-semibold group-hover:text-ember">
-                {prev.title}
-              </span>
+            <Link to={`/blog/${prev.slug}`} className="text-ember hover:underline">
+              ← {prev.title}
             </Link>
           ) : (
             <span />
@@ -135,25 +206,12 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           {next ? (
             <Link
               to={`/blog/${next.slug}`}
-              className="group border border-sand bg-white p-6 text-right transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="ml-auto text-right text-ember hover:underline"
             >
-              <span className="text-xs font-bold tracking-[0.18em] text-bark/50 uppercase">
-                Newer →
-              </span>
-              <span className="mt-2 block text-lg font-semibold group-hover:text-ember">
-                {next.title}
-              </span>
+              {next.title} →
             </Link>
           ) : null}
-        </div>
-
-        <CTASection
-          className="mt-8"
-          heading="Building something with your community? Let's talk."
-          body="We are at concept stage and learning in the open. Say hello — we read everything."
-          primaryLabel="Get in touch →"
-          primaryHref="mailto:openbasedigital@gmail.com"
-        />
+        </nav>
       </article>
     </main>
   );

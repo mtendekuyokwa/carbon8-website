@@ -8,6 +8,9 @@ export interface BlogFrontmatter {
   date: string;
   tags?: string[];
   status?: "concept" | "in_development";
+  author?: string;
+  authorRole?: string;
+  authorImage?: string;
 }
 
 export interface BlogPostMeta extends BlogFrontmatter {
