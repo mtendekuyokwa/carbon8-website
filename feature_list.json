@@ -177,8 +177,8 @@
     "id": "F07-contact",
     "behavior": "Contact page renders form (name/email/role/message) with validation states",
     "verification": "make verify-feature F=F07-contact",
-    "state": "not_started",
-    "evidence": "",
+    "state": "passing",
+    "evidence": "verified 2026-09-07, layers 4/4 pass",
     "layers": [
       {
         "label": "L1 lint",
