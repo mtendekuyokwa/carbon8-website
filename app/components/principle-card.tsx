@@ -14,7 +14,7 @@ export function PrincipleCard({
   return (
     <article
       className={cn(
-        "rounded-2xl border border-[#DED7C8] bg-white p-6",
+        "border border-[#DED7C8] bg-white p-6",
         className,
       )}
     >

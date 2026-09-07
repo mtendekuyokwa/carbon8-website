@@ -23,7 +23,7 @@ export function CTASection({
     <section
       aria-labelledby="cta-heading"
       className={cn(
-        "rounded-2xl border border-[#DED7C8] bg-white p-6 sm:p-8",
+        "border border-[#DED7C8] bg-white p-6 sm:p-8",
         className,
       )}
     >

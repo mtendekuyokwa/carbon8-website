@@ -2,7 +2,7 @@ export function StatusSection() {
   return (
     <section
       aria-labelledby="home-status-heading"
-      className="rounded-2xl bg-[#4F5A2A] p-6 text-white sm:p-8"
+      className="bg-[#4F5A2A] p-6 text-white sm:p-8"
     >
       <h2
         id="home-status-heading"

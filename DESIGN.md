@@ -109,7 +109,7 @@ components:
   card:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.on-surface}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.none}"
     padding: "24px"
     border: "1px solid {colors.border}"
   input:
@@ -162,7 +162,7 @@ Depth stays gentle and tonal. Cards separate from the page through a warm border
 
 ## Shapes
 
-Corners are rounded throughout — this is one of the ways the brand signals approachability rather than corporate polish. Cards use a generous `16px` radius, buttons and inputs use a friendlier `12px` and `8px` respectively, and chips use full rounding for tags and status labels. This should stay short of novelty: rounded, not bubbly, and never mixed with sharp, square edges elsewhere on the same page.
+Cards and panels are flat — sharp `0px` corners with a `1px` warm-tan border for structure. Only buttons, inputs, and chips keep rounded corners (buttons `12px`, inputs `8px`, chips fully round). Never add rounding to a card surface.
 
 ## Components
 
@@ -176,7 +176,7 @@ Corners are rounded throughout — this is one of the ways the brand signals app
 
 **Cards**
 
-- Cards are light, bordered surfaces: `1px` warm-tan border, `16px` rounding, `24px` padding.
+- Cards are flat, sharp-edged surfaces: `1px` warm-tan border, `0px` radius, `24px` padding.
 - Use cards for the principle/approach blocks, project category placeholders, and team member slots — each should be built to hold a photo, heading, and short copy so it's ready for real content later.
 - Keep card copy concise; these are entry points into a topic, not the full explanation.
 
@@ -203,5 +203,5 @@ Corners are rounded throughout — this is one of the ways the brand signals app
 - Do use honest, forward-looking language in placeholder sections instead of invented numbers or testimonials.
 - Don't introduce shadows, gradients, or glossy effects — depth comes from borders and tonal surface shifts only.
 - Don't let Ember Orange dominate; it's an accent for action and emphasis, not a background color.
-- Don't mix sharp, square corners into a system built around rounded, approachable shapes.
+- Don't mix rounded corners into cards or panels — flat surfaces only; rounding lives on buttons, inputs, and chips.
 - Don't crowd sections with too many competing calls to action — one clear primary CTA per section.
