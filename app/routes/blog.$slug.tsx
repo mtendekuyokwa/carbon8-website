@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { data, Link } from "react-router";
+import { Eyebrow } from "~/components/eyebrow";
 import { listPosts } from "~/lib/blog.server";
 import type { Route } from "./+types/blog.$slug";
 
@@ -52,17 +53,30 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function BlogPost({ loaderData }: Route.ComponentProps) {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
-      <Link to="/blog" className="text-sm underline">
-        ← All posts
-      </Link>
-      <h1 className="mt-4 text-3xl font-bold">{loaderData.title}</h1>
-      <p className="mt-2 text-sm opacity-70">
-        {loaderData.date} · {loaderData.status ?? "concept"}
-      </p>
-      <div className="prose mt-8 max-w-none">
-        <ArticleBody slug={loaderData.slug} />
-      </div>
+    <main className="bg-[#F4F1EC] text-[#4A362E]">
+      <article
+        className="mx-auto max-w-5xl px-8 pt-32 pb-20 md:px-12"
+        aria-labelledby="blog-post-heading"
+      >
+        <Eyebrow withRule className="mb-10">
+          <Link to="/blog" className="transition-opacity hover:opacity-70">
+            ← All notes
+          </Link>
+        </Eyebrow>
+        <h1
+          id="blog-post-heading"
+          className="max-w-4xl font-medium leading-[1.05]"
+          style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)" }}
+        >
+          {loaderData.title}
+        </h1>
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          {loaderData.date} · {loaderData.status ?? "concept"}
+        </p>
+        <div className="prose mt-12 max-w-2xl">
+          <ArticleBody slug={loaderData.slug} />
+        </div>
+      </article>
     </main>
   );
 }

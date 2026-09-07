@@ -15,6 +15,7 @@ describe("BlogCard", () => {
   it("renders title, date, and link to the article", () => {
     render(
       <BlogCard
+        index={0}
         post={{
           slug: "building-in-the-open",
           title: "Building in the open",
