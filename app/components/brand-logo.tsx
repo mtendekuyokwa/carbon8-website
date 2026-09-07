@@ -22,7 +22,7 @@ export function BrandLogo({
       <span
         aria-hidden="true"
         className={cn(
-          "font-brand text-2xl font-semibold tracking-tight",
+          "font-brand text-4xl font-semibold tracking-tight",
           variant === "light" ? "text-white" : "text-bark",
           textClassName,
         )}
@@ -34,7 +34,7 @@ export function BrandLogo({
         alt=""
         aria-hidden="true"
         className={cn(
-          "h-8 w-auto",
+          "h-10 w-auto",
           variant === "light" && "brightness-0 invert",
           markClassName,
         )}

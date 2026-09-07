@@ -40,7 +40,7 @@ export function SiteHeader() {
             key={item}
             href={NAV_HREFS[item]}
             className={cn(
-              "rounded-full px-5 py-2 text-sm transition",
+              "rounded-full px-6 py-2.5 text-xl font-medium transition",
               i === 0
                 ? "bg-white/10 font-medium"
                 : "opacity-80 hover:opacity-100",
@@ -51,7 +51,7 @@ export function SiteHeader() {
         ))}
         <button
           type="button"
-          className="ml-2 flex items-center gap-2 rounded-full px-4 py-2 text-sm hover:bg-white/10"
+          className="ml-2 flex items-center gap-2 rounded-full px-5 py-2.5 text-xl font-medium hover:bg-white/10"
         >
           <Menu className="h-4 w-4" />
           Menu

@@ -151,9 +151,12 @@ body {
   }
   html {
     scroll-behavior: smooth;
+    font-size: 112.5%;
   }
   body {
     @apply bg-background text-foreground;
+    font-size: 1.125rem;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
   html {

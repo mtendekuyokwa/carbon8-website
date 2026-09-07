@@ -15,10 +15,10 @@ export function StatusSection() {
         concepts and will share verified updates as the work progresses.
       </p>
       <ul className="mt-4 flex flex-wrap gap-2" aria-label="Project stages">
-        <li className="rounded-full bg-growth px-4 py-1.5 text-sm font-medium text-white">
+        <li className="rounded-full bg-growth px-4 py-1.5 text-lg font-medium text-white">
           concept
         </li>
-        <li className="rounded-full bg-growth px-4 py-1.5 text-sm font-medium text-white">
+        <li className="rounded-full bg-growth px-4 py-1.5 text-lg font-medium text-white">
           in_development
         </li>
       </ul>

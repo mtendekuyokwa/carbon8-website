@@ -34,7 +34,7 @@ export function MissionSection() {
           withRule
           className="mb-10"
         >
-          <span style={{ fontSize: "11.26px", fontFamily: TT_HOVES }}>
+          <span style={{ fontSize: "14px", fontFamily: TT_HOVES }}>
             Carbon8 — Our Mission
           </span>
         </Eyebrow>
@@ -73,7 +73,7 @@ export function MissionSection() {
               key={item.title}
               className="grid grid-cols-12 gap-4 border-b border-foreground/15 py-10 md:gap-8"
             >
-              <span className="col-span-2 text-sm text-muted-foreground md:col-span-1">
+              <span className="col-span-2 text-lg text-muted-foreground md:col-span-1">
                 ({item.index})
               </span>
               <AnimatedHeading
@@ -94,7 +94,7 @@ export function MissionSection() {
         </ol>
         <div
           className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 tracking-[0.2em] text-muted-foreground uppercase"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "15px" }}
         >
           <span>Malawi — Community-first</span>
           <span>In development</span>

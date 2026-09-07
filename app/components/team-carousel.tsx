@@ -52,7 +52,7 @@ export function TeamCarousel({
                 />
               </div>
               <div className="pt-6">
-                <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+                <p className="text-base tracking-[0.2em] text-muted-foreground uppercase">
                   {m.role}
                 </p>
                 <p className="mt-2 text-xl font-medium">{m.name}</p>

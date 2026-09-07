@@ -154,7 +154,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           >
             {post.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-xl leading-relaxed text-white/80">
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/80">
             {post.description}
           </p>
 
@@ -181,7 +181,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
         className="mx-auto w-full max-w-5xl px-6 pt-12 pb-20 md:px-10 md:pt-16"
         aria-labelledby="blog-post-heading"
       >
-        <div className="prose max-w-none prose-headings:font-heading prose-headings:font-semibold prose-headings:text-bark prose-headings:text-balance prose-h2:mt-16 prose-h2:text-[2.5rem] prose-h2:leading-[1.2] prose-h3:mt-12 prose-h3:text-[2rem] prose-p:mt-8 prose-p:text-[1.5rem] prose-p:leading-[1.85] prose-p:font-normal prose-p:text-bark/90 prose-a:font-medium prose-a:text-ember prose-a:underline-offset-4 hover:prose-a:text-bark prose-blockquote:my-12 prose-blockquote:border-ember prose-blockquote:border-l-4 prose-blockquote:pl-8 prose-blockquote:text-[1.6rem] prose-blockquote:leading-[1.8] prose-li:mt-4 prose-li:text-[1.45rem] prose-li:leading-[1.85] prose-li:text-bark/90 prose-hr:my-14 prose-hr:border-sand prose-ul:mt-8 prose-ol:mt-8">
+        <div className="prose max-w-none prose-headings:font-heading prose-headings:font-semibold prose-headings:text-bark prose-headings:text-balance prose-h2:mt-16 prose-h2:text-[1.875rem] prose-h2:leading-[1.2] prose-h3:mt-12 prose-h3:text-[1.5rem] prose-p:mt-8 prose-p:text-[1.125rem] prose-p:leading-[1.8] prose-p:font-normal prose-p:text-bark/90 prose-a:font-medium prose-a:text-ember prose-a:underline-offset-4 hover:prose-a:text-bark prose-blockquote:my-12 prose-blockquote:border-ember prose-blockquote:border-l-4 prose-blockquote:pl-8 prose-blockquote:text-[1.25rem] prose-blockquote:leading-[1.8] prose-li:mt-4 prose-li:text-[1.125rem] prose-li:leading-[1.8] prose-li:text-bark/90 prose-hr:my-14 prose-hr:border-sand prose-ul:mt-8 prose-ol:mt-8">
           <ArticleBody slug={post.slug} />
         </div>
 

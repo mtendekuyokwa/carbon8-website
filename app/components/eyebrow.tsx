@@ -22,7 +22,7 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "text-xs tracking-[0.2em] uppercase",
+        "text-base tracking-[0.2em] uppercase",
         TONES[tone],
         withRule && "flex items-center gap-6",
         className,

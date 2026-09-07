@@ -57,7 +57,7 @@ export function StorySection() {
               loading="eager"
             />
           </div>
-          <figcaption className="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
+          <figcaption className="mt-4 flex items-center gap-3 text-lg text-muted-foreground">
             <span
               aria-hidden="true"
               className="inline-block h-px w-10 bg-current opacity-40"

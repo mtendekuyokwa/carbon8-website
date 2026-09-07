@@ -37,7 +37,7 @@ export function SiteFooter() {
         <div className="flex flex-col items-start justify-between gap-6 bg-white/5 p-6 sm:flex-row sm:items-center sm:p-8">
           <div>
             <h2 className="text-xl font-semibold sm:text-2xl">Join the mission</h2>
-            <p className="mt-1 max-w-md text-sm leading-6 opacity-80">
+            <p className="mt-1 max-w-md text-lg leading-6 opacity-80">
               Interested in partnering, contributing, or bringing an early
               project to your community? We&apos;d love to hear from you.
             </p>
@@ -54,10 +54,10 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <BrandLogo variant="light" />
-          <p className="mt-4 max-w-xs text-sm leading-6 opacity-80">
+          <p className="mt-4 max-w-xs text-lg leading-6 opacity-80">
             Community-first climate organisation.
           </p>
-          <p className="mt-3 inline-block rounded-full border border-white/20 px-3 py-1 text-xs opacity-80">
+          <p className="mt-3 inline-block rounded-full border border-white/20 px-3 py-1 text-base opacity-80">
             Concept — in development
           </p>
           <div className="mt-5 flex gap-2">
@@ -74,10 +74,10 @@ export function SiteFooter() {
           </div>
         </div>
         <nav aria-label="Footer">
-          <h2 className="text-sm font-semibold tracking-wide uppercase opacity-70">
+          <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
             Explore
           </h2>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-4 space-y-2 text-lg">
             {EXPLORE_LINKS.map((link) => (
               <li key={link.label}>
                 <a href={link.href} className="opacity-80 hover:opacity-100">
@@ -88,10 +88,10 @@ export function SiteFooter() {
           </ul>
         </nav>
         <nav aria-label="Get involved">
-          <h2 className="text-sm font-semibold tracking-wide uppercase opacity-70">
+          <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
             Get involved
           </h2>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-4 space-y-2 text-lg">
             {GET_INVOLVED_LINKS.map((link) => (
               <li key={link.label}>
                 <a href={link.href} className="opacity-80 hover:opacity-100">
@@ -102,10 +102,10 @@ export function SiteFooter() {
           </ul>
         </nav>
         <div>
-          <h2 className="text-sm font-semibold tracking-wide uppercase opacity-70">
+          <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
             Contact
           </h2>
-          <ul className="mt-4 space-y-2 text-sm opacity-80">
+          <ul className="mt-4 space-y-2 text-lg opacity-80">
             <li>Malawi-based social enterprise</li>
             <li>
               <a href="/contact" className="hover:opacity-100">
@@ -116,7 +116,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/15">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-5 text-xs opacity-70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-5 text-base opacity-70 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Carbon8. All rights reserved.</p>
           <p>Community-first climate action.</p>
         </div>

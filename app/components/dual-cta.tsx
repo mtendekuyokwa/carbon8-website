@@ -22,7 +22,7 @@ export function DualCTA({
     <div className={cn("flex shrink-0 items-center gap-6", className)}>
       <a
         href={primaryHref}
-        className="flex items-center gap-3 rounded-full bg-ember py-2 pr-2 pl-6 text-sm font-medium text-white transition hover:bg-ember/90"
+        className="flex items-center gap-3 rounded-full bg-ember py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember/90"
       >
         {primaryLabel}
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
@@ -31,7 +31,7 @@ export function DualCTA({
       </a>
       <a
         href={secondaryHref}
-        className="flex items-center gap-1 text-sm font-medium text-white"
+        className="flex items-center gap-1 text-lg font-medium text-white"
       >
         {secondaryLabel}
         <ArrowUpRight className="h-4 w-4" />

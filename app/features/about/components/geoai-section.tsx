@@ -65,7 +65,7 @@ export function GeoaiSection() {
             </article>
           ))}
         </div>
-        <p className="mt-10 max-w-2xl text-sm leading-relaxed text-white/60">
+        <p className="mt-10 max-w-2xl text-lg leading-relaxed text-white/60">
           Our methods are in development and shared openly as they take shape —
           including limits and uncertainties. Nothing here is presented as
           finished or verified.

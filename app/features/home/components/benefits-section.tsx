@@ -24,7 +24,7 @@ const ITEMS = [
 ] as const;
 
 function CardNumber({ n }: { n: string }) {
-  return <span className="mt-2 text-xs text-muted-foreground">({n})</span>;
+  return <span className="mt-2 text-base text-muted-foreground">({n})</span>;
 }
 
 export function BenefitsSection() {
@@ -87,7 +87,7 @@ export function BenefitsSection() {
                 </AnimatedHeading>
               </div>
               <AnimatedText
-                className="max-w-sm text-sm leading-relaxed text-muted-foreground"
+                className="max-w-sm text-lg leading-relaxed text-muted-foreground"
                 delay={0.2 + i * 0.1}
               >
                 {item.desc}

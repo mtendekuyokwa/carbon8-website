@@ -60,7 +60,7 @@ export default function Blog({
           </AnimatedHeading>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
             <AnimatedText
-              className="max-w-xl text-lg leading-relaxed text-bark/70"
+              className="max-w-xl text-base leading-relaxed text-bark/70"
               delay={0.1}
             >
               Honest, in-progress learning notes — no invented impact numbers,

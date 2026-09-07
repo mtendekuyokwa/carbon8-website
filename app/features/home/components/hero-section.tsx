@@ -83,7 +83,7 @@ export function HeroSection() {
               <AnimatedText className="max-w-xl leading-relaxed text-white">
                 <span
                   style={{
-                    fontSize: "20.99px",
+                    fontSize: "23px",
                     lineHeight: "28.21px",
                     display: "block",
                     width: "608px",
@@ -107,7 +107,7 @@ export function HeroSection() {
         </div>
         <div
           className="mt-12 flex items-center justify-between border-t border-white/20 tracking-[0.2em] text-white uppercase"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "15px" }}
         >
           <span>Community-First Climate Action</span>
           <span className="flex items-center gap-6">
