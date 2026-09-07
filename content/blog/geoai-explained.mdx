@@ -1,0 +1,100 @@
+---
+title: "GeoAI, explained: maps that help communities plan"
+description: "What GeoAI actually means — combining satellite imagery and local knowledge so communities can map risks and plan ahead."
+date: "2026-09-02"
+tags: ["GeoAI", "Building in public"]
+status: "concept"
+author: "Patrick"
+authorRole: "Co-founder, GeoAI Lead"
+authorImage: "/assets/patrick.jpg"
+---
+
+GeoAI is one of those terms that sounds like it belongs in a funding proposal rather than a village meeting. Strip away the jargon and the idea is straightforward: combine what satellites see from above with what communities know from the ground, and use machine assistance to turn that combination into maps people can plan with.
+
+This note explains what GeoAI actually is, how it works in practice, where it genuinely helps community planning, and where its limits and dangers lie. We write as a concept-stage team exploring small, open prototypes — not as vendors selling certainty.
+
+## What the term means
+
+Break it into parts. "Geo" refers to geographic data: satellite imagery, elevation models, coordinates of wells, boundaries of fields, the path of a river after a flood. "AI" refers to machine learning methods that detect patterns in that data at scales humans cannot review manually — tracing tree cover change across thousands of images, for instance, or estimating which low-lying areas collect water first.
+
+Neither half is new. Maps are among humanity's oldest technologies. Statistical pattern recognition is decades old. What is new is the combination becoming cheap and accessible: openly available satellite imagery, open-source mapping tools, and models that run on ordinary computers. A small team can now do analysis that once required a government agency.
+
+That accessibility is both the opportunity and the risk. Good maps in the right hands support planning. Bad maps, confidently presented, mislead faster than ever.
+
+## How it works: the three layers
+
+A working GeoAI setup has three layers, and understanding each one clarifies what can go wrong.
+
+**Layer one is observation.** Satellites operated by space agencies capture imagery of the Earth's surface repeatedly — different wavelengths beyond visible light, different resolutions, different revisit times. Optical imagery shows what the eye would see. Infrared bands reveal vegetation vigour. Radar can see through cloud, which matters enormously in rainy seasons when optical satellites see mostly cloud. Elevation data describes how water will flow.
+
+Each source has trade-offs. Freely available imagery typically resolves features at the scale of a field rather than a single tree. Higher-resolution commercial imagery exists but costs money and carries licensing restrictions. Cloud cover, smoke, and timing gaps mean the "before and after" pair you want may not exist for the exact dates you need.
+
+**Layer two is interpretation.** Raw imagery is pixels. Interpretation turns pixels into meaning: this area is vegetated, that area is bare soil, this river channel shifted, that hillside lost cover over several seasons. Simple methods use index arithmetic — ratios of spectral bands that highlight vegetation or water. Machine learning models go further, learning from labelled examples to classify land cover, detect buildings, or trace change across time.
+
+Models are only as good as their training examples, and training examples carry geography with them. A model trained on European farmland or Californian suburbs will misread Malawian smallholder mosaics, where field boundaries are irregular, tree cover mixes with crops, and homesteads scatter across the landscape. Local labelling — people marking what is actually on the ground in imagery of their own area — is what makes models trustworthy for a place.
+
+**Layer three is use.** A classified map sitting on a hard drive changes nothing. Use means a village committee looking at a printed or projected map and recognising their area: the school, the bridge that washes out, the slope that erodes. It means discussion — "this low-lying garden floods every second year, should we shift nursery beds uphill?" — followed by decisions people own.
+
+> A map is not a decision. It is an invitation to a better conversation about a decision.
+
+That sentence should hang over every GeoAI project.
+
+## Where it genuinely helps
+
+Consider concrete planning questions that communities and small organisations actually ask.
+
+*Where should we plant?* Tree planting fails most often from poor site choice — waterlogged ground, contested land, or places where goats will browse seedlings within weeks. Overlaying simple information (seasonal wetness visible in imagery, distance from homesteads, existing cover trends) helps committees shortlist sites worth visiting on foot. The map narrows options; feet on the ground decide.
+
+*Which areas flood first?* Elevation data combined with residents' memory of past floods produces risk sketches far better than either source alone. Elders know which gardens went under in the last big flood; elevation data shows why, and suggests which neighbouring plots share the exposure. That supports practical choices about where to site grain stores, which paths need maintenance before rains, and where early-warning attention should focus.
+
+*Is tree cover actually recovering?* Restoration projects need honest monitoring. Comparing vegetation signals across seasons — while accounting for the fact that everything looks greener just after rains — gives a rough, checkable picture. Crucially, that picture must be shown to the people living there for verification. If the satellite says recovery and residents say the hillside was cleared for charcoal in June, residents are right and the analysis is wrong.
+
+*What changed after the season?* Documenting conditions before and after an intervention or an extreme event creates a shared record. That record serves communities first — evidence for their own planning and for negotiating with authorities — and only secondarily serves funders' reporting needs.
+
+## Where it fails, and how it misleads
+
+Serious treatment requires equal attention to failure modes.
+
+**Resolution lies by omission.** A map that cannot see individual trees will report "no change" while a community watches valued species disappear one by one. Presenting coarse analysis as precise monitoring is dishonest, even when unintentional.
+
+**Cloud and timing deceive.** In tropical rainy seasons, usable optical imagery may be sparse exactly when change is fastest. Comparing a dry-season image with a wet-season image and calling the difference "recovery" is a classic error. Anyone presenting change analysis must show their image dates and explain seasonal effects plainly.
+
+**Models inherit their training geography.** As noted above, models trained elsewhere misread smallholder landscapes. They confuse intercropped fields with degraded land, miss thatched structures, and misclassify agroforestry as forest or farmland depending on the season. Without local validation, model outputs are guesses wearing the costume of measurement.
+
+**Maps can dispossess.** This is the most serious risk. A map drawn in an office, showing "degraded" or "unused" land, has historically been used to justify taking land from the people living on it. Any mapping work in inhabited landscapes must therefore proceed with explicit consent, visible community participation, and community ownership of the resulting data. If a map cannot be questioned and corrected by the people it depicts, it should not be published.
+
+**Precision performs authority.** A crisp map with clean boundaries suggests the underlying knowledge is equally crisp. It rarely is. Honest GeoAI communicates uncertainty: which boundaries were walked with GPS, which were traced from imagery, which are approximate. Uncertainty is not a weakness of the product; hiding it is.
+
+## Ethics before algorithms
+
+Because of these risks, our working principles put ethics first and treat technical choices as downstream.
+
+Consent means communities understand what is being mapped, why, and who will see it — before any data collection begins. That understanding must be in the local language, with time for questions, and with a genuine option to decline or to restrict what is shared externally.
+
+Ownership means communities hold copies of data about their area and have a say in how it is used. Extractive mapping — where outsiders collect ground data, publish analyses, and never return — is a pattern with a long colonial history. We intend to invert it: the community's copy is the primary one.
+
+Transparency means methods are explainable to non-specialists. If we cannot explain in plain language how a map was made and where it might be wrong, we should not ask anyone to act on it. Open tools and open methods follow from this: proprietary black boxes have no place in community planning.
+
+Proportionality means starting with the simplest method that answers the question. Often that is a hand-drawn sketch map digitised carefully, or a printed satellite image annotated in a group discussion. Machine learning earns its place only when simpler methods genuinely cannot cope with the scale or complexity involved.
+
+## What open tooling looks like
+
+Concretely, an open GeoAI practice favours tools and habits that others can inspect and reproduce: openly licensed satellite sources, open-source GIS software, analysis scripts shared readably, and ground-truth datasets collected with and credited to community contributors.
+
+It also favours showing workings. A monitoring note should state which images were used and when they were captured, what classification rules or model were applied, how many ground points checked the result, and where disagreement remains. That level of disclosure lets a sceptical reader — a district officer, a neighbouring village, a funder — evaluate the claim rather than take it on trust.
+
+We are under no illusion that openness alone guarantees quality. But closed methods guarantee that errors cannot be caught by those most affected by them, which is worse.
+
+## What Carbon8 is actually exploring
+
+Honesty about stage matters. We are not operating a GeoAI platform. We are learning, in the open, what small and genuinely useful looks like.
+
+Our current exploration centres on simple, checkable prototypes: annotated base maps of small areas produced with community input, seasonal vegetation comparisons with explicit discussion of their limits, and documentation habits that prioritise the community's copy of everything. Each prototype is judged by one question: did the people depicted find it useful and truthful?
+
+What we are deliberately not building yet: automated crediting systems, predictive models presented as forecasts, or any pipeline whose outputs could affect land or finance decisions without human review grounded in local knowledge. Those applications demand governance and validation far beyond concept stage, and we say so plainly rather than implying readiness we do not have.
+
+## An invitation to scepticism
+
+If there is one message for readers encountering GeoAI claims — ours or anyone's — it is this: ask for the ground truth. Ask who walked the area, when, with whom. Ask to see the image dates. Ask what the map gets wrong. Serious practitioners welcome those questions. They are how maps improve, and how trust is built.
+
+The promise of GeoAI is real but modest: better shared pictures of changing land, made with the people who live on it, in service of decisions they control. Everything beyond that — every grander claim — should be treated as a hypothesis awaiting evidence, including our own.

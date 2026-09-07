@@ -30,7 +30,15 @@ function applyZoom() {
 }
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "icon",
+    type: "image/png",
+    href: "/assets/8-in-carbon-8.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    href: "/assets/8-in-carbon-8.png",
+  },  { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",

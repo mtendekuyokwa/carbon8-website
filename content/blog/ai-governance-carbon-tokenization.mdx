@@ -1,0 +1,104 @@
+---
+title: "AI governance meets carbon tokenization: why rules matter before code"
+description: "Tokenizing carbon sounds efficient — but who verifies, who benefits, and who governs the AI models behind the tokens?"
+date: "2026-09-03"
+tags: ["Climate finance", "AI governance"]
+status: "concept"
+author: "Patrick"
+authorRole: "Co-founder, GeoAI Lead"
+authorImage: "/assets/patrick.jpg"
+---
+
+Turn a restored hillside into a digital token. Let an AI model estimate how much carbon it holds. Trade the token globally to fund more restoration. That is the elevator pitch for carbon tokenization, and it is easy to see why it attracts builders: climate finance today is slow, intermediated, and often inaccessible to the communities doing the actual work.
+
+But speed is not the same as justice, and automation is not the same as trust. This note examines what carbon tokenization promises, where AI enters the picture, what can go wrong, and what governance must exist before any code touches community land. We write as observers at concept stage with no token product — which is precisely why we can ask the uncomfortable questions early.
+
+## What carbon tokenization claims to be
+
+Start with the underlying idea of a carbon credit. In its simplest form, someone takes a climate-positive action — restoring degraded land, protecting standing forest, shifting to cleaner cooking — and, after verification against some standard, receives a certificate representing the climate benefit. That certificate can be sold to fund the work.
+
+Tokenization proposes to represent such certificates as digital tokens on a shared ledger: units that can be issued, traced, split, retired, and traded with less paperwork and fewer intermediaries. Advocates argue this could lower costs, improve transparency (every transfer visible), and let smaller projects reach funders directly rather than through layers of brokers.
+
+The appeal is genuine. Anyone who has watched a community wait seasons for project funding while intermediaries absorb overheads understands why disintermediation sounds liberating. The question is whether token systems actually remove intermediaries or simply replace familiar ones with newer, less accountable ones — developers, model providers, and platforms operating at a distance from the land itself.
+
+## The MRV problem underneath everything
+
+Every carbon market rests on MRV: measurement, reporting, and verification. Someone must establish what happened on a piece of land, estimate its climate significance, and confirm the claim independently. MRV is where carbon markets succeed or fail — and where their scandals originate.
+
+Traditional MRV is expensive and slow. Sending auditors to remote sites, measuring plots by hand, and reviewing claims file by file does not scale to thousands of smallholder landscapes. That cost structure systematically excludes small, community-led efforts: the verification bill exceeds the value of the credit.
+
+This is the gap AI promises to fill. Models can analyse satellite imagery across large areas, estimate vegetation and land-use change, flag anomalies, and pre-screen claims before human review. In principle, that lowers MRV costs and opens the door to smaller projects. In practice, the quality of that automation varies enormously — and its failures concentrate on exactly the landscapes community projects occupy: small, mixed, irregular plots that models trained elsewhere misread.
+
+> Whoever controls the model controls what counts as climate action. That is a governance statement before it is a technical one.
+
+## Where AI actually enters the pipeline
+
+To govern AI in carbon systems, it helps to locate each point where models make or shape decisions.
+
+**Eligibility and baselines.** Models help estimate what would have happened without the project — the counterfactual against which benefits are measured. Baseline-setting is inherently judgemental; small assumption changes produce large credit differences. An opaque model here means opaque money.
+
+**Monitoring change.** Vegetation indices, land-cover classifiers, and disturbance detectors track what changes on enrolled land. As discussed in our GeoAI note, these methods struggle with intercropping, agroforestry, seasonal variation, and small plot sizes — precisely the features of Malawian smallholder landscapes. Errors in either direction have consequences: overestimation mints hollow credits, underestimation cheats communities of value they earned.
+
+**Fraud and anomaly detection.** Models can flag double-counting (the same land enrolled twice), impossible growth rates, or imagery inconsistencies. This is among the more defensible uses — machines screening at scale for human investigators to review — provided flags trigger investigation rather than automatic punishment.
+
+**Valuation and trading.** Algorithmic pricing and automated market-making shape who gets paid what. Opacity here reproduces familiar financial asymmetries: sophisticated actors extract spread from unsophisticated ones, and communities at the source capture the smallest share.
+
+Each entry point needs its own governance, because each fails differently and harms different people.
+
+## How token systems can harm
+
+Seriousness requires naming harms plainly, not as edge cases but as patterns observed across digitised resource systems.
+
+**Misreading landscapes.** A model that mistakes mixed smallholder farming for degradation can do two kinds of damage: it can deny credit to real stewardship, or it can certify as "restoration" something that never happened. Both destroy trust, and the second actively harms the climate by selling illusory offsets that license continued emissions elsewhere.
+
+**Dispossession by data.** Formalising land claims in digital systems without securing community tenure first risks handing leverage to whoever controls the registry. History offers ample warning: titling and mapping exercises presented as technical improvements have repeatedly enabled land grabs. A token anchored to contested land financialises the contest in favour of the better-connected party.
+
+**Benefit capture upstream.** Even when credits are real, value distribution is a design choice. Platform fees, model licensing, verification charges, and trader margins can leave land stewards with a residual fraction. Tokenization that does not publish and cap its value chain is not solving intermediation; it is obscuring it behind new interfaces.
+
+**Accountability evaporation.** When a credit fails — the trees die, the project collapses, the model was wrong — whom does the buyer, or the community, call? In decentralised token ecosystems, responsibility diffuses across developers, standard-setters, verifiers, and traders until no one is answerable. Communities cannot audit a smart contract, and buyers cannot replant a hillside from abroad.
+
+**False precision as marketing.** Tokens denominated to impressive decimal places suggest exact measurement of inherently uncertain ecological processes. That precision is performative. Honest systems express uncertainty ranges and explain them; dishonest ones hide behind digits.
+
+## What governance must cover
+
+Governance is often invoked vaguely. Concretely, for AI-mediated carbon tokens touching community land, it must cover at least the following — before any issuance.
+
+**Tenure first.** No token should reference land whose stewards lack recognised, defensible rights and documented consent. Free, prior, and informed consent is the floor, not the ceiling: communities must understand the commitment's duration, obligations, and risks, in their own language, with independent advice available.
+
+**Data rights.** Imagery-derived data about community land belongs, in the first instance, to the community. That means local copies, plain-language explanations of what was collected, rights to correct and restrict use, and shares in any value derived from the data. Consent to be mapped is not consent to be monetised indefinitely.
+
+**Model accountability.** Any model influencing crediting must be documented: what it was trained on, where it has been validated, known failure modes for landscapes like the one in question, and measured accuracy against local ground truth. Independent auditors — not just the model's developers — must be able to reproduce and challenge results. Communities need accessible channels to dispute model findings, with human review and without cost to the complainant.
+
+**Value transparency.** Fee structures, price formation, and revenue splits should be published in full and explained locally. If a credit sells internationally for one price while the stewarding community receives a small fraction, that gap must be visible and justifiable — or the system should not operate.
+
+**Durability and recourse.** Ecological outcomes unfold over years; token trades clear in seconds. Governance must bridge that mismatch: who monitors over the commitment period, who pays for replanting after failure, what happens to already-traded tokens if the underlying outcome reverses, and what remedies communities can invoke when counterparties disappear.
+
+**Proportionality.** Not every community project needs or wants tokenization. Savings groups, local seed systems, and watershed committees may deliver more resilience per unit of effort than any credit scheme. Governance includes the right to be left alone — to decline financialisation without losing access to other forms of support.
+
+## Lessons from adjacent histories
+
+None of these concerns is hypothetical. Microfinance digitisation showed how quickly inclusion narratives can produce over-indebtedness when incentives reward volume over borrower welfare. Mobile land registries showed how formalisation without tenure security favours the powerful. Early carbon markets themselves produced well-documented cases of hollow credits and community grievances.
+
+AI governance debates add a further lesson: principles published without enforcement change little. Codes of ethics, voluntary standards, and technical audits matter only when tied to consequences — loss of certification, liability for harm, exclusion from markets. A token standard whose worst penalty for misconduct is reputational will not constrain misconduct.
+
+The encouraging precedents share a shape: standard-setting that includes the governed, not just the governors. Farmer representation in agricultural certification, worker representation in labour standards, patient representation in medical governance. Whatever body oversees tokenized carbon must seat land stewards with real power, not advisory decoration.
+
+## Our position
+
+Carbon8 has no token, no credit pipeline, and no plans to launch either at concept stage. Stating that plainly is part of the governance we advocate: organisations should not imply readiness they do not have, especially where land and livelihoods are concerned.
+
+What we do commit to is sequence. Before any discussion of tokens touching Malawian communities, the following must exist: recognised community consent processes, community-held data, locally validated models with published limits, transparent value chains, and accessible dispute mechanisms. Building those preconditions is slower and less fundable than launching a token. It is also the only order of operations compatible with community-first claims.
+
+We also commit to scepticism as a service: when evaluating token or AI-crediting proposals on behalf of communities we work with, we will ask for ground truth, fee schedules, model documentation, and recourse procedures — and we will treat evasive answers as answers.
+
+## A closing test
+
+Here is a simple test for any carbon tokenization proposal involving AI and community land. Ask five questions:
+
+- Can the community explain, in their own words, what they committed to and for how long?
+- Can they see, challenge, and correct the data and model findings about their land?
+- Do they know exactly what share of value reaches them, and can they contest it?
+- If the model is wrong or the project fails, who pays, who fixes, and who answers?
+- Could they walk away — and still be supported in other ways?
+
+If the answer to any of these is no, the system is not ready, however elegant its code. Rules before tokens. Governance before models. Communities before markets. That order is non-negotiable.

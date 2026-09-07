@@ -51,10 +51,14 @@ export function StorySection() {
         <figure className="lg:sticky lg:top-28">
           <div className="overflow-hidden rounded-none shadow-none">
             <img
-              src="/assets/arial-photograph.jpg"
+              src="/assets/arial-photograph-1920.jpg"
+              srcSet="/assets/arial-photograph-960.jpg 960w, /assets/arial-photograph-1920.jpg 1920w"
+              sizes="(min-width: 1024px) 40vw, 100vw"
               alt="Aerial photograph of a highway bridge crossing dense green forest, with a river, village homes, and winding local roads"
               className="aspect-[3/4] w-full object-cover"
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
           <figcaption className="mt-4 flex items-center gap-3 text-lg text-muted-foreground">

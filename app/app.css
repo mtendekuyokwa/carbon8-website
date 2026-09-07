@@ -163,3 +163,94 @@ body {
     @apply font-sans;
   }
 }
+
+@layer components {
+  /* Blog article typography — MDX renders plain h2/h3/p/ul elements,
+     and the typography plugin is not installed, so style them explicitly. */
+  .blog-article > *:first-child {
+    margin-top: 0;
+  }
+  .blog-article h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.875rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-bark);
+    text-wrap: balance;
+    margin-top: 3.5rem;
+    margin-bottom: 0;
+  }
+  .blog-article h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--color-bark);
+    text-wrap: balance;
+    margin-top: 2.75rem;
+    margin-bottom: 0;
+  }
+  .blog-article p {
+    font-size: 1.125rem;
+    line-height: 1.85;
+    font-weight: 400;
+    color: rgb(74 54 46 / 0.9);
+    margin-top: 1.75rem;
+    margin-bottom: 0;
+  }
+  .blog-article > p:first-of-type {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-bark);
+  }
+  .blog-article a {
+    font-weight: 500;
+    color: var(--color-ember);
+    text-underline-offset: 4px;
+  }
+  .blog-article a:hover {
+    color: var(--color-bark);
+  }
+  .blog-article strong {
+    font-weight: 700;
+    color: var(--color-bark);
+  }
+  .blog-article ul,
+  .blog-article ol {
+    margin-top: 1.75rem;
+    margin-bottom: 0;
+    padding-left: 1.75rem;
+  }
+  .blog-article ul {
+    list-style-type: disc;
+  }
+  .blog-article ol {
+    list-style-type: decimal;
+  }
+  .blog-article li {
+    font-size: 1.125rem;
+    line-height: 1.85;
+    color: rgb(74 54 46 / 0.9);
+    margin-top: 0.875rem;
+  }
+  .blog-article li::marker {
+    color: var(--color-ember);
+  }
+  .blog-article blockquote {
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+    border-left: 4px solid var(--color-ember);
+    padding-left: 2rem;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: var(--color-bark);
+  }
+  .blog-article hr {
+    margin-top: 3.5rem;
+    margin-bottom: 0;
+    border-color: var(--color-sand);
+  }
+}
