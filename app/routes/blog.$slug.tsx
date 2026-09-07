@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import { data, Link } from "react-router";
 import { listPosts } from "~/lib/blog.server";
 import { TagChip } from "~/components/tag-chip";
@@ -101,26 +101,6 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
   const author = post.author ?? "Carbon8 Team";
   const authorRole = post.authorRole ?? "Field notes";
   const readMins = Math.max(2, Math.round(post.description.length / 180));
-
-  // The site applies a global `zoom = viewport/1728` (see root.tsx) which
-  // shrinks everything ~20% on typical laptops. Reading pages opt out so
-  // article type renders at true size; a capture-phase resize listener
-  // keeps the opt-out ahead of the global handler, and zoom is restored
-  // to a freshly computed value on unmount.
-  useEffect(() => {
-    const el = document.documentElement;
-    const prev = el.style.zoom;
-    const pin = () => {
-      el.style.zoom = "1";
-    };
-    pin();
-    window.addEventListener("resize", pin, { capture: true });
-    return () => {
-      window.removeEventListener("resize", pin, { capture: true });
-      const w = el.clientWidth;
-      el.style.zoom = prev || (w < 1728 ? String(w / 1728) : "1");
-    };
-  }, []);
 
   return (
     <main className="bg-cream text-bark">

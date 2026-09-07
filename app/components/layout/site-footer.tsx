@@ -5,10 +5,8 @@ import { BrandLogo } from "~/components/brand-logo";
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Communities", href: "/communities" },
-  { label: "Climate Finance", href: "/climate-finance" },
-  { label: "News", href: "/news" },
+  { label: "Field Notes", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 const GET_INVOLVED_LINKS = [
