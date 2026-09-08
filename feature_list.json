@@ -288,5 +288,34 @@
         "repair": "Fix build/SSR errors."
       }
     ]
+  },
+  {
+    "id": "F11-mobile-hero",
+    "behavior": "Mobile hero uses in-flow layout with short sub-copy, dot indicators, full-width primary CTA, and honors prefers-reduced-motion; desktop unchanged",
+    "verification": "make verify-feature F=F11-mobile-hero",
+    "state": "passing",
+    "evidence": "verified 2026-09-08, layers 4/4 pass",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors per CONSTRAINTS.md purity rules."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors; use ~/ imports."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures for hero dots/rotation."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build/SSR errors."
+      }
+    ]
   }
 ]

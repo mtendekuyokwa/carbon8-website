@@ -18,6 +18,23 @@ jest.mock("react-router", () => ({
   ),
 }));
 
+function mockMatchMedia(matches: boolean) {
+  window.matchMedia = jest.fn().mockImplementation((query: string) => ({
+    matches,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  }));
+}
+
+beforeEach(() => {
+  mockMatchMedia(false);
+});
+
 describe("HeroSection", () => {
   it("renders mission heading with primary and secondary actions", () => {
     render(<HeroSection />);
@@ -42,5 +59,34 @@ describe("HeroSection", () => {
     expect(screen.getByText("01")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
     expect(screen.getByText("02")).toBeInTheDocument();
+  });
+
+  it("renders dot indicators that jump to a slide", () => {
+    render(<HeroSection />);
+
+    const dots = screen.getByRole("group", { name: "Hero slides" });
+    expect(dots).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Show slide 3" }),
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Show slide 3" }));
+    expect(screen.getByText("03")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Show slide 3" }),
+    ).toHaveAttribute("aria-current", "true");
+  });
+
+  it("does not auto-advance when reduced motion is preferred", () => {
+    mockMatchMedia(true);
+    jest.useFakeTimers();
+    try {
+      render(<HeroSection />);
+      expect(screen.getByText("01")).toBeInTheDocument();
+      jest.advanceTimersByTime(12000);
+      expect(screen.getByText("01")).toBeInTheDocument();
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });

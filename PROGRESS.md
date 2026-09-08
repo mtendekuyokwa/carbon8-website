@@ -6,7 +6,7 @@ F09-responsive in progress (state=active): zoom-scaling hack removed from root.t
 
 ## In Progress
 
-- None — F10-ui-scale landed (verify-feature 4/4 2026-09-08, clean-check 5/5): root 75% (2/3 UI scale) + fixed-px leftovers ×2/3 across home/blog/team components.
+- None — F11-mobile-hero landed (verify-feature 4/4 2026-09-08, clean-check 5/5): in-flow mobile hero (no clipping), short mobile sub-copy, dot indicators, full-width 48px primary CTA, stronger mobile scrim, reduced-motion respect, global matchMedia test mock; desktop unchanged.
 
 ## Next Steps
 
