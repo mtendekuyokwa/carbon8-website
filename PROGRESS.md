@@ -6,7 +6,7 @@ F09-responsive in progress (state=active): zoom-scaling hack removed from root.t
 
 ## In Progress
 
-- None — F09-responsive landed (verify-feature 4/4 2026-09-08, clean-check 5/5, VCR 6/6).
+- None — F10-ui-scale landed (verify-feature 4/4 2026-09-08, clean-check 5/5): root 75% (2/3 UI scale) + fixed-px leftovers ×2/3 across home/blog/team components.
 
 ## Next Steps
 

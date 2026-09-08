@@ -39,7 +39,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-svh w-full overflow-hidden md:h-screen md:min-h-[780px]">
+    <section className="relative min-h-svh w-full overflow-hidden md:h-screen md:min-h-[520px]">
       {HERO_SLIDES.map((slide, i) => (
         <ResponsivePicture
           key={slide.src}
@@ -108,7 +108,7 @@ export function HeroSection() {
           </div>
         </div>
         <div
-          className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/20 pt-4 text-xs tracking-[0.2em] text-white uppercase sm:text-sm md:mt-12 md:text-[15px]"
+          className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/20 pt-4 text-xs tracking-[0.2em] text-white uppercase sm:text-sm md:mt-12 md:text-[10px]"
         >
           <span>Community-First Climate Action</span>
           <span className="flex items-center gap-6">

@@ -153,7 +153,9 @@ body {
   }
   html {
     scroll-behavior: smooth;
-    font-size: 112.5%;
+    /* 2/3 UI scale (F10): 75% root = 12px rem so all rem-based type,
+       spacing, and containers render at two-thirds size. */
+    font-size: 75%;
   }
   body {
     @apply bg-background text-foreground;

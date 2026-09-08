@@ -21,7 +21,7 @@ export function TeamCarousel({
   return (
     <div className="relative">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-3">
-        <div className="w-full shrink-0 lg:w-[324px]">
+        <div className="w-full shrink-0 lg:w-[216px]">
           {intro}
         </div>
         <div className="grid min-w-0 flex-1 grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-3">

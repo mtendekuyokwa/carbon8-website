@@ -38,7 +38,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
     <article className="group grid overflow-hidden border border-sand bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_color-mix(in_srgb,var(--color-bark)_35%,transparent)] md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
       <Link
         to={`/blog/${post.slug}`}
-        className="relative block min-h-[220px] overflow-hidden md:min-h-full"
+        className="relative block min-h-[147px] overflow-hidden md:min-h-full"
         tabIndex={-1}
       >
         <ResponsivePicture
@@ -66,7 +66,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
             {post.title}
           </Link>
         </h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-bark/70">
+        <p className="mt-3 text-[10px] leading-relaxed text-bark/70">
           {post.description}
         </p>
         {post.tags && post.tags.length > 1 ? (

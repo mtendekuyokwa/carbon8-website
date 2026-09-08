@@ -29,10 +29,10 @@ export function TeamSection() {
     >
       <div>
         <Eyebrow className="mb-10 flex flex-wrap gap-x-24 gap-y-2 md:mb-16">
-          <span style={{ fontSize: "14px", fontFamily: TT_HOVES }}>
+          <span style={{ fontSize: "9px", fontFamily: TT_HOVES }}>
             Carbon8
           </span>
-          <span style={{ fontSize: "14px", fontFamily: TT_HOVES }}>
+          <span style={{ fontSize: "9px", fontFamily: TT_HOVES }}>
             Who We Are
           </span>
         </Eyebrow>
@@ -57,7 +57,7 @@ export function TeamSection() {
             <AnimatedText className="leading-relaxed text-muted-foreground">
               <span
                 style={{
-                  fontSize: "19px",
+                  fontSize: "13px",
                   lineHeight: 1.5,
                   display: "block",
                   maxWidth: "100%",

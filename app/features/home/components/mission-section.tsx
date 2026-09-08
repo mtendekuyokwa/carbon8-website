@@ -34,7 +34,7 @@ export function MissionSection() {
           withRule
           className="mb-10"
         >
-          <span style={{ fontSize: "14px", fontFamily: TT_HOVES }}>
+          <span style={{ fontSize: "9px", fontFamily: TT_HOVES }}>
             Carbon8 — Our Mission
           </span>
         </Eyebrow>
@@ -94,7 +94,7 @@ export function MissionSection() {
         </ol>
         <div
           className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 tracking-[0.2em] text-muted-foreground uppercase"
-          style={{ fontSize: "15px" }}
+          style={{ fontSize: "10px" }}
         >
           <span>Malawi — Community-first</span>
           <span>In development</span>
