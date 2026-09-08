@@ -5,7 +5,7 @@ import { ResponsivePicture } from "~/components/responsive-picture";
 export function StorySection() {
   return (
     <section
-      className="bg-cream px-8 pt-32 pb-20 text-bark md:px-12"
+      className="bg-cream px-4 pt-28 pb-12 text-bark sm:px-8 sm:pt-32 sm:pb-20 md:px-12"
       aria-labelledby="about-story-heading"
     >
       <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">

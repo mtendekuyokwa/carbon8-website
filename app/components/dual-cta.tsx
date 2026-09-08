@@ -20,7 +20,7 @@ export function DualCTA({
   className,
 }: DualCTAProps) {
   return (
-    <div className={cn("flex shrink-0 items-center gap-6", className)}>
+    <div className={cn("flex shrink-0 flex-wrap items-center gap-6", className)}>
       <SmartLink
         to={primaryHref}
         className="flex items-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"

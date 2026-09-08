@@ -29,7 +29,7 @@ export default function Blog({
   return (
     <main className="bg-cream text-bark">
       {/* Breadcrumb + hero */}
-      <section className="relative overflow-hidden px-8 pt-32 pb-14 md:px-12">
+      <section className="relative overflow-hidden px-4 pt-28 pb-10 sm:px-8 sm:pt-32 sm:pb-14 md:px-12">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-ember/10 blur-3xl"
@@ -89,7 +89,7 @@ export default function Blog({
       </section>
 
       {/* All notes — horizontal cards */}
-      <section className="px-8 pb-24 md:px-12" aria-labelledby="blog-heading">
+      <section className="px-4 pb-16 sm:px-8 md:px-12 md:pb-24" aria-labelledby="blog-heading">
         <div className="mx-auto flex max-w-6xl flex-col gap-8">
           {posts.map((post, i) => (
             <BlogCard key={post.slug} post={post} index={i} />

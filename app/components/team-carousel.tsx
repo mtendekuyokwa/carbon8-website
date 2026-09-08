@@ -11,9 +11,6 @@ export type CarouselItem = {
   name: string;
 };
 
-const INTRO_WIDTH = 324;
-const GAP = 11.26;
-
 export function TeamCarousel({
   intro,
   items,
@@ -23,11 +20,11 @@ export function TeamCarousel({
 }) {
   return (
     <div className="relative">
-      <div className="flex" style={{ gap: GAP }}>
-        <div className="shrink-0" style={{ width: INTRO_WIDTH }}>
+      <div className="flex flex-col gap-8 lg:flex-row lg:gap-3">
+        <div className="w-full shrink-0 lg:w-[324px]">
           {intro}
         </div>
-        <div className="grid min-w-0 flex-1 grid-cols-2" style={{ gap: GAP }}>
+        <div className="grid min-w-0 flex-1 grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-3">
           {items.map((m, i) => (
             <div
               key={`${m.role}-${i}`}

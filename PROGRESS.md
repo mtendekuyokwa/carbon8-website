@@ -2,16 +2,17 @@
 
 ## Current State
 
-Last commit: F02-about (verify-feature 4/4) | `make check`: passing (2026-09-06) | `make check-arch`: 6/6 | `make clean-check`: 5/5 | `make e2e`: PASS (GET / 200) | F01-home: passing (re-verified 2026-09-06 via gate after Pelmatech-layout rework) | F08-hooks-contracts: passing | tests: 18 suites / 44 pass | Home reworked to Pelmatech layout (hero + team carousel + benefits) with Carbon8 copy, remote assets via qclay.design, global SiteHeader + 1728px zoom in root.tsx
+F09-responsive in progress (state=active): zoom-scaling hack removed from root.tsx, SiteHeader hamburger overlay + responsive desktop pills, footer gutters tightened, home hero/team/carousel/mission/benefits/manifesto reflow at 360px+, About/Blog/Contact containers given mobile px/py steps, hero Contribute CTA fixed /contribute → /contact (dead route), contact checkbox accent-[#c2410c] → accent-ember-deep (arch hex-token rule). L1 lint 0 errors, typecheck pass, L2 26 suites / 65 pass, L3 build pass, e2e smoke PASS (GET / 200). Pre-existing arch note: no-cross-feature-imports flags contact-form → enquiry-cards (same-feature import, in HEAD, rule false positive — structural move out of scope for F09).
 
 ## In Progress
 
-- None — F02-about landed (story + approach + GeoAI-as-support-tool + values, route /about, verify-feature 4/4 2026-09-06). Also fixed pre-existing lint/type errors in stories/Button.stories.ts (children-as-prop) + optional children in Eyebrow that blocked the gate.
+- None — F09-responsive landed (verify-feature 4/4 2026-09-08, clean-check 5/5, VCR 6/6).
 
 ## Next Steps
 
-- Activate next feature (F02-about) when ready: set `state=active`, do the work, run `make verify-feature F=F02-about`.
-- Commit in small logical units (harness scripts → docs → feature list) per atomicity rule; do NOT commit both `smoke-coming-up.jpg` copies (keep one, compress, or ignore).
+- Pick up next not_started feature (F04-communities, F05-climate-finance, or F06-news): set `state=active`, do the work, run `make verify-feature`.
+- Consider follow-up structural fix for the pre-existing arch false positive (contact-form → enquiry-cards same-feature import flagged by no-cross-feature-imports rule); needs rule refinement or moving EnquiryCards to shared — separate logical op.
+- Commit in small logical units per atomicity rule; do NOT commit stray untracked assets (`public/assets/arial-photograph.*`, `smoke-coming-up.jpg` copies).
 
 ## Blockers
 

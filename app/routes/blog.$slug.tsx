@@ -125,7 +125,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           aria-hidden
           className="absolute inset-0 bg-gradient-to-t from-bark via-bark/45 to-bark/25"
         />
-        <div className="relative mx-auto max-w-5xl px-6 pt-14 pb-12 md:px-10 md:pt-20 md:pb-16">
+        <div className="relative mx-auto max-w-5xl px-4 pt-14 pb-12 sm:px-6 md:px-10 md:pt-20 md:pb-16">
           <Link
             to="/blog"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white/65 transition-colors hover:text-white"
@@ -167,7 +167,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
 
       {/* Open reading surface — no card, airy editorial type */}
       <article
-        className="mx-auto w-full max-w-5xl px-6 pt-12 pb-20 md:px-10 md:pt-16"
+        className="mx-auto w-full max-w-5xl px-4 pt-12 pb-20 sm:px-6 md:px-10 md:pt-16"
         aria-labelledby="blog-post-heading"
       >
         <div className="blog-article max-w-none">

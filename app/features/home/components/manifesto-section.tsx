@@ -4,7 +4,7 @@ import { Eyebrow } from "~/components/eyebrow";
 export function ManifestoSection() {
   return (
     <section
-      className="relative overflow-hidden bg-deep px-8 py-28 text-white md:px-12"
+      className="relative overflow-hidden bg-deep px-4 py-16 text-white sm:px-8 sm:py-24 md:px-12 md:py-28"
       aria-labelledby="home-manifesto-heading"
     >
       <div

@@ -5,7 +5,7 @@ import { ResponsivePicture } from "~/components/responsive-picture";
 export function ContactHero() {
   return (
     <section
-      className="relative overflow-hidden bg-bark px-8 pt-32 pb-16 text-cream md:px-12"
+      className="relative overflow-hidden bg-bark px-4 pt-28 pb-12 text-cream sm:px-8 sm:pt-32 sm:pb-16 md:px-12"
       aria-labelledby="contact-heading"
     >
       <ResponsivePicture

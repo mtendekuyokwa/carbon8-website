@@ -32,7 +32,7 @@ describe("HeroSection", () => {
     ).toHaveAttribute("href", "mailto:openbasedigital@gmail.com");
     expect(screen.getByRole("link", { name: /Contribute/ })).toHaveAttribute(
       "href",
-      "/contribute",
+      "/contact",
     );
   });
 

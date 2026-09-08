@@ -230,5 +230,34 @@
         "repair": "Fix build errors."
       }
     ]
+  },
+  {
+    "id": "F09-responsive",
+    "behavior": "All live routes reflow without horizontal scroll at 360/768/1024/1440px; header uses hamburger overlay on mobile; no zoom-scaling hack",
+    "verification": "make verify-feature F=F09-responsive",
+    "state": "passing",
+    "evidence": "verified 2026-09-08, layers 4/4 pass",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors per CONSTRAINTS.md purity rules."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors; use ~/ imports."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures for responsive header/hero/carousel."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build/SSR errors."
+      }
+    ]
   }
 ]

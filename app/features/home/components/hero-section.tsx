@@ -39,7 +39,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[780px] w-full overflow-hidden">
+    <section className="relative min-h-svh w-full overflow-hidden md:h-screen md:min-h-[780px]">
       {HERO_SLIDES.map((slide, i) => (
         <ResponsivePicture
           key={slide.src}
@@ -61,8 +61,8 @@ export function HeroSection() {
         aria-hidden
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"
       />
-      <div className="absolute inset-0 flex flex-col justify-end px-8 pb-16 md:px-12">
-        <div className="flex items-end justify-between gap-8">
+      <div className="absolute inset-0 flex flex-col justify-end px-4 pb-10 sm:px-8 md:px-12 md:pb-16">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
             <AnimatedHeading
               as="h1"
@@ -70,7 +70,7 @@ export function HeroSection() {
             >
               <span
                 style={{
-                  fontSize: "72.73px",
+                  fontSize: "clamp(2.5rem, 1rem + 8vw, 4.55rem)",
                   lineHeight: 1.05,
                   display: "block",
                 }}
@@ -80,14 +80,14 @@ export function HeroSection() {
                 Led by Communities
               </span>
             </AnimatedHeading>
-            <div className="mt-8 w-max">
+            <div className="mt-6 md:mt-8">
               <AnimatedText className="max-w-xl leading-relaxed text-white">
                 <span
                   style={{
-                    fontSize: "23px",
-                    lineHeight: "28.21px",
+                    fontSize: "clamp(1.0625rem, 1rem + 1vw, 1.4375rem)",
+                    lineHeight: 1.45,
                     display: "block",
-                    width: "608px",
+                    maxWidth: "100%",
                   }}
                 >
                   Carbon8 is developing community-first climate projects and
@@ -102,13 +102,13 @@ export function HeroSection() {
               primaryLabel="Get in Touch"
               primaryHref="mailto:openbasedigital@gmail.com"
               secondaryLabel="Contribute"
-              secondaryHref="/contribute"
+              secondaryHref="/contact"
+              className="flex-col items-start sm:flex-row sm:items-center"
             />
           </div>
         </div>
         <div
-          className="mt-12 flex items-center justify-between border-t border-white/20 tracking-[0.2em] text-white uppercase"
-          style={{ fontSize: "15px" }}
+          className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/20 pt-4 text-xs tracking-[0.2em] text-white uppercase sm:text-sm md:mt-12 md:text-[15px]"
         >
           <span>Community-First Climate Action</span>
           <span className="flex items-center gap-6">
@@ -126,7 +126,9 @@ export function HeroSection() {
               Next
             </button>
           </span>
-          <span>Carbon8 Malawi</span>
+          <span className="hidden sm:inline md:ml-auto">
+            Carbon8 Malawi
+          </span>
         </div>
       </div>
     </section>

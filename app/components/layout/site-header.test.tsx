@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import { SiteHeader } from "~/components/layout/site-header";
 
@@ -49,8 +49,39 @@ describe("SiteHeader", () => {
       "href",
       "/contact",
     );
+  });
+
+  it("renders a hamburger menu button that opens the mobile overlay", () => {
+    renderAt("/");
+
+    const menuButton = screen.getByRole("button", { name: "Open menu" });
+    expect(menuButton).toHaveAttribute("aria-expanded", "false");
     expect(
-      screen.queryByRole("button", { name: "Menu" }),
+      screen.queryByRole("navigation", { name: "Mobile" }),
+    ).not.toBeInTheDocument();
+
+    fireEvent.click(menuButton);
+
+    expect(screen.getByRole("button", { name: "Close menu" })).toHaveAttribute(
+      "aria-expanded",
+      "true",
+    );
+    expect(
+      screen.getByRole("navigation", { name: "Mobile" }),
+    ).toBeInTheDocument();
+  });
+
+  it("closes the mobile overlay on Escape", () => {
+    renderAt("/");
+
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    expect(
+      screen.getByRole("navigation", { name: "Mobile" }),
+    ).toBeInTheDocument();
+
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(
+      screen.queryByRole("navigation", { name: "Mobile" }),
     ).not.toBeInTheDocument();
   });
 

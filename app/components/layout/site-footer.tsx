@@ -31,7 +31,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-bark text-cream">
-      <div className="mx-auto max-w-6xl px-6 pt-12">
+      <div className="mx-auto max-w-6xl px-4 pt-12 sm:px-6">
         <div className="flex flex-col items-start justify-between gap-6 bg-white/5 p-6 sm:p-8 lg:flex-row lg:items-center">
           <div>
             <h2 className="text-xl font-semibold sm:text-2xl">Subscribe to newsletter</h2>
@@ -78,7 +78,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         <div>
           <BrandLogo variant="light" />
           <p className="mt-4 max-w-xs text-lg leading-6 opacity-80">
@@ -143,7 +143,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/15">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-5 text-base opacity-70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-base opacity-70 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>© {year} Carbon8. All rights reserved.</p>
           <p>Community-first climate action.</p>
         </div>

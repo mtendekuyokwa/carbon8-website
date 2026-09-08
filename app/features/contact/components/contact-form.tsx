@@ -46,12 +46,12 @@ export function ContactSection() {
   if (sent) {
     return (
       <section
-        className="bg-cream px-8 py-20 text-bark md:px-12"
+        className="bg-cream px-4 py-12 text-bark sm:px-8 sm:py-20 md:px-12"
         aria-labelledby="contact-form-heading"
       >
         <div
           role="status"
-          className="mx-auto max-w-2xl rounded-3xl border border-foreground/15 bg-white p-10 text-center"
+          className="mx-auto max-w-2xl rounded-3xl border border-foreground/15 bg-white p-6 text-center sm:p-10"
         >
           <p className="text-base tracking-[0.2em] uppercase text-muted-foreground">
             Message noted
@@ -74,7 +74,7 @@ export function ContactSection() {
 
   return (
     <section
-      className="bg-cream px-8 py-20 text-bark md:px-12"
+      className="bg-cream px-4 py-12 text-bark sm:px-8 sm:py-20 md:px-12"
       aria-labelledby="contact-form-heading"
     >
       <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
@@ -176,7 +176,7 @@ export function ContactSection() {
                   checked={consent}
                   onChange={(event) => setConsent(event.target.checked)}
                   aria-describedby={errors.consent ? "contact-consent-error" : undefined}
-                  className="mt-1.5 h-5 w-5 accent-[#c2410c]"
+                  className="mt-1.5 h-5 w-5 accent-ember-deep"
                 />
                 I understand Carbon8 is in development and my note will be used
                 only to reply.
