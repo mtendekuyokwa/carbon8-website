@@ -6,7 +6,7 @@ F09-responsive in progress (state=active): zoom-scaling hack removed from root.t
 
 ## In Progress
 
-- None — F12-mobile-polish landed (verify-feature 4/4 2026-09-08, clean-check 5/5): hero Contribute hidden on mobile, flat hamburger, white logo/icon with menu open, smaller mobile logo. (Also repaired a botched feature_list.json append that had clobbered F11's header — reconstructed from HEAD + clean F12 insert, diff verified additive.)
+- None — F13-header-logo-sync landed (verify-feature 4/4 2026-09-08, clean-check 5/5): logo scroll state moved from mount-time useState to useSyncExternalStore so route changes read live position; regression tests for scroll + immediate post-nav sync.
 
 ## Next Steps
 

@@ -26,6 +26,18 @@ function renderAt(pathname: string) {
   return render(<SiteHeader />);
 }
 
+function homeLogo() {
+  return screen.getByRole("link", { name: "Carbon8 home" });
+}
+
+beforeEach(() => {
+  Object.defineProperty(window, "scrollY", {
+    value: 0,
+    configurable: true,
+    writable: true,
+  });
+});
+
 describe("SiteHeader", () => {
   it("renders brand logo and primary nav with donate button", () => {
     renderAt("/");
@@ -130,5 +142,30 @@ describe("SiteHeader", () => {
     const { container, unmount } = renderAt("/about");
     expect(container.querySelector(".text-bark")).not.toBeNull();
     unmount();
+  });
+
+  it("updates the logo while scrolling on home", () => {
+    renderAt("/");
+    expect(homeLogo().querySelector(".text-white")).not.toBeNull();
+
+    window.scrollY = 800;
+    fireEvent.scroll(window);
+    expect(homeLogo().querySelector(".text-bark")).not.toBeNull();
+  });
+
+  it("syncs the logo on route change without waiting for a scroll event", () => {
+    window.scrollY = 800;
+    const { rerender } = renderAt("/");
+    fireEvent.scroll(window);
+    expect(homeLogo().querySelector(".text-bark")).not.toBeNull();
+
+    mockPathname = "/about";
+    window.scrollY = 0;
+    rerender(<SiteHeader />);
+    expect(homeLogo().querySelector(".text-bark")).not.toBeNull();
+
+    mockPathname = "/";
+    rerender(<SiteHeader />);
+    expect(homeLogo().querySelector(".text-white")).not.toBeNull();
   });
 });

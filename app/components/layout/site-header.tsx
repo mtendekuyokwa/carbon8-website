@@ -1,5 +1,5 @@
 import { HeartHandshake, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router";
 
 import { BrandLogo } from "~/components/brand-logo";
@@ -12,26 +12,33 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+function subscribeScroll(onChange: () => void) {
+  window.addEventListener("scroll", onChange, { passive: true });
+  return () => window.removeEventListener("scroll", onChange);
+}
+
+function getScrollSnapshot() {
+  return window.scrollY > window.innerHeight - 80;
+}
+
+function getServerScrollSnapshot() {
+  return false;
+}
+
 export function SiteHeader() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
+  // Live scroll position (not mount-time state): re-read on every scroll
+  // event and on every render, so route changes pick up the current
+  // position immediately instead of serving a stale value until next scroll.
   // Scroll state only matters on home (dark hero at top). Everywhere else
   // the header sits over light content, so the dark logo is always used.
-  const [scrolledPastHero, setScrolledPastHero] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.scrollY > window.innerHeight - 80,
+  const scrolledPastHero = useSyncExternalStore(
+    subscribeScroll,
+    getScrollSnapshot,
+    getServerScrollSnapshot,
   );
-
-  useEffect(() => {
-    if (!isHome) return;
-    const onScroll = () => {
-      setScrolledPastHero(window.scrollY > window.innerHeight - 80);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
 
   // Close the mobile menu on Escape + lock body scroll while open.
   // (Route changes close via onClick on each menu link — no effect needed.)
