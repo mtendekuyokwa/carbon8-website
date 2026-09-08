@@ -70,7 +70,7 @@ export function HeroSection() {
             >
               <span
                 style={{
-                  fontSize: "clamp(2.5rem, 1rem + 8vw, 4.55rem)",
+                  fontSize: "clamp(2.5rem, 1rem + 8vw, 4.04rem)",
                   lineHeight: 1.05,
                   display: "block",
                 }}
@@ -84,7 +84,7 @@ export function HeroSection() {
               <AnimatedText className="max-w-xl leading-relaxed text-white">
                 <span
                   style={{
-                    fontSize: "clamp(1.0625rem, 1rem + 1vw, 1.4375rem)",
+                    fontSize: "clamp(1.0625rem, 1rem + 1vw, 1.28rem)",
                     lineHeight: 1.45,
                     display: "block",
                     maxWidth: "100%",

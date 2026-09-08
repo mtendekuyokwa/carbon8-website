@@ -40,7 +40,7 @@ export function TeamSection() {
           <span
             id="home-team-heading"
             style={{
-              fontSize: "clamp(2rem, 1.25rem + 5vw, 3.66rem)",
+              fontSize: "clamp(2rem, 1.25rem + 5vw, 3.25rem)",
               lineHeight: 1.05,
               display: "block",
               fontFamily: TT_HOVES,
