@@ -108,6 +108,7 @@ export function HeroSection() {
               primaryHref="mailto:openbasedigital@gmail.com"
               secondaryLabel="Contribute"
               secondaryHref="/contact"
+              hideSecondaryOnMobile
               className="flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-6 [&>a:first-child]:min-h-[48px] [&>a:first-child]:justify-center"
             />
           </div>

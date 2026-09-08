@@ -61,6 +61,15 @@ describe("HeroSection", () => {
     expect(screen.getByText("02")).toBeInTheDocument();
   });
 
+  it("hides the secondary Contribute action on mobile", () => {
+    render(<HeroSection />);
+
+    expect(screen.getByRole("link", { name: /Contribute/ })).toHaveClass(
+      "hidden",
+      "md:flex",
+    );
+  });
+
   it("renders dot indicators that jump to a slide", () => {
     render(<HeroSection />);
 

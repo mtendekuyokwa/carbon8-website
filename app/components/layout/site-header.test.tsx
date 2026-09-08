@@ -85,6 +85,27 @@ describe("SiteHeader", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("switches the logo to white while the menu is open", () => {
+    const { container } = renderAt("/about");
+
+    expect(container.querySelector(".text-bark")).not.toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    expect(
+      screen
+        .getByRole("link", { name: "Carbon8 home" })
+        .querySelector(".text-white"),
+    ).not.toBeNull();
+  });
+
+  it("renders a smaller logo on mobile", () => {
+    renderAt("/");
+
+    const logoText = screen
+      .getByRole("link", { name: "Carbon8 home" })
+      .querySelector('[aria-hidden="true"]');
+    expect(logoText).toHaveClass("text-2xl", "md:text-4xl");
+  });
+
   it("marks the current page with aria-current", () => {
     const { unmount } = renderAt("/about");
     expect(screen.getByRole("link", { name: "About" })).toHaveAttribute(

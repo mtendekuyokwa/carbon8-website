@@ -9,6 +9,8 @@ export type DualCTAProps = {
   secondaryLabel: string;
   secondaryHref: string;
   className?: string;
+  /** Hide the secondary action below md (e.g. decluttered mobile hero). */
+  hideSecondaryOnMobile?: boolean;
 };
 
 /** Ember pill + text link pair, as used in the hero and footer. */
@@ -18,6 +20,7 @@ export function DualCTA({
   secondaryLabel,
   secondaryHref,
   className,
+  hideSecondaryOnMobile = false,
 }: DualCTAProps) {
   return (
     <div className={cn("flex shrink-0 flex-wrap items-center gap-6", className)}>
@@ -32,7 +35,10 @@ export function DualCTA({
       </SmartLink>
       <SmartLink
         to={secondaryHref}
-        className="flex items-center gap-1 text-lg font-medium text-white"
+        className={cn(
+          "flex items-center gap-1 text-lg font-medium text-white",
+          hideSecondaryOnMobile && "hidden md:flex",
+        )}
       >
         {secondaryLabel}
         <ArrowUpRight className="h-4 w-4" />

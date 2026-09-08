@@ -317,5 +317,34 @@
         "repair": "Fix build/SSR errors."
       }
     ]
+  },
+  {
+    "id": "F12-mobile-polish",
+    "behavior": "Mobile hero hides Contribute action; hamburger is flat with white icon/logo when open; header logo smaller on mobile",
+    "verification": "make verify-feature F=F12-mobile-polish",
+    "state": "passing",
+    "evidence": "verified 2026-09-08, layers 4/4 pass",
+    "layers": [
+      {
+        "label": "L1 lint",
+        "cmd": "npm run lint",
+        "repair": "Fix ESLint errors per CONSTRAINTS.md purity rules."
+      },
+      {
+        "label": "L1 typecheck",
+        "cmd": "npm run typecheck",
+        "repair": "Fix TS errors; use ~/ imports."
+      },
+      {
+        "label": "L2 tests",
+        "cmd": "npm test",
+        "repair": "Fix Jest failures."
+      },
+      {
+        "label": "L3 build",
+        "cmd": "npm run build",
+        "repair": "Fix build/SSR errors."
+      }
+    ]
   }
 ]

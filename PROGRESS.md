@@ -6,7 +6,7 @@ F09-responsive in progress (state=active): zoom-scaling hack removed from root.t
 
 ## In Progress
 
-- None — F11-mobile-hero landed (verify-feature 4/4 2026-09-08, clean-check 5/5): in-flow mobile hero (no clipping), short mobile sub-copy, dot indicators, full-width 48px primary CTA, stronger mobile scrim, reduced-motion respect, global matchMedia test mock; desktop unchanged.
+- None — F12-mobile-polish landed (verify-feature 4/4 2026-09-08, clean-check 5/5): hero Contribute hidden on mobile, flat hamburger, white logo/icon with menu open, smaller mobile logo. (Also repaired a botched feature_list.json append that had clobbered F11's header — reconstructed from HEAD + clean F12 insert, diff verified additive.)
 
 ## Next Steps
 

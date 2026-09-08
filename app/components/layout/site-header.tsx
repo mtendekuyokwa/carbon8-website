@@ -49,7 +49,8 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const logoVariant = !isHome || scrolledPastHero ? "dark" : "light";
+  const logoVariant =
+    menuOpen || (isHome && !scrolledPastHero) ? "light" : "dark";
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -58,7 +59,11 @@ export function SiteHeader() {
     <>
       <header className="fixed top-4 right-0 left-0 z-50 flex items-center justify-between px-4 sm:top-6 sm:px-8">
         <Link to="/" aria-label="Carbon8 home">
-          <BrandLogo variant={logoVariant} />
+          <BrandLogo
+            variant={logoVariant}
+            textClassName="text-2xl md:text-4xl"
+            markClassName="h-7 md:h-10"
+          />
         </Link>
         <nav
           aria-label="Primary"
@@ -94,8 +99,10 @@ export function SiteHeader() {
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-11 w-11 items-center justify-center rounded-full text-white backdrop-blur-md md:hidden"
-          style={{ background: "var(--header-bg)" }}
+          className={cn(
+            "flex h-11 w-11 items-center justify-center md:hidden",
+            logoVariant === "light" ? "text-white" : "text-bark",
+          )}
         >
           {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
