@@ -1,4 +1,7 @@
 import type { ImgHTMLAttributes } from "react";
+import { useState } from "react";
+
+import { cn } from "~/lib/utils";
 
 type ResponsivePictureProps = {
   /** JPEG fallback src — a `.webp` twin must exist next to it. */
@@ -35,20 +38,42 @@ export function webpSrcSetFor(src: string, srcSet?: string): string | undefined 
 /**
  * `<picture>` serving WebP first with the original as fallback.
  * All layout/behaviour props land on the inner `<img>`.
+ * The image renders blurred over a brand wash until it loads (blur-up,
+ * no package): `onLoad` plus a ref check for already-cached images.
  */
 export function ResponsivePicture({
   src,
   srcSet,
   sizes,
+  onLoad,
+  className,
   ...imgProps
 }: ResponsivePictureProps) {
+  const [loaded, setLoaded] = useState(false);
   const webpSrcSet = webpSrcSetFor(src, srcSet);
   return (
     <picture>
       {webpSrcSet ? (
         <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
       ) : null}
-      <img src={src} srcSet={srcSet} sizes={sizes} {...imgProps} />
+      <img
+        src={src}
+        srcSet={srcSet}
+        sizes={sizes}
+        ref={(el) => {
+          if (el && el.complete && el.naturalWidth > 0) setLoaded(true);
+        }}
+        onLoad={(event) => {
+          setLoaded(true);
+          onLoad?.(event);
+        }}
+        className={cn(
+          "bg-bark/20",
+          loaded ? "blur-none" : "blur-lg",
+          className,
+        )}
+        {...imgProps}
+      />
     </picture>
   );
 }

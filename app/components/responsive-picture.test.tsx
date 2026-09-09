@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import { ResponsivePicture, webpSrcSetFor } from "~/components/responsive-picture";
 
@@ -50,5 +50,24 @@ describe("ResponsivePicture", () => {
     expect(source?.getAttribute("srcset")).toBe(
       "/assets/smoke-coming-up-960.webp 960w, /assets/smoke-coming-up-1920.webp 1920w",
     );
+  });
+
+  it("renders blurred until the image loads, then sharpens", () => {
+    render(
+      <ResponsivePicture
+        src="/assets/smoke-coming-up-1920.jpg"
+        alt="Smoke over canopy"
+        className="h-full w-full object-cover"
+      />,
+    );
+
+    const img = screen.getByRole("img", { name: "Smoke over canopy" });
+    expect(img).toHaveClass("blur-lg");
+    expect(img).not.toHaveClass("blur-none");
+
+    fireEvent.load(img);
+    expect(img).toHaveClass("blur-none");
+    expect(img).not.toHaveClass("blur-lg");
+    expect(img).toHaveClass("object-cover");
   });
 });

@@ -7,20 +7,17 @@ import { cn } from "~/lib/utils";
 
 const HERO_SLIDES = [
   {
+    // Full-res only: the 960w variants turn to mush when object-cover crops
+    // landscape art into a tall phone frame at 2-3x DPR.
     src: "/assets/smoke-coming-up-1920.jpg",
-    srcSet:
-      "/assets/smoke-coming-up-960.jpg 960w, /assets/smoke-coming-up-1920.jpg 1920w",
     alt: "Aerial view of tree canopy with smoke rising",
   },
   {
     src: "/assets/industry-1920.jpg",
-    srcSet: "/assets/industry-960.jpg 960w, /assets/industry-1920.jpg 1920w",
     alt: "Industrial site at dusk",
   },
   {
     src: "/assets/tree-planting-1920.jpg",
-    srcSet:
-      "/assets/tree-planting-960.jpg 960w, /assets/tree-planting-1920.jpg 1920w",
     alt: "Community volunteers planting young trees",
   },
 ] as const;
@@ -55,7 +52,6 @@ export function HeroSection() {
         <ResponsivePicture
           key={slide.src}
           src={slide.src}
-          srcSet={slide.srcSet}
           sizes="100vw"
           alt={slide.alt}
           aria-hidden={i !== active}

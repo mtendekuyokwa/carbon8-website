@@ -70,6 +70,16 @@ describe("HeroSection", () => {
     );
   });
 
+  it("serves full-resolution slides with no downscaled srcset", () => {
+    const { container } = render(<HeroSection />);
+
+    const img = container.querySelector(
+      'img[src="/assets/smoke-coming-up-1920.jpg"]',
+    );
+    expect(img).not.toBeNull();
+    expect(img?.getAttribute("srcset")).toBeNull();
+  });
+
   it("renders dot indicators that jump to a slide", () => {
     render(<HeroSection />);
 

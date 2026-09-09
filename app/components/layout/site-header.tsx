@@ -127,7 +127,7 @@ export function SiteHeader() {
                 aria-current={isActive(item.href) ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
                 className={cn(
-                  "rounded-2xl px-4 py-4 text-2xl font-medium transition",
+                  "rounded-none px-4 py-4 text-2xl font-medium transition",
                   isActive(item.href)
                     ? "bg-white/10"
                     : "opacity-80 hover:bg-white/5 hover:opacity-100",

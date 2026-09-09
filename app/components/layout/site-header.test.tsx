@@ -118,6 +118,17 @@ describe("SiteHeader", () => {
     expect(logoText).toHaveClass("text-2xl", "md:text-4xl");
   });
 
+  it("keeps mobile menu selection square", () => {
+    renderAt("/");
+
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    const homeLink = screen
+      .getByRole("navigation", { name: "Mobile" })
+      .querySelector('a[href="/"]');
+    expect(homeLink).toHaveClass("rounded-none");
+    expect(homeLink).not.toHaveClass("rounded-2xl");
+  });
+
   it("marks the current page with aria-current", () => {
     const { unmount } = renderAt("/about");
     expect(screen.getByRole("link", { name: "About" })).toHaveAttribute(

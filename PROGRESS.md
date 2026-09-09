@@ -6,7 +6,7 @@ F09-responsive in progress (state=active): zoom-scaling hack removed from root.t
 
 ## In Progress
 
-- None — F13-header-logo-sync landed (verify-feature 4/4 2026-09-08, clean-check 5/5): logo scroll state moved from mount-time useState to useSyncExternalStore so route changes read live position; regression tests for scroll + immediate post-nav sync.
+- None — F14-hero-polish landed (verify-feature 4/4 2026-09-09, clean-check 5/5): blur-up loading in ResponsivePicture (no package), hero slides serve 1920 full-res, mobile menu selection square.
 
 ## Next Steps
 
