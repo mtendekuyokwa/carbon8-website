@@ -2,6 +2,7 @@ import { ArrowUpRight, AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide
 import { Link } from "react-router";
 
 import { BrandLogo } from "~/components/brand-logo";
+import { contactEmail } from "~/lib/site-assets";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
@@ -49,8 +50,8 @@ export function SiteFooter() {
               Email address
             </label>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3 sm:rounded-full sm:bg-white/10 sm:p-2 sm:pl-5 sm:focus-within:ring-2 sm:focus-within:ring-ember">
-              <div className="flex flex-1 items-center gap-2 rounded-full bg-white/10 px-5 py-3 sm:bg-transparent sm:px-0 sm:py-0">
-                <Mail className="h-4 w-4 shrink-0 opacity-60" aria-hidden="true" />
+              <div className="flex flex-1 items-center gap-2 rounded-full bg-white/10 px-5 py-3 sm:bg-transparent sm:p-0">
+                <Mail className="size-4 shrink-0 opacity-60" aria-hidden="true" />
                 <input
                   id="footer-newsletter-email"
                   name="email"
@@ -66,8 +67,8 @@ export function SiteFooter() {
                 className="flex shrink-0 items-center justify-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"
               >
                 Subscribe
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
-                  <ArrowUpRight className="h-4 w-4" />
+                <span className="flex size-9 items-center justify-center rounded-full bg-bark text-white">
+                  <ArrowUpRight className="size-4" />
                 </span>
               </button>
             </div>
@@ -93,9 +94,9 @@ export function SiteFooter() {
                 key={label}
                 to={href}
                 aria-label={label}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 opacity-80 transition hover:opacity-100 sm:h-9 sm:w-9"
+                className="flex size-12 items-center justify-center rounded-full bg-white/10 opacity-80 transition hover:opacity-100 sm:size-9"
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="size-4" />
               </Link>
             ))}
           </div>
@@ -135,9 +136,14 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-lg opacity-80">
             <li>Malawi-based social enterprise</li>
             <li>
-                <Link to="/contact" className="inline-block py-1 hover:opacity-100 sm:py-0">
-                  Contact form (email coming soon)
-                </Link>
+              <Link to="/contact" className="inline-block py-1 hover:opacity-100 sm:py-0">
+                Contact form
+              </Link>
+            </li>
+            <li>
+              <a href={`mailto:${contactEmail}`} className="inline-block py-1 hover:opacity-100 sm:py-0">
+                Email us
+              </a>
             </li>
           </ul>
         </div>

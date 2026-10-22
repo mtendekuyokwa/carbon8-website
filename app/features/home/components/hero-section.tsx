@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 import { DualCTA } from "~/components/dual-cta";
 import { ResponsivePicture } from "~/components/responsive-picture";
+import { contactEmail } from "~/lib/site-assets";
 import { cn } from "~/lib/utils";
 
 const HERO_SLIDES = [
@@ -47,7 +48,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex w-full flex-col overflow-hidden md:block md:h-screen md:min-h-[520px]">
+    <section className="relative flex w-full flex-col overflow-hidden md:block md:h-screen md:min-h-130">
       {HERO_SLIDES.map((slide, i) => (
         <ResponsivePicture
           key={slide.src}
@@ -58,7 +59,7 @@ export function HeroSection() {
           fetchPriority={i === 0 ? "high" : "low"}
           loading={i === 0 ? "eager" : "lazy"}
           decoding="async"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 size-full object-cover transition-opacity duration-1000 ease-in-out ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -69,7 +70,7 @@ export function HeroSection() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent md:from-black/80 md:via-black/35"
+        className="absolute inset-0 bg-linear-to-t from-black/85 via-black/50 to-transparent md:from-black/80 md:via-black/35"
       />
       {/* Mobile: in-flow so the section grows with content (never clips).
           Desktop: absolute overlay pinned to the viewport-height hero. */}
@@ -78,7 +79,8 @@ export function HeroSection() {
           <div className="max-w-3xl">
             <AnimatedHeading
               as="h1"
-              className="text-[clamp(2rem,0.5rem+8vw,2.9rem)] font-medium leading-[1.05] text-white md:text-[4.04rem]"
+              // eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4
+              className="text-[clamp(2rem,0.5rem+8vw,2.9rem)] leading-[1.05] font-medium text-white md:text-[4.04rem]"
             >
               Climate Action
               <br />
@@ -86,10 +88,12 @@ export function HeroSection() {
             </AnimatedHeading>
             <div className="mt-4 md:mt-8">
               <AnimatedText className="max-w-xl leading-relaxed text-white">
+                {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
                 <span className="block text-[16px] leading-[1.55] md:hidden">
                   Community-first climate projects, shaped with local partners
                   from the start.
                 </span>
+                {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
                 <span className="hidden text-[1.28rem] leading-[1.45] md:block">
                   Carbon8 is developing community-first climate projects and
                   plain-language climate finance explainers — shaped with local
@@ -101,11 +105,11 @@ export function HeroSection() {
           <div className="shrink-0 pb-1">
             <DualCTA
               primaryLabel="Get in Touch"
-              primaryHref="mailto:openbasedigital@gmail.com"
+              primaryHref={`mailto:${contactEmail}`}
               secondaryLabel="Contribute"
               secondaryHref="/contact"
               hideSecondaryOnMobile
-              className="flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-6 [&>a:first-child]:min-h-[48px] [&>a:first-child]:justify-center"
+              className="flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-6 [&>a:first-child]:min-h-12 [&>a:first-child]:justify-center"
             />
           </div>
         </div>
@@ -122,7 +126,7 @@ export function HeroSection() {
               onClick={() => goTo(i)}
               aria-label={`Show slide ${i + 1}`}
               aria-current={i === active ? "true" : undefined}
-              className="flex h-6 w-6 items-center justify-center"
+              className="flex size-6 items-center justify-center"
             >
               <span
                 aria-hidden

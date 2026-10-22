@@ -2,7 +2,8 @@ import { Suspense, lazy } from "react";
 import { data, Link } from "react-router";
 import { listPosts } from "~/lib/blog.server";
 import { ResponsivePicture } from "~/components/responsive-picture";
-import { TagChip } from "~/components/tag-chip";import { Eyebrow } from "~/components/eyebrow";
+import { TagChip } from "~/components/tag-chip";
+import { Eyebrow } from "~/components/eyebrow";
 import { coverFor } from "~/features/blog/components/blog-card";
 import type { Route } from "./+types/blog.$slug";
 
@@ -63,14 +64,14 @@ function AuthorAvatar({ author, image }: { author: string; image?: string }) {
         decoding="async"
         width={128}
         height={128}
-        className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-white/25"
+        className="size-12 shrink-0 rounded-full object-cover ring-2 ring-white/25"
       />
     );
   }
   return (
     <span
       aria-hidden
-      className="font-heading flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-bold text-bark"
+      className="bg-mint flex size-12 shrink-0 items-center justify-center rounded-full font-heading text-sm font-bold text-bark"
     >
       {initials(author)}
     </span>
@@ -119,11 +120,12 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           sizes="100vw"
           alt=""
           aria-hidden
-          className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-[1.1]"
+          // eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4
+          className="absolute inset-0 size-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-[1.1]"
         />
         <span
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-bark via-bark/45 to-bark/25"
+          className="absolute inset-0 bg-linear-to-t from-bark via-bark/45 to-bark/25"
         />
         <div className="relative mx-auto max-w-5xl px-4 pt-14 pb-12 sm:px-6 md:px-10 md:pt-20 md:pb-16">
           <Link
@@ -133,12 +135,12 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
             <span aria-hidden>←</span> Back to Articles
           </Link>
 
-          <Eyebrow tone="light" className="mt-8 !text-mint">
+          <Eyebrow tone="light" className="text-mint! mt-8">
             Field note · {post.date} · {readMins} min read
           </Eyebrow>
           <h1
             id="blog-post-heading"
-            className="font-heading mt-4 font-semibold text-balance text-white"
+            className="mt-4 font-heading font-semibold text-balance text-white"
             style={{ fontSize: "clamp(2.1rem, 4.6vw, 3.6rem)", lineHeight: 1.06 }}
           >
             {post.title}
@@ -186,7 +188,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           className="mt-10 flex items-center justify-between gap-4 text-base font-semibold"
         >
           {prev ? (
-              <Link to={`/blog/${prev.slug}`} className="text-ember-deep hover:underline">
+            <Link to={`/blog/${prev.slug}`} className="text-ember-deep hover:underline">
               ← {prev.title}
             </Link>
           ) : (
@@ -195,7 +197,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           {next ? (
             <Link
               to={`/blog/${next.slug}`}
-                className="ml-auto text-right text-ember-deep hover:underline"
+              className="ml-auto text-right text-ember-deep hover:underline"
             >
               {next.title} →
             </Link>

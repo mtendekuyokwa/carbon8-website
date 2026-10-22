@@ -32,11 +32,11 @@ export default function Blog({
       <section className="relative overflow-hidden px-4 pt-28 pb-10 sm:px-8 sm:pt-32 sm:pb-14 md:px-12">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-ember/10 blur-3xl"
+          className="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-ember/10 blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute top-40 -left-24 h-80 w-80 rounded-full bg-growth/15 blur-3xl"
+          className="pointer-events-none absolute top-40 -left-24 size-80 rounded-full bg-growth/15 blur-3xl"
         />
         <div className="relative mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="text-sm text-bark/80">
@@ -50,7 +50,7 @@ export default function Blog({
               Field Notes
             </span>
           </nav>
-          <AnimatedHeading className="font-heading mt-6 max-w-3xl">
+          <AnimatedHeading className="mt-6 max-w-3xl font-heading">
             <span
               id="blog-heading"
               style={{ fontSize: "clamp(2.75rem, 6vw, 4.5rem)", display: "block", lineHeight: 1.02 }}
@@ -70,11 +70,11 @@ export default function Blog({
               {posts.length} {posts.length === 1 ? "note" : "notes"} · updated as we learn
             </p>
           </div>
-          <div className="mt-8 flex flex-wrap gap-2" role="list" aria-label="Browse by theme">
+          {/* Presentational theme previews — real filtering arrives with more notes. */}
+          <div className="mt-8 flex flex-wrap gap-2">
             {FILTERS.map((f, i) => (
               <span
                 key={f}
-                role="listitem"
                 className={`rounded-full px-4 py-2 text-sm font-medium ${
                   i === 0
                     ? "bg-bark text-white"
@@ -95,7 +95,7 @@ export default function Blog({
             <BlogCard key={post.slug} post={post} index={i} />
           ))}
           {posts.length === 0 ? (
-              <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/80">
+            <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/80">
               First notes are on their way — check back soon.
             </p>
           ) : null}

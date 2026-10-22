@@ -39,6 +39,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
       <Link
         to={`/blog/${post.slug}`}
         className="relative block min-h-[147px] overflow-hidden md:min-h-full"
+        aria-hidden="true"
         tabIndex={-1}
       >
         <ResponsivePicture
@@ -47,7 +48,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
           alt=""
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <span aria-hidden className="absolute inset-0 bg-bark/10" />
         {post.tags?.[0] ? (
@@ -61,7 +62,7 @@ export function BlogCard({ post, index }: { post: BlogPostMeta; index: number })
           {post.date}
           {post.status ? ` · ${post.status.replace("_", " ")}` : ""}
         </p>
-        <h2 className="font-heading mt-3 text-2xl leading-snug font-semibold text-bark">
+        <h2 className="mt-3 font-heading text-2xl leading-snug font-semibold text-bark">
           <Link to={`/blog/${post.slug}`} className="transition-colors group-hover:text-ember">
             {post.title}
           </Link>

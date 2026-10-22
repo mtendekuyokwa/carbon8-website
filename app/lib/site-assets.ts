@@ -1,5 +1,9 @@
 export const ASSET_BASE = "/assets/";
 
+// Single source of truth for the public contact address — referenced by the
+// hero CTA, the footer, and anywhere else email is shown.
+export const contactEmail = "openbasedigital@gmail.com";
+
 export const siteAssets = {
   hero: "/assets/smoke-coming-up-1920.jpg",
   logoMark: "/assets/8-in-carbon-8.png",
