@@ -32,7 +32,8 @@ export function BenefitsSection() {
     <section className="bg-cream px-4 py-16 text-bark sm:px-8 sm:py-24 md:px-12 md:py-32">
       <div className="mb-12 grid grid-cols-12 gap-6 md:mb-24 md:gap-12">
         <div className="col-span-12 md:col-span-7">
-          <AnimatedHeading className="text-4xl font-medium leading-[1.05] sm:text-5xl md:text-6xl">
+          {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
+          <AnimatedHeading className="text-4xl leading-[1.05] font-medium sm:text-5xl md:text-6xl">
             How Our Approach
             <br />
             Works
@@ -58,7 +59,7 @@ export function BenefitsSection() {
       >
         <span
           aria-hidden
-          className="pointer-events-none absolute top-0 right-0 left-0 h-px"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px"
           style={{
             background:
               "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.45) 15%, rgba(255,255,255,0.45) 85%, transparent 100%)",
@@ -66,7 +67,7 @@ export function BenefitsSection() {
         />
         <span
           aria-hidden
-          className="pointer-events-none absolute right-0 bottom-0 left-0 h-px"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
           style={{
             background:
               "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.45) 15%, rgba(255,255,255,0.45) 85%, transparent 100%)",
@@ -99,7 +100,7 @@ export function BenefitsSection() {
               <MaskedImage
                 src={item.img}
                 alt={item.title}
-                className="h-full w-full"
+                className="size-full"
                 delay={i * 0.12}
               />
             </div>

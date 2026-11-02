@@ -14,7 +14,7 @@ export function ContactHero() {
         sizes="100vw"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 size-full object-cover"
       />
       <div
         aria-hidden="true"
@@ -24,7 +24,8 @@ export function ContactHero() {
         <Eyebrow tone="faint-light" withRule className="mb-10">
           Connect
         </Eyebrow>
-        <AnimatedHeading className="max-w-4xl font-medium leading-[1.05]">
+        {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
+        <AnimatedHeading className="max-w-4xl leading-[1.05] font-medium">
           <span
             id="contact-heading"
             style={{ fontSize: "clamp(2.5rem, 5vw, 3.65rem)", display: "block" }}

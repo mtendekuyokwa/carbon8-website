@@ -38,7 +38,8 @@ export function MissionSection() {
             Carbon8 — Our Mission
           </span>
         </Eyebrow>
-        <AnimatedHeading className="max-w-4xl font-medium leading-[1.05]">
+        {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
+        <AnimatedHeading className="max-w-4xl leading-[1.05] font-medium">
           <span
             id="home-mission-heading"
             style={{

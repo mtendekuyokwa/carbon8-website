@@ -13,7 +13,7 @@ export function ManifestoSection() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/85 to-deep/95"
+        className="pointer-events-none absolute inset-0 bg-linear-to-b from-deep/70 via-deep/85 to-deep/95"
       />
       <div className="relative mx-auto max-w-4xl">
         <Eyebrow tone="faint-light" className="mb-8">
@@ -21,7 +21,8 @@ export function ManifestoSection() {
         </Eyebrow>
         <AnimatedHeading
           as="h2"
-          className="text-4xl font-medium leading-[1.1] md:text-5xl"
+          // eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4
+          className="text-4xl leading-[1.1] font-medium md:text-5xl"
         >
           <span id="home-manifesto-heading">
             What if the people restoring the land also held the value it creates?
@@ -38,7 +39,7 @@ export function ManifestoSection() {
           it, with a real stake in its outcome from the start.
         </AnimatedText>
         <AnimatedText
-          className="mt-8 max-w-3xl text-xl font-medium leading-relaxed text-white"
+          className="mt-8 max-w-3xl text-xl leading-relaxed font-medium text-white"
           delay={0.25}
         >
           Carbon8 is what community-led restoration looks like when it&apos;s

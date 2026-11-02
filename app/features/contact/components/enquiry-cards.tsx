@@ -62,11 +62,11 @@ export function EnquiryCards({
           >
             <span
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-full",
+                "flex size-10 items-center justify-center rounded-full",
                 selected ? "bg-ember-deep text-white" : "bg-bark text-cream",
               )}
             >
-              <Icon className="h-5 w-5" aria-hidden="true" />
+              <Icon className="size-5" aria-hidden="true" />
             </span>
             <span className="mt-4 block text-xl font-semibold">{label}</span>
             <span className="mt-1 block text-lg leading-6 text-muted-foreground">

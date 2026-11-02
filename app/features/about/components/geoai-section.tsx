@@ -26,7 +26,8 @@ export function GeoaiSection() {
         <Eyebrow tone="faint-light" withRule className="mb-10">
           GeoAI as a support tool
         </Eyebrow>
-        <AnimatedHeading className="max-w-4xl font-medium leading-[1.05]">
+        {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
+        <AnimatedHeading className="max-w-4xl leading-[1.05] font-medium">
           <span
             id="about-geoai-heading"
             style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)", display: "block" }}

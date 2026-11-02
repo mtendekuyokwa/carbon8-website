@@ -29,8 +29,8 @@ export function DualCTA({
         className="flex items-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"
       >
         {primaryLabel}
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
-          <ArrowUpRight className="h-4 w-4" />
+        <span className="flex size-9 items-center justify-center rounded-full bg-bark text-white">
+          <ArrowUpRight className="size-4" />
         </span>
       </SmartLink>
       <SmartLink
@@ -41,7 +41,7 @@ export function DualCTA({
         )}
       >
         {secondaryLabel}
-        <ArrowUpRight className="h-4 w-4" />
+        <ArrowUpRight className="size-4" />
       </SmartLink>
     </div>
   );

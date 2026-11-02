@@ -36,7 +36,8 @@ export function TeamSection() {
             Who We Are
           </span>
         </Eyebrow>
-        <AnimatedHeading className="font-medium leading-[1.05]">
+        {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
+        <AnimatedHeading className="leading-[1.05] font-medium">
           <span
             id="home-team-heading"
             style={{

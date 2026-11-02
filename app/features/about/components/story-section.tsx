@@ -13,7 +13,8 @@ export function StorySection() {
           <Eyebrow withRule className="mb-10">
             About Carbon8
           </Eyebrow>
-          <AnimatedHeading className="max-w-4xl font-medium leading-[1.05]">
+          {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
+          <AnimatedHeading className="max-w-4xl leading-[1.05] font-medium">
             <span
               id="about-story-heading"
               style={{ fontSize: "clamp(2.5rem, 5vw, 3.65rem)", display: "block" }}
@@ -56,7 +57,7 @@ export function StorySection() {
               srcSet="/assets/arial-photograph-960.jpg 960w, /assets/arial-photograph-1920.jpg 1920w"
               sizes="(min-width: 1024px) 40vw, 100vw"
               alt="Aerial photograph of a highway bridge crossing dense green forest, with a river, village homes, and winding local roads"
-              className="aspect-[3/4] w-full object-cover"
+              className="aspect-3/4 w-full object-cover"
               loading="eager"
               fetchPriority="high"
               decoding="async"

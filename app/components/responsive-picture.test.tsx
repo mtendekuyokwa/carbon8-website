@@ -33,7 +33,7 @@ describe("ResponsivePicture", () => {
         srcSet="/assets/smoke-coming-up-960.jpg 960w, /assets/smoke-coming-up-1920.jpg 1920w"
         sizes="100vw"
         alt="Smoke over canopy"
-        className="h-full w-full object-cover"
+        className="size-full object-cover"
       />,
     );
 
@@ -57,7 +57,7 @@ describe("ResponsivePicture", () => {
       <ResponsivePicture
         src="/assets/smoke-coming-up-1920.jpg"
         alt="Smoke over canopy"
-        className="h-full w-full object-cover"
+        className="size-full object-cover"
       />,
     );
 
