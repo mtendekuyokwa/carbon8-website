@@ -53,7 +53,7 @@ export function ContactSection() {
           role="status"
           className="mx-auto max-w-2xl rounded-3xl border border-foreground/15 bg-white p-6 text-center sm:p-10"
         >
-          <p className="text-base tracking-[0.2em] uppercase text-muted-foreground">
+          <p className="text-base tracking-[0.2em] text-muted-foreground uppercase">
             Message noted
           </p>
           <h2
@@ -176,7 +176,7 @@ export function ContactSection() {
                   checked={consent}
                   onChange={(event) => setConsent(event.target.checked)}
                   aria-describedby={errors.consent ? "contact-consent-error" : undefined}
-                  className="mt-1.5 h-5 w-5 accent-ember-deep"
+                  className="mt-1.5 size-8 accent-ember-deep"
                 />
                 I understand Carbon8 is in development and my note will be used
                 only to reply.
@@ -192,8 +192,8 @@ export function ContactSection() {
               className="flex items-center justify-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"
             >
               Send message
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bark text-white">
-                <ArrowUpRight className="h-4 w-4" />
+              <span className="flex size-9 items-center justify-center rounded-full bg-bark text-white">
+                <ArrowUpRight className="size-4" />
               </span>
             </button>
             <p className="text-base text-muted-foreground">

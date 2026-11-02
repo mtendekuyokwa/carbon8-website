@@ -126,7 +126,7 @@ export function HeroSection() {
               onClick={() => goTo(i)}
               aria-label={`Show slide ${i + 1}`}
               aria-current={i === active ? "true" : undefined}
-              className="flex size-6 items-center justify-center"
+              className="flex size-9 items-center justify-center"
             >
               <span
                 aria-hidden
