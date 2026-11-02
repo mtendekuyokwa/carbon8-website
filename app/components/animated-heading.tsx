@@ -1,5 +1,9 @@
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import type { ImgHTMLAttributes, ReactNode } from "react";
+
+import { ResponsivePicture } from "~/components/responsive-picture";
+import { cn } from "~/lib/utils";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -68,31 +72,49 @@ type MaskedImageProps = {
   alt: string;
   className?: string;
   delay?: number;
-  eager?: boolean;
+  /** Extra props for the inner <img> — e.g. a className with `object-top`. */
+  imgProps?: Omit<
+    ImgHTMLAttributes<HTMLImageElement>,
+    "src" | "alt" | "loading" | "decoding"
+  >;
 };
 
+/**
+ * Clip-wipe image reveal. The wipe lives on an inner motion.div while the
+ * IntersectionObserver runs on the *unclipped* outer wrapper: a fully-inset
+ * clip-path collapses the observed element's intersection rect to 0x0 on
+ * narrow layouts (Android/WebKit geometry), so `whileInView` never fires and
+ * native `loading="lazy"` never starts on an image under a zero-area
+ * ancestor. The image therefore loads eagerly (it is hidden by the clip
+ * anyway) and the reveal is triggered by the outer wrapper's intersection.
+ */
 export function MaskedImage({
   src,
   alt,
   className,
   delay = 0,
-  eager = false,
+  imgProps,
 }: MaskedImageProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px 0px" });
+  const { className: innerImgClass, ...innerProps } = imgProps ?? {};
   return (
-    <motion.div
-      className={className}
-      initial={{ clipPath: "inset(100% 0 0 0)" }}
-      whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1.1, delay, ease: [...EASE] }}
-    >
-      <img
-        src={src}
-        alt={alt}
-        className="h-full w-full object-cover"
-        loading={eager ? "eager" : "lazy"}
-        decoding="async"
-      />
+    <motion.div ref={ref} className={className}>
+      <motion.div
+        className="size-full"
+        initial={{ clipPath: "inset(100% 0 0 0)" }}
+        animate={inView ? { clipPath: "inset(0% 0 0 0)" } : undefined}
+        transition={{ duration: 1.1, delay, ease: [...EASE] }}
+      >
+        <ResponsivePicture
+          src={src}
+          alt={alt}
+          className={cn("size-full object-cover", innerImgClass)}
+          loading="eager"
+          decoding="async"
+          {...innerProps}
+        />
+      </motion.div>
     </motion.div>
   );
 }

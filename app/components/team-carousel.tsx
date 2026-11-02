@@ -21,7 +21,7 @@ export function TeamCarousel({
   return (
     <div className="relative">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-3">
-        <div className="w-full shrink-0 lg:w-[216px]">
+        <div className="w-full shrink-0 lg:w-54">
           {intro}
         </div>
         <div className="grid min-w-0 flex-1 grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-3">
@@ -31,11 +31,15 @@ export function TeamCarousel({
               className="min-w-0"
               style={{ fontFamily: TT_HOVES }}
             >
-              <div className="group aspect-[3/4] overflow-hidden bg-muted relative">
+              <div className="group relative aspect-3/4 overflow-hidden bg-muted">
                 <MaskedImage
                   src={m.img}
                   alt={m.name}
-                  className="h-full w-full object-cover object-top grayscale contrast-[1.05] brightness-[1.02] transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-[1.03]"
+                  // eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare scale emits no CSS otherwise
+                  className="size-full brightness-[1.02] contrast-[1.05] grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:brightness-100 group-hover:contrast-100 group-hover:grayscale-0"
+                  // Portrait crop from the top so heads stay in frame on
+                  // mobile landscape art (object-* must live on the <img>).
+                  imgProps={{ className: "object-top" }}
                   delay={i * 0.08}
                 />
                 {/* Brand duotone wash — lifts on hover to reveal full color */}
@@ -45,7 +49,7 @@ export function TeamCarousel({
                 />
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent"
                 />
               </div>
               <div className="pt-6">
