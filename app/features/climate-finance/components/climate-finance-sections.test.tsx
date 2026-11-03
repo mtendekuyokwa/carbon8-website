@@ -31,11 +31,14 @@ function renderPage() {
 }
 
 describe("Climate Finance sections", () => {
-  it("translates jargon terms into plain questions", () => {
+  it("pairs each finance term with the plain question it asks", () => {
     renderPage();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Climate finance, minus the jargon.",
+      "Nobody can agree to what they don't understand.",
     );
+    expect(
+      screen.getByText("Free, prior and informed consent"),
+    ).toBeInTheDocument();
     expect(screen.getByText("Additionality")).toBeInTheDocument();
     expect(
       screen.getByText("Would this have happened anyway, without the money?"),
