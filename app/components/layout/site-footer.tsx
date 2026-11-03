@@ -7,6 +7,7 @@ import { contactEmail } from "~/lib/site-assets";
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Climate Finance", href: "/climate-finance" },
   { label: "Field Notes", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;

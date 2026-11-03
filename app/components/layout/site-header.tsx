@@ -8,6 +8,7 @@ import { cn } from "~/lib/utils";
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Climate Finance", href: "/climate-finance" },
   { label: "Field Notes", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;

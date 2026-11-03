@@ -141,6 +141,13 @@ describe("SiteHeader", () => {
     unmount();
   });
 
+  it("links to Climate Finance and marks it active on its page", () => {
+    renderAt("/climate-finance");
+    const link = screen.getByRole("link", { name: "Climate Finance" });
+    expect(link).toHaveAttribute("href", "/climate-finance");
+    expect(link).toHaveAttribute("aria-current", "page");
+  });
+
   it("marks Field Notes active for nested blog routes", () => {
     renderAt("/blog/some-post");
     expect(screen.getByRole("link", { name: "Field Notes" })).toHaveAttribute(

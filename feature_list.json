@@ -119,8 +119,8 @@
     "id": "F05-climate-finance",
     "behavior": "Climate Finance page renders explainer plus FAQ accordion",
     "verification": "make verify-feature F=F05-climate-finance",
-    "state": "not_started",
-    "evidence": "",
+    "state": "passing",
+    "evidence": "verified 2026-11-03, layers 4/4 pass",
     "layers": [
       {
         "label": "L1 lint",

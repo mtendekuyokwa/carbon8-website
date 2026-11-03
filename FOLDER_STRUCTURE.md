@@ -107,7 +107,7 @@ Reusable components that appear across multiple pages live in `app/components/`.
 |---|---|---|
 | `PrincipleCard` | `components/` | Home, About |
 | `CTASection` | `components/layout/` | Most pages |
-| `FAQAccordion` | `components/` | Climate Finance, Contact |
+| `FAQAccordion` | `components/faq-accordion.tsx` | Climate Finance (built); Contact (future) |
 | `StatBlock` | `components/` | Communities (future) |
 | `Header` / `Footer` | `components/layout/` | All pages (root.tsx) |
 
