@@ -2,6 +2,8 @@
 
 ## Current State
 
+Mobile menu redesigned (user: hamburger 'sucks'). Toggle is now a blurred bark pill matching the desktop nav ('Menu'/'Close' label + two lines that rotate into a cross) — legible over photo/dark sections where the bare icon disappeared. Overlay opens with a circular clip-path reveal from the toggle (motion; reduced-motion → fade), staggered large nav links, ember dot on current page, contour terrain at the bottom (reuses footer SVG), Donate pill + Email us pinned bottom. Close stays instant (Escape, link tap). Existing focus trap/scroll lock/focus return unchanged. Noted, not changed: the dark logo is low-contrast over pine sections on non-home pages.
+
 Field Notes listing redesigned (user: journal cards still 'very bad', wanted something innovative) as an interactive index: large titles like a contents page with date/topic/author; hovering or focusing a title updates a sticky preview panel (cover crossfade, summary, byline) and dims the others (bark/60, ≥3:1 for large text). Topic pills are now real filters (aria-pressed, live counts, empty topics hidden) — previously decorative. Mobile/tablet: inline summary, byline and 16:9 photo. Removed BlogCard + decorative gradient blobs; `coverFor` moved to `app/features/blog/utils/covers.ts` (post page imports it); Storybook story updated. h1 on /blog now a real h1.
 
 Co-founder full names: Patrick Kuyokwa and Tawina Chaposa (per user) in home team section, blog frontmatter authors, post-page avatar lookup, content/about.md, tests. Tawina's role confirmed by user as Community Lead (was 'Methodology Lead' on home/about; now consistent everywhere).

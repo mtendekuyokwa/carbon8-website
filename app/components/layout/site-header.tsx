@@ -1,8 +1,10 @@
-import { HeartHandshake, Menu, X } from "lucide-react";
+import { HeartHandshake } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router";
 
 import { BrandLogo } from "~/components/brand-logo";
+import { contactEmail } from "~/lib/site-assets";
 import { cn } from "~/lib/utils";
 
 const NAV_ITEMS = [
@@ -30,6 +32,7 @@ export function SiteHeader() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
+  const reduceMotion = useReducedMotion() ?? false;
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   // Live scroll position (not mount-time state): re-read on every scroll
@@ -135,53 +138,117 @@ export function SiteHeader() {
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((open) => !open)}
-          className={cn(
-            "flex size-11 items-center justify-center md:hidden",
-            logoVariant === "light" ? "text-white" : "text-bark",
-          )}
+          className="flex h-11 items-center gap-3 rounded-full pr-4 pl-5 text-base font-medium text-white backdrop-blur-md focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:outline-none md:hidden"
+          style={{ background: "var(--header-bg)" }}
         >
-          {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          <span aria-hidden="true">{menuOpen ? "Close" : "Menu"}</span>
+          {/* Two lines that rotate into a cross. */}
+          <span aria-hidden="true" className="relative block h-2.5 w-5">
+            <span
+              className={cn(
+                "absolute left-0 h-0.5 w-5 rounded-full bg-current transition-all duration-300 motion-reduce:transition-none",
+                menuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0",
+              )}
+            />
+            <span
+              className={cn(
+                "absolute left-0 h-0.5 rounded-full bg-current transition-all duration-300 motion-reduce:transition-none",
+                menuOpen ? "top-1/2 w-5 -translate-y-1/2 -rotate-45" : "top-full w-3.5 -translate-y-full",
+              )}
+            />
+          </span>
         </button>
       </header>
       {menuOpen ? (
-        <div
+        <motion.div
           ref={menuRef}
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="fixed inset-0 z-40 flex flex-col bg-bark px-6 pt-24 pb-8 text-cream md:hidden"
+          className="fixed inset-0 z-40 flex flex-col overflow-hidden bg-bark px-6 pt-28 pb-8 text-cream md:hidden"
+          // Grows out of the toggle in the top-right corner.
+          initial={
+            reduceMotion
+              ? { opacity: 0 }
+              : { clipPath: "circle(0% at calc(100% - 3.5rem) 2.4rem)" }
+          }
+          animate={
+            reduceMotion
+              ? { opacity: 1 }
+              : { clipPath: "circle(150% at calc(100% - 3.5rem) 2.4rem)" }
+          }
+          transition={{ duration: reduceMotion ? 0.15 : 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <nav aria-label="Mobile" className="flex flex-col gap-2">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                onClick={() => setMenuOpen(false)}
-                className={cn(
-                  "rounded-none p-4 text-2xl font-medium transition",
-                  isActive(item.href)
-                    ? "bg-white/10"
-                    : "opacity-80 hover:bg-white/5 hover:opacity-100",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            to="/contact"
-            onClick={() => setMenuOpen(false)}
-            className="mt-6 flex items-center justify-center gap-2 rounded-full bg-ember-deep px-5 py-4 text-xl font-medium text-white transition hover:bg-ember-deep/90"
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-72 opacity-25"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent, #000 70%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent, #000 70%)",
+            }}
           >
-            <HeartHandshake className="size-5" />
-            Donate
-          </Link>
-          <p className="mt-auto pt-8 text-base opacity-70">
-            Community-first climate action.
-          </p>
-        </div>
+            <img
+              src="/assets/footer-terrain.svg"
+              alt=""
+              className="size-full object-cover object-[70%_100%]"
+            />
+          </div>
+
+          <nav aria-label="Mobile" className="relative">
+            <ul className="flex flex-col">
+              {NAV_ITEMS.map((item, i) => {
+                const active = isActive(item.href);
+                return (
+                  <motion.li
+                    key={item.label}
+                    initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.15 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <Link
+                      to={item.href}
+                      aria-current={active ? "page" : undefined}
+                      onClick={() => setMenuOpen(false)}
+                      className={cn(
+                        "flex items-center gap-4 rounded-none py-2.5 font-semibold tracking-tight transition-colors focus-visible:text-white focus-visible:outline-none",
+                        active ? "text-white" : "text-cream/65 hover:text-white",
+                      )}
+                      style={{ fontSize: "clamp(2.25rem, 10vw, 3rem)", lineHeight: 1.1 }}
+                    >
+                      {item.label}
+                      {active ? (
+                        <span aria-hidden="true" className="size-2.5 rounded-full bg-ember" />
+                      ) : null}
+                    </Link>
+                  </motion.li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          <motion.div
+            className="relative mt-auto flex flex-col gap-4 pt-8"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.45 }}
+          >
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center justify-center gap-2 rounded-full bg-ember-deep px-5 py-4 text-xl font-medium text-white transition hover:bg-ember-deep/90"
+            >
+              <HeartHandshake className="size-5" />
+              Donate
+            </Link>
+            <div className="flex items-center justify-between text-base text-cream/70">
+              <span>Community-first climate action.</span>
+              <a href={`mailto:${contactEmail}`} className="py-2 text-cream underline-offset-4 hover:underline">
+                Email us
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
       ) : null}
     </>
   );

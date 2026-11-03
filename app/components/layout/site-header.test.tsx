@@ -83,6 +83,22 @@ describe("SiteHeader", () => {
     ).toBeInTheDocument();
   });
 
+  it("labels the mobile toggle and marks the current page in the menu", () => {
+    renderAt("/blog");
+
+    const toggle = screen.getByRole("button", { name: "Open menu" });
+    expect(toggle).toHaveTextContent("Menu");
+    fireEvent.click(toggle);
+    expect(screen.getByRole("button", { name: "Close menu" })).toHaveTextContent("Close");
+
+    const mobile = screen.getByRole("navigation", { name: "Mobile" });
+    expect(mobile.querySelector('a[href="/blog"]')).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Email us" })).toHaveAttribute(
+      "href",
+      expect.stringMatching(/^mailto:/),
+    );
+  });
+
   it("closes the mobile overlay on Escape", () => {
     renderAt("/");
 
