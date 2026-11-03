@@ -1,4 +1,4 @@
-import { ArrowUpRight, AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide-react";
+import { AtSign, Globe, Mail, MessageCircle, Share2 } from "lucide-react";
 import { Link } from "react-router";
 
 import { BrandLogo } from "~/components/brand-logo";
@@ -12,11 +12,11 @@ const EXPLORE_LINKS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+// Each matches an enquiry path on the contact page.
 const GET_INVOLVED_LINKS = [
-  { label: "Get in touch", href: "/contact" },
-  { label: "Contribute", href: "/contact" },
-  { label: "Partner with us", href: "/contact" },
+  { label: "Partner or fund", href: "/contact" },
   { label: "Volunteer", href: "/contact" },
+  { label: "Bring a community idea", href: "/contact" },
 ] as const;
 
 // Placeholder socials — real handles not provided yet. All point to
@@ -29,131 +29,104 @@ const SOCIAL_LINKS = [
   { label: "Email Carbon8 (coming soon)", href: "/contact", Icon: Mail },
 ] as const;
 
+const linkClass =
+  "inline-block py-1.5 text-cream/80 transition-colors hover:text-white focus-visible:text-white sm:py-1";
+
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-bark text-cream">
-      <div className="mx-auto max-w-6xl px-4 pt-12 sm:px-6">
-        <div className="flex flex-col items-start justify-between gap-6 bg-white/5 p-6 sm:p-8 lg:flex-row lg:items-center">
-          <div>
-            <h2 className="text-xl font-semibold sm:text-2xl">Subscribe to newsletter</h2>
-            <p className="mt-1 max-w-md text-lg leading-6 opacity-80">
-              Stories from the field, early project drops, and simple ways to
-              act — once a month, no noise.
-            </p>
-          </div>
-          <form
-            action="/contact"
-            method="get"
-            className="w-full max-w-md"
-          >
-            <label htmlFor="footer-newsletter-email" className="sr-only">
-              Email address
-            </label>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3 sm:rounded-full sm:bg-white/10 sm:p-2 sm:pl-5 sm:focus-within:ring-2 sm:focus-within:ring-ember">
-              <div className="flex flex-1 items-center gap-2 rounded-full bg-white/10 px-5 py-3 sm:bg-transparent sm:p-0">
-                <Mail className="size-4 shrink-0 opacity-60" aria-hidden="true" />
-                <input
-                  id="footer-newsletter-email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@example.org"
-                  autoComplete="email"
-                  className="w-full bg-transparent text-lg placeholder:text-cream/50 focus:outline-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="flex shrink-0 items-center justify-center gap-3 rounded-full bg-ember-deep py-2 pr-2 pl-6 text-lg font-medium text-white transition hover:bg-ember-deep/90"
-              >
-                Subscribe
-                <span className="flex size-9 items-center justify-center rounded-full bg-bark text-white">
-                  <ArrowUpRight className="size-4" />
-                </span>
-              </button>
-            </div>
-            <p className="mt-2 text-base opacity-80 sm:pl-5">
-              No spam, unsubscribe anytime. Signup opens soon.
-            </p>
-          </form>
-        </div>
-      </div>
-
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
-        <div>
+    <footer className="relative overflow-hidden bg-bark text-cream">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-12 px-4 pt-20 pb-14 sm:grid-cols-3 sm:px-6 sm:pt-24 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-10">
+        <div className="col-span-2 sm:col-span-3 lg:col-span-1">
           <BrandLogo variant="light" />
-          <p className="mt-4 max-w-xs text-lg leading-6 opacity-80">
-            Community-first climate organisation.
+          <p className="mt-5 max-w-xs text-lg leading-relaxed text-cream/80">
+            Community-first climate action in Malawi, built in the open.
           </p>
-          <p className="mt-3 inline-block rounded-full border border-white/20 px-3 py-1 text-base opacity-80">
-            Concept — in development
+          <p className="mt-4 inline-flex items-center gap-2 text-base text-cream/70">
+            <span aria-hidden="true" className="size-2 rounded-full bg-ember" />
+            Concept stage, in development
           </p>
-          <div className="mt-5 flex gap-2">
+          <div className="mt-8 flex flex-wrap gap-2">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
               <Link
                 key={label}
                 to={href}
                 aria-label={label}
-                className="flex size-12 items-center justify-center rounded-full bg-white/10 opacity-80 transition hover:opacity-100 sm:size-9"
+                className="flex size-12 items-center justify-center rounded-lg border border-cream/25 text-cream/80 transition hover:border-cream/60 hover:text-white sm:size-10"
               >
                 <Icon className="size-4" />
               </Link>
             ))}
           </div>
         </div>
+
         <nav aria-label="Footer">
-          <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
-            Explore
-          </h2>
-          <ul className="mt-4 space-y-3 text-lg sm:space-y-2">
+          <h2 className="text-base font-semibold text-white">Explore</h2>
+          <ul className="mt-5 space-y-2 text-lg sm:space-y-1.5">
             {EXPLORE_LINKS.map((link) => (
               <li key={link.label}>
-                <Link to={link.href} className="inline-block py-1 opacity-80 hover:opacity-100 sm:py-0">
+                <Link to={link.href} className={linkClass}>
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
+
         <nav aria-label="Get involved">
-          <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
-            Get involved
-          </h2>
-          <ul className="mt-4 space-y-3 text-lg sm:space-y-2">
+          <h2 className="text-base font-semibold text-white">Get involved</h2>
+          <ul className="mt-5 space-y-2 text-lg sm:space-y-1.5">
             {GET_INVOLVED_LINKS.map((link) => (
               <li key={link.label}>
-                <Link to={link.href} className="inline-block py-1 opacity-80 hover:opacity-100 sm:py-0">
+                <Link to={link.href} className={linkClass}>
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
-        <div>
-          <h2 className="text-lg font-semibold tracking-wide uppercase opacity-70">
-            Contact
-          </h2>
-          <ul className="mt-4 space-y-2 text-lg opacity-80">
-            <li>Malawi-based social enterprise</li>
+
+        <div className="col-span-2 sm:col-span-1">
+          <h2 className="text-base font-semibold text-white">Contact</h2>
+          <ul className="mt-5 space-y-2 text-lg sm:space-y-1.5">
+            <li className="py-1.5 text-cream/80 sm:py-1">Malawi-based social enterprise</li>
             <li>
-              <Link to="/contact" className="inline-block py-1 hover:opacity-100 sm:py-0">
-                Contact form
-              </Link>
-            </li>
-            <li>
-              <a href={`mailto:${contactEmail}`} className="inline-block py-1 hover:opacity-100 sm:py-0">
+              <a href={`mailto:${contactEmail}`} className={linkClass}>
                 Email us
               </a>
+            </li>
+            <li>
+              <Link to="/contact" className={linkClass}>
+                Contact form
+              </Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/15">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-base opacity-70 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex flex-col gap-2 border-t border-cream/15 py-6 text-base text-cream/65 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Carbon8. All rights reserved.</p>
           <p>Community-first climate action.</p>
         </div>
+      </div>
+
+      {/* Generated contour terrain (not a map of a real place) — the land the work is about. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none h-44 opacity-40 select-none sm:h-60 lg:h-80"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent, #000 60%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, #000 60%)",
+        }}
+      >
+        <img
+          src="/assets/footer-terrain.svg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="size-full object-cover object-[70%_100%]"
+        />
       </div>
     </footer>
   );

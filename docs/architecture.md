@@ -30,6 +30,10 @@ Built: `home`, `about`, `blog`, `climate-finance`, `contact`. Not yet built (no 
 
 Shared `FAQAccordion` (`app/components/faq-accordion.tsx`) wraps the shadcn `ui/accordion` (base-ui) primitive; used by Climate Finance.
 
+## Footer artwork
+
+`public/assets/footer-terrain.svg` is a procedurally generated contour drawing (value-noise heightfield → `d3-contour`, Chaikin-smoothed, svgo-minified). It is decorative only and does not depict a real location — do not caption it as one. Regenerate rather than hand-edit.
+
 ## Content rules (pre-launch)
 
 Forward-looking copy only. No invented stats/testimonials/logos. `StatBlock` stays hidden. Project status is `concept`/`in_development` only. Photos → brand-coloured block or line-art icon.
