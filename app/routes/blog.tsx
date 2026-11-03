@@ -90,10 +90,15 @@ export default function Blog({
 
       {/* All notes — horizontal cards */}
       <section className="px-4 pb-16 sm:px-8 md:px-12 md:pb-24" aria-labelledby="blog-heading">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8">
-          {posts.map((post, i) => (
-            <BlogCard key={post.slug} post={post} index={i} />
-          ))}
+        <div className="mx-auto max-w-6xl">
+          {posts[0] ? <BlogCard post={posts[0]} index={0} variant="lead" /> : null}
+          {posts.length > 1 ? (
+            <div className="mt-16 border-b border-bark/15 md:mt-24">
+              {posts.slice(1).map((post, i) => (
+                <BlogCard key={post.slug} post={post} index={i + 1} />
+              ))}
+            </div>
+          ) : null}
           {posts.length === 0 ? (
             <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/80">
               First notes are on their way — check back soon.
