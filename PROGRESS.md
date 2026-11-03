@@ -2,6 +2,8 @@
 
 ## Current State
 
+Field Notes listing redesigned (user: journal cards still 'very bad', wanted something innovative) as an interactive index: large titles like a contents page with date/topic/author; hovering or focusing a title updates a sticky preview panel (cover crossfade, summary, byline) and dims the others (bark/60, ≥3:1 for large text). Topic pills are now real filters (aria-pressed, live counts, empty topics hidden) — previously decorative. Mobile/tablet: inline summary, byline and 16:9 photo. Removed BlogCard + decorative gradient blobs; `coverFor` moved to `app/features/blog/utils/covers.ts` (post page imports it); Storybook story updated. h1 on /blog now a real h1.
+
 Co-founder full names: Patrick Kuyokwa and Tawina Chaposa (per user) in home team section, blog frontmatter authors, post-page avatar lookup, content/about.md, tests. Tawina's role confirmed by user as Community Lead (was 'Methodology Lead' on home/about; now consistent everywhere).
 
 Field Notes cards redesigned as a field journal: newest note is a lead entry (large photo, full date, topic, title, readable summary, byline); earlier notes are dated log rows (day set large + short month/year, topic, title, summary, author avatar from `-128` twin + role, photo right on md+, 16:9 below on mobile). Removed generic card chrome (border box, hover lift/shadow, image zoom, raw ISO date in tracked caps, 10px description, hashtag chips, 'READ NOTE →'). Entry is one link/tab stop via stretched title link; focus ring on the entry. Dates formatted en-GB in UTC (SSR-safe). Known gap left as-is: the topic filter pills on /blog are presentational only.

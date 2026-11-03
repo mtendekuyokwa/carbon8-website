@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
 import { listPosts } from "~/lib/blog.server";
-import { BlogCard } from "~/features/blog/components/blog-card";
+import { NotesIndex } from "~/features/blog/components/notes-index";
 
 export function meta() {
   return [
@@ -18,8 +18,6 @@ export async function loader() {
   return { posts: await listPosts() };
 }
 
-const FILTERS = ["All notes", "Community", "Climate finance", "Building in public"] as const;
-
 export default function Blog({
   loaderData,
 }: {
@@ -28,17 +26,8 @@ export default function Blog({
   const { posts } = loaderData;
   return (
     <main className="bg-cream text-bark">
-      {/* Breadcrumb + hero */}
-      <section className="relative overflow-hidden px-4 pt-28 pb-10 sm:px-8 sm:pt-32 sm:pb-14 md:px-12">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-ember/10 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-40 -left-24 size-80 rounded-full bg-growth/15 blur-3xl"
-        />
-        <div className="relative mx-auto max-w-6xl">
+      <section className="px-4 pt-28 pb-10 sm:px-8 sm:pt-32 sm:pb-14 md:px-12">
+        <div className="mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="text-sm text-bark/80">
             <Link to="/" className="transition-colors hover:text-ember">
               Home
@@ -50,7 +39,7 @@ export default function Blog({
               Field Notes
             </span>
           </nav>
-          <AnimatedHeading className="mt-6 max-w-3xl font-heading">
+          <AnimatedHeading as="h1" className="mt-6 max-w-3xl font-heading">
             <span
               id="blog-heading"
               style={{ fontSize: "clamp(2.75rem, 6vw, 4.5rem)", display: "block", lineHeight: 1.02 }}
@@ -58,52 +47,19 @@ export default function Blog({
               Field notes from the ground up.
             </span>
           </AnimatedHeading>
-          <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
-            <AnimatedText
-              className="max-w-xl text-base leading-relaxed text-bark/80"
-              delay={0.1}
-            >
-              Honest, in-progress learning notes — no invented impact numbers,
-              community voices first.
-            </AnimatedText>
-            <p className="text-sm font-medium text-bark/80">
-              {posts.length} {posts.length === 1 ? "note" : "notes"} · updated as we learn
-            </p>
-          </div>
-          {/* Presentational theme previews — real filtering arrives with more notes. */}
-          <div className="mt-8 flex flex-wrap gap-2">
-            {FILTERS.map((f, i) => (
-              <span
-                key={f}
-                className={`rounded-full px-4 py-2 text-sm font-medium ${
-                  i === 0
-                    ? "bg-bark text-white"
-                    : "border border-sand bg-white text-bark/70"
-                }`}
-              >
-                {f}
-              </span>
-            ))}
-          </div>
+          <AnimatedText
+            className="mt-6 max-w-xl text-lg leading-relaxed text-bark/80"
+            delay={0.1}
+          >
+            Honest, in-progress learning notes from the Carbon8 team. No
+            invented impact numbers, community voices first.
+          </AnimatedText>
         </div>
       </section>
 
-      {/* All notes — horizontal cards */}
-      <section className="px-4 pb-16 sm:px-8 md:px-12 md:pb-24" aria-labelledby="blog-heading">
+      <section className="px-4 pb-20 sm:px-8 md:px-12 md:pb-28" aria-labelledby="blog-heading">
         <div className="mx-auto max-w-6xl">
-          {posts[0] ? <BlogCard post={posts[0]} index={0} variant="lead" /> : null}
-          {posts.length > 1 ? (
-            <div className="mt-16 border-b border-bark/15 md:mt-24">
-              {posts.slice(1).map((post, i) => (
-                <BlogCard key={post.slug} post={post} index={i + 1} />
-              ))}
-            </div>
-          ) : null}
-          {posts.length === 0 ? (
-            <p className="border border-dashed border-sand bg-white p-12 text-center text-bark/80">
-              First notes are on their way — check back soon.
-            </p>
-          ) : null}
+          <NotesIndex posts={posts} />
         </div>
       </section>
     </main>

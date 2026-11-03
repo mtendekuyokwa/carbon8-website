@@ -4,7 +4,7 @@ import { listPosts } from "~/lib/blog.server";
 import { ResponsivePicture } from "~/components/responsive-picture";
 import { TagChip } from "~/components/tag-chip";
 import { Eyebrow } from "~/components/eyebrow";
-import { coverFor } from "~/features/blog/components/blog-card";
+import { coverFor } from "~/features/blog/utils/covers";
 import type { Route } from "./+types/blog.$slug";
 
 const articles = import.meta.glob("../../content/blog/*.mdx");

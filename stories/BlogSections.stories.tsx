@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { MemoryRouter } from "react-router";
 import { TagChip } from "~/components/tag-chip";
 import { CTASection } from "~/components/layout/cta-section";
-import { BlogCard } from "~/features/blog/components/blog-card";
+import { NotesIndex } from "~/features/blog/components/notes-index";
 
 const samplePost = {
   slug: "building-in-the-open",
@@ -10,7 +10,7 @@ const samplePost = {
   description:
     "How we will share learning notes as Carbon8 grows from concept to pilot.",
   date: "2026-08-20",
-  tags: ["community", "meta"],
+  tags: ["Community", "Building in public"],
   status: "concept" as const,
 };
 
@@ -38,20 +38,20 @@ export const TagChips: Story = {
   ),
 };
 
-export const CardDefault: Story = {
+export const NotesIndexDefault: Story = {
   render: () => (
     <WithRouter>
-      <BlogCard post={samplePost} index={0} />
-    </WithRouter>
-  ),
-};
-
-export const CardSecond: Story = {
-  render: () => (
-    <WithRouter>
-      <BlogCard
-        post={{ ...samplePost, slug: "climate-finance-plain-language" }}
-        index={1}
+      <NotesIndex
+        posts={[
+          samplePost,
+          {
+            ...samplePost,
+            slug: "climate-finance-plain-language",
+            title: "Climate finance in plain language",
+            date: "2026-08-18",
+            tags: ["Climate finance"],
+          },
+        ]}
       />
     </WithRouter>
   ),
