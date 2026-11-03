@@ -15,7 +15,7 @@ const TEAM_ITEMS: CarouselItem[] = [
   },
   {
     img: siteAssets.founderTawina,
-    role: "CO-FOUNDER, METHODOLOGY LEAD",
+    role: "CO-FOUNDER, COMMUNITY LEAD",
     name: "Tawina Chaposa",
   },
 ];
@@ -66,7 +66,7 @@ export function TeamSection() {
                 }}
               >
                 We are developing early climate concepts with local partners —
-                meet the co-founders leading methodology and GeoAI.
+                meet the co-founders leading community work and GeoAI.
               </span>
             </AnimatedText>
           }
