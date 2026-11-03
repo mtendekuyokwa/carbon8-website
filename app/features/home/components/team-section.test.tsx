@@ -9,15 +9,15 @@ describe("TeamSection", () => {
     expect(
       container.querySelector("#home-team-heading"),
     ).toHaveTextContent("Meet the Team");
-    expect(screen.getByText("Patrick")).toBeInTheDocument();
-    expect(screen.getByText("Tawina")).toBeInTheDocument();
+    expect(screen.getByText("Patrick Kuyokwa")).toBeInTheDocument();
+    expect(screen.getByText("Tawina Chaposa")).toBeInTheDocument();
   });
 
   it("renders team photos without carousel controls", () => {
     render(<TeamSection />);
 
-    expect(screen.getByAltText("Patrick")).toBeInTheDocument();
-    expect(screen.getByAltText("Tawina")).toBeInTheDocument();
+    expect(screen.getByAltText("Patrick Kuyokwa")).toBeInTheDocument();
+    expect(screen.getByAltText("Tawina Chaposa")).toBeInTheDocument();
     expect(
       screen.queryByRole("button", { name: "Next" }),
     ).not.toBeInTheDocument();

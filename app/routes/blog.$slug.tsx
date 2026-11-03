@@ -43,8 +43,8 @@ function initials(name: string) {
 
 // Small co-founder thumbs — the 48px avatar never needs the full photo.
 const AUTHOR_PHOTOS: Record<string, string> = {
-  Patrick: "/assets/patrick-128.jpg",
-  Tawina: "/assets/tawina-128.jpg",
+  "Patrick Kuyokwa": "/assets/patrick-128.jpg",
+  "Tawina Chaposa": "/assets/tawina-128.jpg",
 };
 
 // Frontmatter may point at the full-size photo — swap to the 128px twin.

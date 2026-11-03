@@ -36,8 +36,8 @@ We treat each project as a long-term partnership with a community, not a transac
 
 Carbon8 was founded by two people based in Malawi:
 
-- **Tawina — Co-founder, Methodology Lead.** Tawina owns Carbon8's project methodology: how community partnerships are structured, how restoration activities are designed to deliver local benefit first, and how each project is documented from day one toward verifiable climate-finance standards. Photo: `/assets/tawina.jpg`.
-- **Patrick — Co-founder, GeoAI Lead.** Patrick leads Carbon8's geospatial and AI work: site identification, mapping, monitoring design, and the data systems that make restoration projects credible to funders. Photo: `/assets/patrick.jpg`.
+- **Tawina Chaposa — Co-founder, Methodology Lead.** Tawina owns Carbon8's project methodology: how community partnerships are structured, how restoration activities are designed to deliver local benefit first, and how each project is documented from day one toward verifiable climate-finance standards. Photo: `/assets/tawina.jpg`.
+- **Patrick Kuyokwa — Co-founder, GeoAI Lead.** Patrick leads Carbon8's geospatial and AI work: site identification, mapping, monitoring design, and the data systems that make restoration projects credible to funders. Photo: `/assets/patrick.jpg`.
 
 ---
 

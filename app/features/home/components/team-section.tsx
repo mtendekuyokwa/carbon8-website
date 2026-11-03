@@ -11,12 +11,12 @@ const TEAM_ITEMS: CarouselItem[] = [
   {
     img: siteAssets.founderPatrick,
     role: "CO-FOUNDER, GEOAI LEAD",
-    name: "Patrick",
+    name: "Patrick Kuyokwa",
   },
   {
     img: siteAssets.founderTawina,
     role: "CO-FOUNDER, METHODOLOGY LEAD",
-    name: "Tawina",
+    name: "Tawina Chaposa",
   },
 ];
 

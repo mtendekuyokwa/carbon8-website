@@ -24,7 +24,7 @@ const POST = {
   date: "2026-08-20",
   status: "concept" as const,
   tags: ["Community", "Malawi"],
-  author: "Tawina",
+  author: "Tawina Chaposa",
   authorRole: "Co-founder, Community Lead",
   authorImage: "/assets/tawina.jpg",
 };
@@ -44,7 +44,7 @@ describe("BlogCard", () => {
     expect(time).toHaveTextContent("20");
     expect(time).toHaveTextContent("Aug 2026");
     expect(screen.getByText("Community")).toBeInTheDocument();
-    expect(screen.getByText("Tawina")).toBeInTheDocument();
+    expect(screen.getByText("Tawina Chaposa")).toBeInTheDocument();
     expect(container.querySelector('img[src="/assets/tawina-128.jpg"]')).not.toBeNull();
   });
 

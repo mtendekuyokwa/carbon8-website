@@ -2,6 +2,8 @@
 
 ## Current State
 
+Co-founder full names: Patrick Kuyokwa and Tawina Chaposa (per user) in home team section, blog frontmatter authors, post-page avatar lookup, content/about.md, tests. Open question for user: Tawina's role is 'Methodology Lead' on home/about but 'Community Lead' in the climate-change-in-malawi frontmatter.
+
 Field Notes cards redesigned as a field journal: newest note is a lead entry (large photo, full date, topic, title, readable summary, byline); earlier notes are dated log rows (day set large + short month/year, topic, title, summary, author avatar from `-128` twin + role, photo right on md+, 16:9 below on mobile). Removed generic card chrome (border box, hover lift/shadow, image zoom, raw ISO date in tracked caps, 10px description, hashtag chips, 'READ NOTE →'). Entry is one link/tab stop via stretched title link; focus ring on the entry. Dates formatted en-GB in UTC (SSR-safe). Known gap left as-is: the topic filter pills on /blog are presentational only.
 
 Logo mark fix: `8-in-carbon-8.png` had leftover background haze inside the 8's loops (43k px at alpha 1–30) and semi-opaque solids (alpha 201–254), which showed as blotches on cream and a smudge when inverted in the footer; ResponsivePicture also kept its `bg-bark/20` placeholder after load, drawing a box behind transparent images. Cleaned alpha (≤30→0, >200→255), resized 417×695→180×300 with premultiplied alpha (webp 54→10 KB), BrandLogo width/height updated; placeholder wash now only while loading (test asserts removal). Verified at 3× DPR in header and footer.
