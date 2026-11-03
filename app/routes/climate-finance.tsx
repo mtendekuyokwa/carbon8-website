@@ -1,4 +1,4 @@
-import { ExplainerSection } from "~/features/climate-finance/components/explainer-section";
+import { CreditPathSection } from "~/features/climate-finance/components/credit-path-section";
 import { FinanceFaqSection } from "~/features/climate-finance/components/finance-faq-section";
 import { FinanceHeroSection } from "~/features/climate-finance/components/finance-hero-section";
 
@@ -17,7 +17,7 @@ export default function ClimateFinance() {
   return (
     <main>
       <FinanceHeroSection />
-      <ExplainerSection />
+      <CreditPathSection />
       <FinanceFaqSection />
     </main>
   );

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { ExplainerSection } from "~/features/climate-finance/components/explainer-section";
+import { CreditPathSection } from "~/features/climate-finance/components/credit-path-section";
 import { FinanceFaqSection } from "~/features/climate-finance/components/finance-faq-section";
 import { FinanceHeroSection } from "~/features/climate-finance/components/finance-hero-section";
 
@@ -24,23 +24,38 @@ function renderPage() {
   return render(
     <>
       <FinanceHeroSection />
-      <ExplainerSection />
+      <CreditPathSection />
       <FinanceFaqSection />
     </>,
   );
 }
 
 describe("Climate Finance sections", () => {
-  it("renders the explainer and an FAQ accordion", () => {
-    const { container } = renderPage();
-
+  it("translates jargon terms into plain questions", () => {
+    renderPage();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Climate finance in plain language",
+      "Climate finance, minus the jargon.",
     );
+    expect(screen.getByText("Additionality")).toBeInTheDocument();
     expect(
-      container.querySelector("#finance-explainer-heading"),
+      screen.getByText("Would this have happened anyway, without the money?"),
     ).toBeInTheDocument();
-    expect(screen.getByText("How carbon markets fit in")).toBeInTheDocument();
+  });
+
+  it("shows the credit path with Carbon8 honestly placed at step one", () => {
+    const { container } = renderPage();
+    const steps = container.querySelectorAll("ol > li");
+    expect(steps).toHaveLength(6);
+    const current = container.querySelector('[aria-current="step"]');
+    expect(current).toHaveTextContent("Listen");
+    expect(current).toHaveTextContent("We are here");
+  });
+
+  it("groups FAQs by who is asking, collapsed by default", () => {
+    renderPage();
+    expect(
+      screen.getByRole("group", { name: "If you live and work on the land" }),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("button", {
         name: "Is Carbon8 selling carbon credits today?",

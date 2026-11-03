@@ -1,41 +1,77 @@
-import { AnimatedHeading, AnimatedText } from "~/components/animated-heading";
-import { Eyebrow } from "~/components/eyebrow";
+import { motion, useReducedMotion } from "motion/react";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+/** Real climate-finance terms, each rewritten as the question it actually asks. */
+const TRANSLATIONS = [
+  { term: "Additionality", plain: "Would this have happened anyway, without the money?" },
+  { term: "Baseline", plain: "What was happening before anything changed?" },
+  { term: "MRV", plain: "Who checks the results, and how?" },
+  { term: "Leakage", plain: "Did the damage just move somewhere else?" },
+  { term: "Permanence", plain: "Will the trees still be standing a generation from now?" },
+  { term: "Benefit sharing", plain: "Who gets paid, and who gets a say?" },
+] as const;
 
 export function FinanceHeroSection() {
+  const reduce = useReducedMotion() ?? false;
+  const step = 0.35;
+  const start = 0.4;
+
   return (
     <section
-      className="bg-cream px-4 pt-28 pb-12 text-bark sm:px-8 sm:pt-32 sm:pb-20 md:px-12"
+      className="bg-cream px-4 pt-28 pb-16 text-bark sm:px-8 sm:pt-36 sm:pb-24 md:px-12"
       aria-labelledby="finance-hero-heading"
     >
-      <div className="mx-auto max-w-5xl">
-        <Eyebrow withRule className="mb-10">
-          Climate finance, explained
-        </Eyebrow>
-        {/* eslint-disable-next-line tailwindcss/no-unnecessary-arbitrary-value -- fractional bare value emits no CSS in Tailwind v4 */}
-        <AnimatedHeading as="h1" className="max-w-4xl leading-[1.05] font-medium">
-          <span
+      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        <div className="lg:sticky lg:top-32 lg:self-start">
+          <h1
             id="finance-hero-heading"
-            style={{ fontSize: "clamp(2.5rem, 5vw, 3.65rem)", display: "block" }}
+            className="font-medium tracking-tight"
+            style={{ fontSize: "clamp(2.75rem, 5.5vw, 4.5rem)", lineHeight: 1.02 }}
           >
-            Climate finance in plain language — so everyone knows what to expect.
-          </span>
-        </AnimatedHeading>
-        <AnimatedText
-          className="mt-8 max-w-2xl text-lg leading-relaxed text-foreground/80"
-          delay={0.1}
-        >
-          Climate finance can sound like a closed room of jargon. We want
-          communities, partners, and funders to understand it well enough to
-          shape early concepts together — and to ask hard questions.
-        </AnimatedText>
-        <AnimatedText
-          className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground"
-          delay={0.15}
-        >
-          This page is a starting point, not a promise. Carbon8 is at concept
-          stage: nothing here describes a live project, a credit for sale, or a
-          guaranteed payment.
-        </AnimatedText>
+            Climate finance, minus the jargon.
+          </h1>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-bark/75">
+            Every term in this field hides a plain question. Communities,
+            partners, and funders should all be able to ask it. Here are the
+            ones we hear most.
+          </p>
+          <p className="mt-10 max-w-md border-l-2 border-ember pl-5 text-base leading-relaxed text-bark/75">
+            Carbon8 is at concept stage. Nothing on this page describes a live
+            project, a credit for sale, or a guaranteed payment.
+          </p>
+        </div>
+
+        <dl className="grid gap-12 sm:gap-14">
+          {TRANSLATIONS.map((row, i) => {
+            const strikeDelay = start + i * step;
+            return (
+              <div key={row.term}>
+                <dt
+                  className="relative w-fit font-semibold tracking-tight text-bark/30"
+                  style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", lineHeight: 1 }}
+                >
+                  {row.term}
+                  <motion.span
+                    aria-hidden="true"
+                    className="absolute -inset-x-2 top-[55%] h-1 origin-left -rotate-2 rounded-full bg-ember"
+                    initial={reduce ? false : { scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.45, delay: strikeDelay, ease: [...EASE] }}
+                  />
+                </dt>
+                <motion.dd
+                  className="mt-3 max-w-lg text-2xl leading-snug font-semibold text-bark sm:text-3xl"
+                  initial={reduce ? false : { opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: strikeDelay + 0.25, ease: [...EASE] }}
+                >
+                  {row.plain}
+                </motion.dd>
+              </div>
+            );
+          })}
+        </dl>
       </div>
     </section>
   );
