@@ -6,6 +6,8 @@ Router for agent navigation. Full rules live in `CONSTRAINTS.md` (React purity) 
 
 Carbon8 website is a React Router v8 SSR marketing site (Vite 8, TS 5.9 strict, Tailwind v4 CSS-first, shadcn `base-maia`). No backend; content types in `app/types/` are contracts for future CMS.
 
+Site-wide `<head>` tags live in `Layout` in `app/root.tsx`, including the Google Search Console `google-site-verification` meta. Keep it there: Google re-checks it, and removing it drops verification.
+
 ## Layer model
 
 ```
