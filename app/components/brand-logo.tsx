@@ -34,8 +34,8 @@ export function BrandLogo({
         src="/assets/8-in-carbon-8.png"
         alt=""
         aria-hidden="true"
-        width={417}
-        height={695}
+        width={180}
+        height={300}
         className={cn(
           "h-10 w-auto",
           variant === "light" && "brightness-0 invert",

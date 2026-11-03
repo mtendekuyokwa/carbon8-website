@@ -68,8 +68,9 @@ export function ResponsivePicture({
           onLoad?.(event);
         }}
         className={cn(
-          "bg-bark/20",
-          loaded ? "blur-none" : "blur-lg",
+          // Placeholder wash only while loading — it would otherwise show
+          // as a box behind transparent images such as the logo mark.
+          loaded ? "blur-none" : "bg-bark/20 blur-lg",
           className,
         )}
         {...imgProps}

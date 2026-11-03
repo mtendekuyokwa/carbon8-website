@@ -68,6 +68,7 @@ describe("ResponsivePicture", () => {
     fireEvent.load(img);
     expect(img).toHaveClass("blur-none");
     expect(img).not.toHaveClass("blur-lg");
+    expect(img).not.toHaveClass("bg-bark/20");
     expect(img).toHaveClass("object-cover");
   });
 });
